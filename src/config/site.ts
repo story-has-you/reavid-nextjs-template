@@ -1,5 +1,4 @@
-import { Metadata } from "next";
-export type SiteConfig = typeof siteConfig;
+import { type Metadata } from "next";
 
 export const siteConfig = {
   name: "Re NextJS Template",
@@ -11,5 +10,8 @@ export const buildMetadata = (): Metadata => {
   return {
     title: siteConfig.name,
     description: siteConfig.description,
+    alternates: {
+      canonical: siteConfig.url,
+    },
   };
 };

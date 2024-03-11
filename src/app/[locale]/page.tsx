@@ -1,6 +1,8 @@
 import { buildPageLanguage } from "@/config/locale";
 
-export default async () => {
+const Home = async () => {
   const l = await buildPageLanguage();
   return <main>{l.title}</main>;
 };
+
+export default Home;
