@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/no-unsafe-return */
 /**
  * Makes an asynchronous HTTP request to the specified URL with the given options.
  *
@@ -7,22 +6,23 @@
  * @param {object} options - The options for the HTTP request, including method, body, and params
  * @return {Promise<any>} A promise that resolves with the JSON response from the server
  */
-export const request = async (
-  url: string,
-  options: { method?: string; body?: any; params?: Record<string, any> } = {},
-): Promise<any> => {
+interface RequestOptions extends RequestInit {
+  params?: Record<string, string>;
+}
+
+export const request = async (url: string, options: RequestOptions = {}): Promise<any> => {
   const headers: Record<string, string> = {
     "Content-Type": "application/json",
   };
 
-  const { method = "GET", body = null, params } = options;
+  const { method = "GET", body, params } = options;
 
   let queryParams = "";
   if (params && Object.keys(params).length > 0) {
-    queryParams = new URLSearchParams(params as Record<string, string>).toString();
+    queryParams = new URLSearchParams(params).toString();
   }
 
-  const requestOptions: RequestInit = {
+  const requestOptions: RequestOptions = {
     headers,
     ...options,
   };
@@ -36,7 +36,7 @@ export const request = async (
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
-    return await response.json();
+    return response.json();
   } catch (error) {
     console.error("Fetch error:", error);
     throw error;
