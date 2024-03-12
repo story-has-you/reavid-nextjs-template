@@ -1,5 +1,9 @@
 {
     "Page": {
-        "title": "Hello World"
+        "documentation": "Documentation",
+        "github": "Github"
+    },
+    "MainNav": {
+        "home": "Home"
     }
 }
