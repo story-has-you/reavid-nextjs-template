@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unsafe-return */
 /**
  * Makes an asynchronous HTTP request to the specified URL with the given options.
  *
@@ -41,7 +43,7 @@ export const request = async (
   }
 };
 
-export const ok = (data: any): Response => {
+export const ok = <T>(data: T): Response => {
   return Response.json({ data, ok: true, message: "SUCCESS" });
 };
 
