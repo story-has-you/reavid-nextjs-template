@@ -1,4 +1,4 @@
-import { type Metadata } from "next";
+import { type Viewport, type Metadata } from "next";
 
 export const siteConfig = {
   name: "Re-NextJS-Template",
@@ -18,14 +18,19 @@ export const buildMetadata = (): Metadata => {
     alternates: {
       canonical: siteConfig.url,
     },
-    themeColor: [
-      { media: "(prefers-color-scheme: light)", color: "white" },
-      { media: "(prefers-color-scheme: dark)", color: "black" },
-    ],
     icons: {
       icon: "/favicon.ico",
       shortcut: "/favicon-16x16.png",
       apple: "/apple-touch-icon.png",
     },
+  };
+};
+
+export const buildViewport = (): Viewport => {
+  return {
+    themeColor: [
+      { media: "(prefers-color-scheme: light)", color: "white" },
+      { media: "(prefers-color-scheme: dark)", color: "black" },
+    ],
   };
 };
