@@ -5,8 +5,8 @@ export const siteConfig = {
   description: "",
   url: "",
   links: {
-    twitter: "https://twitter.com/shadcn",
-    github: "https://github.com/shadcn/ui",
+    twitter: "https://twitter.com/re_avid",
+    github: "https://github.com/story-has-you/re-nextjs-template",
     docs: "https://ui.shadcn.com",
   },
 };
