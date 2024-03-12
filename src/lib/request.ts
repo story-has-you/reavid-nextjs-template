@@ -7,7 +7,7 @@
  */
 export const request = async (
   url: string,
-  options: { method?: string; body?: any; params?: Record<string, any> } = {},
+  options: { method?: string; body?: undefined; params?: Record<string, string> } = {},
 ): Promise<any> => {
   const headers: Record<string, string> = {
     "Content-Type": "application/json",
@@ -17,7 +17,7 @@ export const request = async (
 
   let queryParams = "";
   if (params && Object.keys(params).length > 0) {
-    queryParams = new URLSearchParams(params as Record<string, string>).toString();
+    queryParams = new URLSearchParams(params).toString();
   }
 
   const requestOptions: RequestInit = {
