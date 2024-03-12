@@ -1,11 +1,18 @@
 import { getTranslations } from "next-intl/server";
 
-export const locales: Array<string> = ["zh", "en"];
-export const defaultLocale: string = "en";
+export const locales = ["zh", "en"];
+export const defaultLocale = "en";
 
 export const buildPageLanguage = async () => {
   const t = await getTranslations("Page");
   return {
-    title: t("title"),
+    documentation: t("documentation"),
+    github: t("github"),
+  };
+};
+export const buildMainNavLanguage = async () => {
+  const t = await getTranslations("MainNav");
+  return {
+    home: t("home"),
   };
 };

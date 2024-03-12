@@ -1,5 +1,9 @@
 {
     "Page": {
-        "title": "你好"
+        "documentation": "文档",
+        "github": "Github"
+    },
+    "MainNav": {
+        "home": "主页"
     }
 }
