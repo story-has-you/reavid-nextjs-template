@@ -27,6 +27,21 @@ Next Auth 和 Supabase 二选一配置
 | NEXT_PUBLIC_SUPABASE_URL      | Supabase 项目地址               |
 | NEXT_PUBLIC_SUPABASE_ANON_KEY | Supabase anon key               |
 
+## 更新package.json
+
+```shell
+npm install -g npm-check-updates
+```
+
+```shell
+# 检查
+ncu
+# 更新
+ncu -u
+# 安装最新依赖
+yarn
+```
+
 ## Prisma
 
 | 命令                  | 作用                      | 官方文档                                                                             |
