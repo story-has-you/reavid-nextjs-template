@@ -3,7 +3,7 @@ import { type Viewport, type Metadata } from "next";
 export const siteConfig = {
   name: "Re-NextJS-Template",
   description: "",
-  url: "",
+  url: process.env.NEXT_PUBLIC_BASE_URL,
   links: {
     twitter: "https://twitter.com/re_avid",
     github: "https://github.com/story-has-you/re-nextjs-template",

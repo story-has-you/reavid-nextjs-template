@@ -31,7 +31,7 @@ export const request = async (url: string, options: RequestOptions = {}): Promis
   }
 
   try {
-    const http_url = `${process.env.NEXT_PUBLIC_API_URL}${url}${queryParams ? `?${queryParams}` : ""}`;
+    const http_url = `${process.env.NEXT_PUBLIC_BASE_URL}${url}${queryParams ? `?${queryParams}` : ""}`;
     const response = await fetch(http_url, requestOptions);
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);

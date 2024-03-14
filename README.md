@@ -7,9 +7,25 @@ features
 - [x] Next Auth
 - [x] Prisma
 - [x] i18n
-- [x] GoogleAnalytics
+- [x] Google Analytics
 - [x] shadcnui
-- [ ] GoogleAdsense
+- [ ] Google Adsense
+
+## 环境变量
+
+Next Auth 和 Supabase 二选一配置
+
+| 变量名                        | 说明                            |
+| ----------------------------- | ------------------------------- |
+| NEXT_PUBLIC_BASE_URL          | fetch请求URL前缀                |
+| NEXT_PUBLIC_GAID              | Google Analytics Id             |
+| NEXTAUTH_URL                  | Next Auth 回调地址              |
+| GOOGLE_CLIENT_ID              | Next Auth Google 登录客户端id   |
+| GOOGLE_CLIENT_SECRET          | Next Auth Google 登录客户端秘钥 |
+| GITHUB_CLIENT_ID              | Next Auth GitHub 登录客户端id   |
+| GITHUB_CLIENT_SECRET          | Next Auth Github 登录客户端秘钥 |
+| NEXT_PUBLIC_SUPABASE_URL      | Supabase 项目地址               |
+| NEXT_PUBLIC_SUPABASE_ANON_KEY | Supabase anon key               |
 
 ## Prisma
 
