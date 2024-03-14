@@ -10,7 +10,7 @@ import {
   DropdownMenu,
 } from "@/components/ui/dropdown-menu";
 import { languages, locales } from "@/config/locale";
-import { Language } from "@/types/Language";
+import { Language } from "@/types/language";
 import { usePathname, useRouter } from "next/navigation";
 
 export function ChooseLanguage() {

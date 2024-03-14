@@ -1,4 +1,4 @@
-import { Language } from "@/types/Language";
+import { Language } from "@/types/language";
 import { getTranslations } from "next-intl/server";
 
 export const locales = ["zh", "en"];
