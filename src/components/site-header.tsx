@@ -5,6 +5,7 @@ import { buttonVariants } from "@/components/ui/button";
 import { Icons } from "@/components/icons";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { MainNav } from "@/components/main-nav";
+import { ChooseLanguage } from "@/components/choose-language";
 
 export function SiteHeader() {
   return (
@@ -36,6 +37,7 @@ export function SiteHeader() {
               </div>
             </Link>
             <ThemeToggle />
+            <ChooseLanguage />
           </nav>
         </div>
       </div>
