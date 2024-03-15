@@ -1,8 +1,9 @@
-import { type LucideProps, Moon, SunMedium } from "lucide-react";
+import { type LucideProps, Moon, SunMedium, Globe } from "lucide-react";
 
 export const Icons = {
   sun: SunMedium,
   moon: Moon,
+  globe: Globe,
   twitter: (props: LucideProps) => (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" {...props}>
       <path
@@ -31,8 +32,6 @@ export const Icons = {
     <svg
       {...props}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"

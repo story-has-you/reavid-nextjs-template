@@ -44,7 +44,8 @@ export function ChooseLanguage() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button className="w-[120px] flex items-center space-x-2" variant="outline">
+        <Button className="flex items-center space-x-2" variant="outline">
+          <Icons.globe className="w-4 h-4 mr-1" />
           {getLocale()}
           <Icons.chevronDown className="w-4 h-4" />
         </Button>
