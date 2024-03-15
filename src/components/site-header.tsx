@@ -1,5 +1,4 @@
 import Link from "next/link";
-
 import { siteConfig } from "@/config/site";
 import { buttonVariants } from "@/components/ui/button";
 import { Icons } from "@/components/icons";
@@ -9,11 +8,14 @@ import { ChooseLanguage } from "@/components/choose-language";
 
 export function SiteHeader() {
   return (
-    <header className="bg-background sticky top-0 z-40 w-full border-b">
+    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center space-x-4 sm:justify-between sm:space-x-0">
         <MainNav />
         <div className="flex flex-1 items-center justify-end space-x-4">
           <nav className="flex items-center space-x-2">
+            <Link href={"/login"} className="border-b-2 border-b-gray hover:border-b-black">
+              Login
+            </Link>
             <Link href={siteConfig.links.github} target="_blank" rel="noreferrer">
               <div
                 className={buttonVariants({
@@ -36,7 +38,9 @@ export function SiteHeader() {
                 <span className="sr-only">Twitter</span>
               </div>
             </Link>
+
             <ThemeToggle />
+
             <ChooseLanguage />
           </nav>
         </div>
