@@ -6,5 +6,10 @@
     "MainNav": {
         "home": "Home"
     },
-    "Login": {}
+    "Login": {
+        "createAnAccount": "Create an account",
+        "inputHint": "Enter your email below to create your account",
+        "createAccount": "Create Account",
+        "orContinueWith": "OR CONTINUE WITH"
+    }
 }

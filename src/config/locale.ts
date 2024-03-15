@@ -30,3 +30,13 @@ export const buildMainNavLanguage = async () => {
     home: t("home"),
   };
 };
+
+export const buildLoginlanguage = async () => {
+  const t = await getTranslations("Login");
+  return {
+    createAnAccount: t("createAnAccount"),
+    inputHint: t("inputHint"),
+    createAccount: t("createAccount"),
+    orContinueWith: t("orContinueWith"),
+  };
+};
