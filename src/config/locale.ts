@@ -40,3 +40,10 @@ export const buildLoginlanguage = async () => {
     orContinueWith: t("orContinueWith"),
   };
 };
+
+export const buildSiteHeaderlanguange = async () => {
+  const t = await getTranslations("SiteHeader");
+  return {
+    login: t("login"),
+  };
+};

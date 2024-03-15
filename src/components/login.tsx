@@ -1,24 +1,21 @@
-import { Icons } from "@/components/icons";
+import * as React from "react";
+
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { buildLoginlanguage } from "@/config/locale";
-import { siteConfig } from "@/config/site";
+import { Icons } from "@/components/icons";
 
 export async function Login() {
   const l = await buildLoginlanguage();
   return (
-    <div className="min-h-screen bg-gray-100 flex overflow-hidden">
-      <div className="flex-1 bg-black text-white flex flex-col justify-between p-8">
-        <div>
-          <h1 className="text-2xl font-bold mt-2">{siteConfig.name}</h1>
-        </div>
-      </div>
-      <div className="flex-1 bg-white p-8 flex flex-col justify-center items-center">
-        <div className="w-full max-w-md rounded-lg bg-gray shadow-2xl shadow-gray-500 p-8">
-          <div className="mb-4">
-            <h2 className="text-2xl font-bold mb-2">{l.createAnAccount}</h2>
-            <p className="text-sm text-gray-600">{l.inputHint}</p>
-          </div>
+    <div className="flex flex-col justify-center items-center h-screen">
+      <Card className="w-full max-w-md rounded-lg bg-gray shadow-2xl shadow-gray-500 p-8">
+        <CardHeader>
+          <CardTitle className="text-2xl font-bold mb-2">{l.createAnAccount}</CardTitle>
+          <CardDescription>{l.inputHint}</CardDescription>
+        </CardHeader>
+        <CardContent>
           <form className="flex flex-col space-y-5 w-full">
             <Input placeholder="name@example.com" type="email" />
             <Button>{l.createAccount}</Button>
@@ -36,8 +33,8 @@ export async function Login() {
               <span className="ml-2 text-black">Google</span>
             </Button>
           </form>
-        </div>
-      </div>
+        </CardContent>
+      </Card>
     </div>
   );
 }
