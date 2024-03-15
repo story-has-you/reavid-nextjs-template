@@ -7,12 +7,18 @@
         "home": "Home"
     },
     "Login": {
+        "login": "Login",
+        "inputHint": "Enter your email and password below to login",
+        "orContinueWith": "OR CONTINUE WITH"
+    },
+    "SignUp": {
         "createAnAccount": "Create an account",
         "inputHint": "Enter your email below to create your account",
         "createAccount": "Create Account",
         "orContinueWith": "OR CONTINUE WITH"
     },
     "SiteHeader": {
-        "login": "login"
+        "signUp": "Signup",
+        "signIn": "Login"
     }
 }

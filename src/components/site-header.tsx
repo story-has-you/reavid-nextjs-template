@@ -1,11 +1,14 @@
 import Link from "next/link";
 import { siteConfig } from "@/config/site";
-import { buttonVariants } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { Icons } from "@/components/icons";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { MainNav } from "@/components/main-nav";
 import { ChooseLanguage } from "@/components/choose-language";
 import { buildSiteHeaderlanguange } from "@/config/locale";
+import { Dialog, DialogTrigger } from "@/components/ui/dialog";
+import { Signup } from "@/components/signup";
+import { Signin } from "@/components/signin";
 
 export async function SiteHeader() {
   const l = await buildSiteHeaderlanguange();
@@ -15,7 +18,16 @@ export async function SiteHeader() {
         <MainNav />
         <div className="flex flex-1 items-center justify-end space-x-4">
           <nav className="flex items-center space-x-2">
-            {l.login}
+            <Dialog>
+              <DialogTrigger className="border-b-2 hover:border-black w-18">{l.signUp}</DialogTrigger>
+              <Signup />
+            </Dialog>
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button>{l.signIn}</Button>
+              </DialogTrigger>
+              <Signin />
+            </Dialog>
             <Link href={siteConfig.links.github} target="_blank" rel="noreferrer">
               <div
                 className={buttonVariants({

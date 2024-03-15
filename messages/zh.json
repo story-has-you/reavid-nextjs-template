@@ -1,9 +1,24 @@
 {
     "Page": {
         "documentation": "文档",
-        "github": "Github"
+        "github": "GitHub"
     },
     "MainNav": {
-        "home": "主页"
+        "home": "首页"
+    },
+    "Login": {
+        "login": "登录",
+        "inputHint": "在下方输入您的电子邮件和密码进行登录",
+        "orContinueWith": "或者继续使用"
+    },
+    "SignUp": {
+        "createAnAccount": "创建账户",
+        "inputHint": "在下方输入您的电子邮件创建您的账户",
+        "createAccount": "创建账户",
+        "orContinueWith": "或者继续使用"
+    },
+    "SiteHeader": {
+        "signUp": "注册",
+        "signIn": "登录"
     }
 }

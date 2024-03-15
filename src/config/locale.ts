@@ -31,8 +31,8 @@ export const buildMainNavLanguage = async () => {
   };
 };
 
-export const buildLoginlanguage = async () => {
-  const t = await getTranslations("Login");
+export const buildSignUplanguage = async () => {
+  const t = await getTranslations("SignUp");
   return {
     createAnAccount: t("createAnAccount"),
     inputHint: t("inputHint"),
@@ -41,9 +41,19 @@ export const buildLoginlanguage = async () => {
   };
 };
 
+export const buildLoginlanguage = async () => {
+  const t = await getTranslations("Login");
+  return {
+    login: t("login"),
+    inputHint: t("inputHint"),
+    orContinueWith: t("orContinueWith"),
+  };
+};
+
 export const buildSiteHeaderlanguange = async () => {
   const t = await getTranslations("SiteHeader");
   return {
-    login: t("login"),
+    signUp: t("signUp"),
+    signIn: t("signIn"),
   };
 };
