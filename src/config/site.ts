@@ -5,6 +5,8 @@ export const siteConfig: SiteConfig = {
   name: "Re-NextJS-Template",
   description: "",
   url: process.env.NEXT_PUBLIC_BASE_URL!,
+  useGoogleAnalytics: false,
+  useGoogleAdsense: false,
   links: {
     twitter: "https://twitter.com/re_avid",
     github: "https://github.com/story-has-you/re-nextjs-template",

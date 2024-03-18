@@ -1,4 +1,3 @@
-import { ThemeProvider } from "@/components/theme-provider";
 import { SiteHeader } from "@/components/site-header";
 import { TailwindIndicator } from "@/components/tailwind-indicator";
 import { Home } from "@/components/home";
@@ -9,7 +8,7 @@ export default async function HomePage() {
   const loginLanguange = await buildLoginlanguage();
   const mainNavLanguage = await buildMainNavLanguage();
   return (
-    <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+    <div>
       <div className="relative flex min-h-screen flex-col">
         <SiteHeader
           siteHeaderLanguange={siteHeaderLanguange}
@@ -21,6 +20,6 @@ export default async function HomePage() {
         </div>
       </div>
       <TailwindIndicator />
-    </ThemeProvider>
+    </div>
   );
 }

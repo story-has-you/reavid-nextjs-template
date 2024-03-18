@@ -7,9 +7,10 @@ features
 - [x] Next Auth
 - [x] Prisma
 - [x] i18n
+- [x] Google Adsense
 - [x] Google Analytics
 - [x] shadcnui
-- [ ] Google Adsense
+- [x] Supabase
 
 ## 环境变量
 
@@ -19,6 +20,7 @@ Next Auth 和 Supabase 二选一配置
 | ----------------------------- | ------------------------------- |
 | NEXT_PUBLIC_BASE_URL          | fetch请求URL前缀                |
 | NEXT_PUBLIC_GAID              | Google Analytics Id             |
+| NEXT_PUBLIC_PUB               | Google Adsense PUB              |
 | NEXTAUTH_URL                  | Next Auth 回调地址              |
 | GOOGLE_CLIENT_ID              | Next Auth Google 登录客户端id   |
 | GOOGLE_CLIENT_SECRET          | Next Auth Google 登录客户端秘钥 |
@@ -56,15 +58,12 @@ yarn
 
 稍微有点复杂的是 `db` 和 `migrate` 命令：
 
-| 命令                    | 作用                        | 官方文档                                                                             |
-| ----------------------- | --------------------------- | ------------------------------------------------------------------------------------ |
-| `npx prisma db pull`    | 连接数据库，同步到数据模型  | [API 链接](https://www.prisma.io/docs/orm/reference/prisma-cli-reference#db-pull)    |
-| `npx prisma db push`    | 数据模型同步到数据库        | [API 链接](https://www.prisma.io/docs/orm/reference/prisma-cli-reference#db-push)    |
-| `npx prisma db seed`    | 给数据库填充点数据          | [API 链接](https://www.prisma.io/docs/orm/reference/prisma-cli-reference#db-seed)    |
-| `npx prisma db execute` | 与数据库交互，执行 SQL 语句 | [API 链接](https://www.prisma.io/docs/orm/reference/prisma-cli-reference#db-execute) |
-
 | 命令                         | 作用                                                                                                                                                    | 官方文档                                                                                  |
 | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `npx prisma db pull`         | 连接数据库，同步到数据模型                                                                                                                              | [API 链接](https://www.prisma.io/docs/orm/reference/prisma-cli-reference#db-pull)         |
+| `npx prisma db push`         | 数据模型同步到数据库                                                                                                                                    | [API 链接](https://www.prisma.io/docs/orm/reference/prisma-cli-reference#db-push)         |
+| `npx prisma db seed`         | 给数据库填充点数据                                                                                                                                      | [API 链接](https://www.prisma.io/docs/orm/reference/prisma-cli-reference#db-seed)         |
+| `npx prisma db execute`      | 与数据库交互，执行 SQL 语句                                                                                                                             | [API 链接](https://www.prisma.io/docs/orm/reference/prisma-cli-reference#db-execute)      |
 | `npx prisma migrate dev`     | 仅在开发环境下使用，迁移数据库                                                                                                                          | [API 链接](https://www.prisma.io/docs/orm/reference/prisma-cli-reference#migrate-dev)     |
 | `npx prisma migrate reset`   | 仅在开发环境下使用，重置数据库                                                                                                                          | [API 链接](https://www.prisma.io/docs/orm/reference/prisma-cli-reference#migrate-reset)   |
 | `npx prisma migrate deploy`  | 常用于正式环境，将迁移文件更新到生产环境后，执行该命令，会应用所有尚未迁移过的文件                                                                      | [API 链接](https://www.prisma.io/docs/orm/reference/prisma-cli-reference#migrate-deploy)  |
