@@ -10,7 +10,8 @@ import { ChooseLanguage } from "@/components/choose-language";
 import { Dialog, DialogTrigger } from "@/components/ui/dialog";
 import { Login } from "@/components/login";
 import { useEffect, useState } from "react";
-import { getUser, signOut } from "@/lib/supabase";
+import { getUser /* signOut */ } from "@/lib/supabase";
+import { signOut } from "next-auth/react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -151,7 +152,7 @@ export function SiteHeader({ siteHeaderLanguange, loginLanguange, mainNavLanguag
             ) : (
               <Dialog>
                 <DialogTrigger asChild>
-                  <Button>{siteHeaderLanguange.signIn}</Button>
+                  <Button>{siteHeaderLanguange.login}</Button>
                 </DialogTrigger>
                 <Login language={loginLanguange} />
               </Dialog>

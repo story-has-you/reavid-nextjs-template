@@ -22,8 +22,7 @@
         "orContinueWith": "OR CONTINUE WITH"
     },
     "SiteHeader": {
-        "signUp": "Signup",
-        "signIn": "Login",
+        "login": "Login",
         "logout": "Logout"
     }
 }

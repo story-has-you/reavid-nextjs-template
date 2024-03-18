@@ -31,7 +31,6 @@ export interface LoginLanguage {
 }
 
 export interface SiteHeaderlanguange {
-  signUp: string;
-  signIn: string;
+  login: string;
   logout: string;
 }

@@ -64,8 +64,7 @@ export const buildLoginlanguage = async (): Promise<LoginLanguage> => {
 export const buildSiteHeaderlanguange = async (): Promise<SiteHeaderlanguange> => {
   const t = await getTranslations("SiteHeader");
   return {
-    signUp: t("signUp"),
-    signIn: t("signIn"),
+    login: t("login"),
     logout: t("logout"),
   };
 };
