@@ -2,7 +2,7 @@ import {
   Language,
   LoginLanguage,
   MainNavLanguage,
-  PageLanguage,
+  PageLanguage as HomeLanguage,
   SignUplanguage,
   SiteHeaderlanguange,
 } from "@/types/language";
@@ -24,9 +24,12 @@ export const languages: Array<Language> = [
   },
 ];
 
-export const buildPageLanguage = async (): Promise<PageLanguage> => {
-  const t = await getTranslations("Page");
+export const buildHomeLanguage = async (): Promise<HomeLanguage> => {
+  const t = await getTranslations("Home");
   return {
+    title1: t("title1"),
+    title2: t("title2"),
+    subTitle: t("subTitle"),
     documentation: t("documentation"),
     github: t("github"),
   };

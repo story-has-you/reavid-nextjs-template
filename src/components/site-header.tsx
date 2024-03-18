@@ -21,7 +21,6 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { LoginLanguage, MainNavLanguage, SiteHeaderlanguange } from "@/types/language";
-import { useRouter } from "next/navigation";
 
 interface Props {
   siteHeaderLanguange: SiteHeaderlanguange;
@@ -38,7 +37,6 @@ interface User {
 
 export function SiteHeader({ siteHeaderLanguange, loginLanguange, mainNavLanguage }: Props) {
   const [user, setUser] = useState<User | null>(null);
-  const route = useRouter();
 
   useEffect(() => {
     fetchUser();
@@ -67,7 +65,6 @@ export function SiteHeader({ siteHeaderLanguange, loginLanguange, mainNavLanguag
     await signOut();
     setUser(null);
     window.localStorage.removeItem("re-nextjs-template:user");
-    route.push(siteConfig.url);
   };
 
   const avatar = () => {
@@ -95,7 +92,7 @@ export function SiteHeader({ siteHeaderLanguange, loginLanguange, mainNavLanguag
       <div className="container flex h-16 items-center space-x-4 sm:justify-between sm:space-x-0">
         <MainNav language={mainNavLanguage} />
         <div className="flex flex-1 items-center justify-end space-x-4">
-          <nav className="flex items-center space-x-2">
+          <nav className="flex items-center space-x-3">
             {/* <Dialog>
               <DialogTrigger className="border-b-2 hover:border-black w-18">{l.signUp}</DialogTrigger>
               <Signup />

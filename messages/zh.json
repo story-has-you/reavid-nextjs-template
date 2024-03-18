@@ -1,5 +1,8 @@
 {
-    "Page": {
+    "Home": {
+        "title1": "设计精美的组件",
+        "title2": "使用Radix UI和Tailwind CSS构建。",
+        "subTitle": "可访问的和可定制的组件，你可以复制和粘贴到你的应用程序、免费的、开源的。支持NextJS 14。",
         "documentation": "文档",
         "github": "GitHub"
     },

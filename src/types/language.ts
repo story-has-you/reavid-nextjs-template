@@ -5,6 +5,9 @@ export interface Language {
 }
 
 export interface PageLanguage {
+  title1: string;
+  title2: string;
+  subTitle: string;
   documentation: string;
   github: string;
 }
