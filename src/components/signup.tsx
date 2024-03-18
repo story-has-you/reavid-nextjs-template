@@ -1,12 +1,9 @@
-import * as React from "react";
-
 import { Button } from "@/components/ui/button";
 import { CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { buildSignUplanguage } from "@/config/locale";
-import { Icons } from "@/components/icons";
 import { DialogContent } from "@/components/ui/dialog";
-import Oauth from "@/components/oauth";
+import { Oauth } from "@/components/oauth";
 
 export async function Signup() {
   const l = await buildSignUplanguage();
