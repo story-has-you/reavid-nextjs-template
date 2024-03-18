@@ -21,6 +21,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { LoginLanguage, MainNavLanguage, SiteHeaderlanguange } from "@/types/language";
+import { getSession } from "next-auth/react";
 
 interface Props {
   siteHeaderLanguange: SiteHeaderlanguange;
@@ -47,18 +48,41 @@ export function SiteHeader({ siteHeaderLanguange, loginLanguange, mainNavLanguag
     if (localUser) {
       setUser(JSON.parse(localUser));
     } else {
-      const { user: supabaseUser } = await getUser();
-      if (supabaseUser) {
-        const localUser = {
-          id: supabaseUser.id,
-          email: supabaseUser.email,
-          name: supabaseUser.user_metadata.name,
-          avatar_url: supabaseUser.user_metadata.avatar_url,
-        };
-        window.localStorage.setItem("re-nextjs-template:user", JSON.stringify(localUser));
-        setUser(localUser);
+      const localUser = await getNextAuthUser();
+      // const localUser = await getSupabaseUser();
+      if (!localUser) {
+        return;
       }
+      window.localStorage.setItem("re-nextjs-template:user", JSON.stringify(localUser));
+      setUser(localUser);
     }
+  };
+
+  const getSupabaseUser = async () => {
+    const { user: supabaseUser } = await getUser();
+    if (supabaseUser) {
+      return {
+        id: supabaseUser.id ?? "",
+        email: supabaseUser.email ?? "",
+        name: supabaseUser.user_metadata.name ?? "",
+        avatar_url: supabaseUser.user_metadata.avatar_url ?? "",
+      };
+    }
+    return null;
+  };
+
+  const getNextAuthUser = async () => {
+    const session = await getSession();
+    const nextAuthUser = session?.user;
+    if (nextAuthUser) {
+      return {
+        id: nextAuthUser.id ?? "",
+        email: nextAuthUser.email ?? "",
+        name: nextAuthUser.name ?? "",
+        avatar_url: nextAuthUser.image ?? "",
+      };
+    }
+    return null;
   };
 
   const logout = async () => {
