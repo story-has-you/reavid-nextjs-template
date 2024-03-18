@@ -1,4 +1,11 @@
-import { Language } from "@/types/language";
+import {
+  Language,
+  LoginLanguage,
+  MainNavLanguage,
+  PageLanguage,
+  SignUplanguage,
+  SiteHeaderlanguange,
+} from "@/types/language";
 import { getTranslations } from "next-intl/server";
 
 export const locales = ["zh", "en"];
@@ -17,21 +24,21 @@ export const languages: Array<Language> = [
   },
 ];
 
-export const buildPageLanguage = async () => {
+export const buildPageLanguage = async (): Promise<PageLanguage> => {
   const t = await getTranslations("Page");
   return {
     documentation: t("documentation"),
     github: t("github"),
   };
 };
-export const buildMainNavLanguage = async () => {
+export const buildMainNavLanguage = async (): Promise<MainNavLanguage> => {
   const t = await getTranslations("MainNav");
   return {
     home: t("home"),
   };
 };
 
-export const buildSignUplanguage = async () => {
+export const buildSignUplanguage = async (): Promise<SignUplanguage> => {
   const t = await getTranslations("SignUp");
   return {
     createAnAccount: t("createAnAccount"),
@@ -41,19 +48,21 @@ export const buildSignUplanguage = async () => {
   };
 };
 
-export const buildLoginlanguage = async () => {
+export const buildLoginlanguage = async (): Promise<LoginLanguage> => {
   const t = await getTranslations("Login");
   return {
-    login: t("login"),
+    loginTitle: t("loginTitle"),
+    loginButton: t("loginBotton"),
     inputHint: t("inputHint"),
     orContinueWith: t("orContinueWith"),
   };
 };
 
-export const buildSiteHeaderlanguange = async () => {
+export const buildSiteHeaderlanguange = async (): Promise<SiteHeaderlanguange> => {
   const t = await getTranslations("SiteHeader");
   return {
     signUp: t("signUp"),
     signIn: t("signIn"),
+    logout: t("logout"),
   };
 };

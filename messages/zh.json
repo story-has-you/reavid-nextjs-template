@@ -7,8 +7,9 @@
         "home": "首页"
     },
     "Login": {
-        "login": "登录",
-        "inputHint": "在下方输入您的电子邮件和密码进行登录",
+        "loginTitle": "登录",
+        "loginBotton": "发送魔法链接",
+        "inputHint": "继续使用 GitHub 或 Google",
         "orContinueWith": "或者继续使用"
     },
     "SignUp": {
@@ -19,6 +20,7 @@
     },
     "SiteHeader": {
         "signUp": "注册",
-        "signIn": "登录"
+        "signIn": "登录",
+        "logout": "登出"
     }
 }

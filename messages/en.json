@@ -7,8 +7,9 @@
         "home": "Home"
     },
     "Login": {
-        "login": "Login",
-        "inputHint": "Enter your email and password below to login",
+        "loginTitle": "Login",
+        "loginBotton": "Send Magic Link",
+        "inputHint": "continue with github or google",
         "orContinueWith": "OR CONTINUE WITH"
     },
     "SignUp": {
@@ -19,6 +20,7 @@
     },
     "SiteHeader": {
         "signUp": "Signup",
-        "signIn": "Login"
+        "signIn": "Login",
+        "logout": "Logout"
     }
 }

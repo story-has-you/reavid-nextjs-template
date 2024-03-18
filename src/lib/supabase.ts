@@ -14,6 +14,27 @@ export const signInWithGithub = async () => {
   });
 };
 
+export const signInWithPassword = async (email: string, password: string) => {
+  const supabase = createClient();
+  const { data } = await supabase.auth.signInWithPassword({
+    email,
+    password,
+  });
+  return data;
+};
+
+export const signInWithEmail = async (email: string, redirectTo: string) => {
+  const supabase = createClient();
+  const { data } = await supabase.auth.signInWithOtp({
+    email,
+    options: {
+      shouldCreateUser: false,
+      emailRedirectTo: redirectTo,
+    },
+  });
+  return data;
+};
+
 export const signOut = async () => {
   const supabase = createClient();
   await supabase.auth.signOut();

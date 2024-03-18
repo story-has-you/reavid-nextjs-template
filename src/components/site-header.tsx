@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { siteConfig } from "@/config/site";
 import { Button, buttonVariants } from "@/components/ui/button";
@@ -5,29 +7,100 @@ import { Icons } from "@/components/icons";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { MainNav } from "@/components/main-nav";
 import { ChooseLanguage } from "@/components/choose-language";
-import { buildSiteHeaderlanguange } from "@/config/locale";
 import { Dialog, DialogTrigger } from "@/components/ui/dialog";
-import { Signup } from "@/components/signup";
-import { Signin } from "@/components/signin";
+import { Login } from "@/components/login";
+import { useEffect, useState } from "react";
+import { getUser, signOut } from "@/lib/supabase";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Avatar, AvatarImage } from "@/components/ui/avatar";
+import { LoginLanguage, MainNavLanguage, SiteHeaderlanguange } from "@/types/language";
+import { useRouter } from "next/navigation";
 
-export async function SiteHeader() {
-  const l = await buildSiteHeaderlanguange();
+interface Props {
+  siteHeaderLanguange: SiteHeaderlanguange;
+  loginLanguange: LoginLanguage;
+  mainNavLanguage: MainNavLanguage;
+}
+
+interface User {
+  id: string | undefined;
+  email: string | undefined;
+  name: string | undefined;
+  avatar_url: string | undefined;
+}
+
+export function SiteHeader({ siteHeaderLanguange, loginLanguange, mainNavLanguage }: Props) {
+  const [user, setUser] = useState<User | null>(null);
+  const route = useRouter();
+
+  useEffect(() => {
+    fetchUser();
+  }, []);
+
+  const fetchUser = async () => {
+    const localUser = window.localStorage.getItem("re-nextjs-template:user");
+    if (localUser) {
+      setUser(JSON.parse(localUser));
+    } else {
+      const { user: supabaseUser } = await getUser();
+      if (supabaseUser) {
+        const localUser = {
+          id: supabaseUser.id,
+          email: supabaseUser.email,
+          name: supabaseUser.user_metadata.name,
+          avatar_url: supabaseUser.user_metadata.avatar_url,
+        };
+        window.localStorage.setItem("re-nextjs-template:user", JSON.stringify(localUser));
+        setUser(localUser);
+      }
+    }
+  };
+
+  const logout = async () => {
+    await signOut();
+    setUser(null);
+    window.localStorage.removeItem("re-nextjs-template:user");
+    route.push(siteConfig.url);
+  };
+
+  const avatar = () => {
+    return (
+      <DropdownMenu>
+        <DropdownMenuTrigger asChild>
+          <Avatar>
+            <AvatarImage src={user?.avatar_url} />
+          </Avatar>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent className="w-56">
+          <DropdownMenuLabel>
+            {user?.name}
+            <div className="truncate text-sm text-gray-500">{user?.email}</div>
+          </DropdownMenuLabel>
+          <DropdownMenuSeparator />
+          <DropdownMenuItem onClick={logout}>{siteHeaderLanguange.logout}</DropdownMenuItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
+    );
+  };
+
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center space-x-4 sm:justify-between sm:space-x-0">
-        <MainNav />
+        <MainNav language={mainNavLanguage} />
         <div className="flex flex-1 items-center justify-end space-x-4">
           <nav className="flex items-center space-x-2">
-            <Dialog>
+            {/* <Dialog>
               <DialogTrigger className="border-b-2 hover:border-black w-18">{l.signUp}</DialogTrigger>
               <Signup />
-            </Dialog>
-            <Dialog>
-              <DialogTrigger asChild>
-                <Button>{l.signIn}</Button>
-              </DialogTrigger>
-              <Signin />
-            </Dialog>
+            </Dialog> */}
+
             <Link href={siteConfig.links.github} target="_blank" rel="noreferrer">
               <div
                 className={buttonVariants({
@@ -52,6 +125,16 @@ export async function SiteHeader() {
             </Link>
             <ThemeToggle />
             <ChooseLanguage />
+            {user ? (
+              avatar()
+            ) : (
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Button>{siteHeaderLanguange.signIn}</Button>
+                </DialogTrigger>
+                <Login language={loginLanguange} />
+              </Dialog>
+            )}
           </nav>
         </div>
       </div>

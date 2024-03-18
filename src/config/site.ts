@@ -1,9 +1,10 @@
+import { SiteConfig } from "@/types/site-config";
 import { type Viewport, type Metadata } from "next";
 
-export const siteConfig = {
+export const siteConfig: SiteConfig = {
   name: "Re-NextJS-Template",
   description: "",
-  url: process.env.NEXT_PUBLIC_BASE_URL,
+  url: process.env.NEXT_PUBLIC_BASE_URL!,
   links: {
     twitter: "https://twitter.com/re_avid",
     github: "https://github.com/story-has-you/re-nextjs-template",
