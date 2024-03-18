@@ -26,6 +26,9 @@ export const buildMetadata = (): Metadata => {
       shortcut: "/favicon-16x16.png",
       apple: "/apple-touch-icon.png",
     },
+    other: {
+      "google-adsense-account": process.env.NEXT_PUBLIC_PUB!,
+    },
   };
 };
 
