@@ -6,7 +6,7 @@ import { Oauth } from "@/components/oauth";
 import { useState } from "react";
 import { signInWithEmail } from "@/lib/supabase";
 import { siteConfig } from "@/config/site";
-import { LoginLanguage } from "@/types/language";
+import { type LoginLanguage } from "@/types/language";
 
 interface Props {
   language: LoginLanguage;

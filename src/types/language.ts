@@ -4,7 +4,7 @@ export interface Language {
   language: string;
 }
 
-export interface PageLanguage {
+export interface HomeLanguage {
   title1: string;
   title2: string;
   subTitle: string;

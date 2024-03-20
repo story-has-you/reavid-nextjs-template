@@ -21,7 +21,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
-import { LoginLanguage, MainNavLanguage, SiteHeaderlanguange } from "@/types/language";
+import { type LoginLanguage, type MainNavLanguage, type SiteHeaderlanguange } from "@/types/language";
 import { getSession } from "next-auth/react";
 
 interface Props {

@@ -1,10 +1,10 @@
 import {
-  Language,
-  LoginLanguage,
-  MainNavLanguage,
-  PageLanguage as HomeLanguage,
-  SignUplanguage,
-  SiteHeaderlanguange,
+  type Language,
+  type LoginLanguage,
+  type MainNavLanguage,
+  type HomeLanguage,
+  type SignUplanguage,
+  type SiteHeaderlanguange,
 } from "@/types/language";
 import { getTranslations } from "next-intl/server";
 
