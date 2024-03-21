@@ -8,6 +8,8 @@
  */
 interface RequestOptions extends RequestInit {
   params?: Record<string, string>;
+  body?: any;
+  method?: "GET" | "POST" | "PUT" | "DELETE";
 }
 
 export const request = async (url: string, options: RequestOptions = {}): Promise<any> => {
