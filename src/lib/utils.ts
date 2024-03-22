@@ -15,7 +15,7 @@ export const getSupabaseUser = async () => {
       id: supabaseUser.id ?? "",
       email: supabaseUser.email ?? "",
       name: supabaseUser.user_metadata.name ?? "",
-      avatar_url: supabaseUser.user_metadata.avatar_url ?? "",
+      image: supabaseUser.user_metadata.avatar_url ?? "",
     };
   }
   return null;
@@ -23,16 +23,7 @@ export const getSupabaseUser = async () => {
 
 export const getNextAuthUser = async () => {
   const session = await getSession();
-  const nextAuthUser = session?.user;
-  if (nextAuthUser) {
-    return {
-      id: nextAuthUser.id ?? "",
-      email: nextAuthUser.email ?? "",
-      name: nextAuthUser.name ?? "",
-      avatar_url: nextAuthUser.image ?? "",
-    };
-  }
-  return null;
+  return session?.user ?? null;
 };
 
 export const nanoid = customAlphabet("0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz", 10);
