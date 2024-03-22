@@ -10,7 +10,6 @@ import { ChooseLanguage } from "@/components/choose-language";
 import { Dialog, DialogTrigger } from "@/components/ui/dialog";
 import { Login } from "@/components/login";
 import { useEffect, useState } from "react";
-import { getUser /* signOut */ } from "@/lib/supabase";
 import { signOut } from "next-auth/react";
 import {
   DropdownMenu,
@@ -22,20 +21,13 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { type LoginLanguage, type MainNavLanguage, type SiteHeaderlanguange } from "@/types/language";
-import { getSession } from "next-auth/react";
 import { getNextAuthUser } from "@/lib/utils";
+import { User } from "next-auth";
 
 interface Props {
   siteHeaderLanguange: SiteHeaderlanguange;
   loginLanguange: LoginLanguage;
   mainNavLanguage: MainNavLanguage;
-}
-
-interface User {
-  id: string | undefined;
-  email: string | undefined;
-  name: string | undefined;
-  avatar_url: string | undefined;
 }
 
 export function SiteHeader({ siteHeaderLanguange, loginLanguange, mainNavLanguage }: Props) {
@@ -64,7 +56,7 @@ export function SiteHeader({ siteHeaderLanguange, loginLanguange, mainNavLanguag
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Avatar>
-            <AvatarImage src={user?.avatar_url} />
+            <AvatarImage src={user?.image!} />
           </Avatar>
         </DropdownMenuTrigger>
         <DropdownMenuContent className="w-56">

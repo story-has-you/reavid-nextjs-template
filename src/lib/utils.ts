@@ -2,6 +2,7 @@ import { getUser } from "@/lib/supabase";
 import { type ClassValue, clsx } from "clsx";
 import { getSession } from "next-auth/react";
 import { twMerge } from "tailwind-merge";
+import { customAlphabet } from "nanoid";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -33,3 +34,5 @@ export const getNextAuthUser = async () => {
   }
   return null;
 };
+
+export const nanoid = customAlphabet("0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz", 10);
