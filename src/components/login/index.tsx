@@ -2,7 +2,7 @@
 
 import { CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { DialogContent } from "@/components/ui/dialog";
-import { Oauth } from "@/components/oauth";
+import { Auth } from "@/components/auth";
 import { useState } from "react";
 import { signInWithEmail } from "@/lib/supabase";
 import { siteConfig } from "@/config/site";
@@ -58,7 +58,7 @@ export function Login({ language }: Props) {
               <span className="flex-shrink mx-4 text-sm text-gray-400">{language.orContinueWith}</span>
               <div className="flex-grow border-t border-gray-300" />
             </div> */}
-            <Oauth />
+            <Auth />
           </div>
         </CardContent>
       </DialogContent>

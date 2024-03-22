@@ -23,6 +23,7 @@ import {
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { type LoginLanguage, type MainNavLanguage, type SiteHeaderlanguange } from "@/types/language";
 import { getSession } from "next-auth/react";
+import { getNextAuthUser } from "@/lib/utils";
 
 interface Props {
   siteHeaderLanguange: SiteHeaderlanguange;
@@ -45,51 +46,17 @@ export function SiteHeader({ siteHeaderLanguange, loginLanguange, mainNavLanguag
   }, []);
 
   const fetchUser = async () => {
-    const localUser = window.localStorage.getItem("re-nextjs-template:user");
-    if (localUser) {
-      setUser(JSON.parse(localUser));
-    } else {
-      const localUser = await getNextAuthUser();
-      // const localUser = await getSupabaseUser();
-      if (!localUser) {
-        return;
-      }
-      window.localStorage.setItem("re-nextjs-template:user", JSON.stringify(localUser));
-      setUser(localUser);
+    const localUser = await getNextAuthUser();
+    // const localUser = await getSupabaseUser();
+    if (!localUser) {
+      return;
     }
-  };
-
-  const getSupabaseUser = async () => {
-    const { user: supabaseUser } = await getUser();
-    if (supabaseUser) {
-      return {
-        id: supabaseUser.id ?? "",
-        email: supabaseUser.email ?? "",
-        name: supabaseUser.user_metadata.name ?? "",
-        avatar_url: supabaseUser.user_metadata.avatar_url ?? "",
-      };
-    }
-    return null;
-  };
-
-  const getNextAuthUser = async () => {
-    const session = await getSession();
-    const nextAuthUser = session?.user;
-    if (nextAuthUser) {
-      return {
-        id: nextAuthUser.id ?? "",
-        email: nextAuthUser.email ?? "",
-        name: nextAuthUser.name ?? "",
-        avatar_url: nextAuthUser.image ?? "",
-      };
-    }
-    return null;
+    setUser(localUser);
   };
 
   const logout = async () => {
     await signOut();
     setUser(null);
-    window.localStorage.removeItem("re-nextjs-template:user");
   };
 
   const avatar = () => {

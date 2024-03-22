@@ -3,7 +3,7 @@ import { CardContent, CardDescription, CardHeader, CardTitle } from "@/component
 import { Input } from "@/components/ui/input";
 import { buildSignUplanguage } from "@/config/locale";
 import { DialogContent } from "@/components/ui/dialog";
-import { Oauth } from "@/components/oauth";
+import { Auth } from "@/components/auth";
 
 export async function Signup() {
   const l = await buildSignUplanguage();
@@ -23,7 +23,7 @@ export async function Signup() {
               <span className="flex-shrink mx-4 text-sm text-gray-400">{l.orContinueWith}</span>
               <div className="flex-grow border-t border-gray-300" />
             </div>
-            <Oauth />
+            <Auth />
           </form>
         </CardContent>
       </DialogContent>

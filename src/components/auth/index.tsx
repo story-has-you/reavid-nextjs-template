@@ -4,7 +4,7 @@ import { signInWithGithub, signInWithGoogle } from "@/lib/supabase";
 import { signIn } from "next-auth/react";
 import React from "react";
 
-export function Oauth() {
+export function Auth() {
   const loginGithub = async () => {
     // await signInWithGithub();
     signIn("github");
