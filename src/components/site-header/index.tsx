@@ -51,7 +51,7 @@ export function SiteHeader({ siteHeaderLanguange, loginLanguange, mainNavLanguag
     setUser(null);
   };
 
-  const avatar = () => {
+  const UserAvatar = () => {
     return (
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
@@ -107,7 +107,7 @@ export function SiteHeader({ siteHeaderLanguange, loginLanguange, mainNavLanguag
             <ThemeToggle />
             <ChooseLanguage />
             {user ? (
-              avatar()
+              <UserAvatar />
             ) : (
               <Dialog>
                 <DialogTrigger asChild>
