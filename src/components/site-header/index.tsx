@@ -30,6 +30,32 @@ interface Props {
   mainNavLanguage: MainNavLanguage;
 }
 
+interface UserAvatarProps {
+  user: User | null;
+  siteHeaderLanguange: SiteHeaderlanguange;
+  logout: () => Promise<void>;
+}
+
+const UserAvatar = ({ user, siteHeaderLanguange, logout }: UserAvatarProps) => {
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Avatar>
+          <AvatarImage src={user?.image!} />
+        </Avatar>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent className="w-56">
+        <DropdownMenuLabel>
+          {user?.name}
+          <div className="truncate text-sm text-gray-500">{user?.email}</div>
+        </DropdownMenuLabel>
+        <DropdownMenuSeparator />
+        <DropdownMenuItem onClick={logout}>{siteHeaderLanguange.logout}</DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
+  );
+};
+
 export function SiteHeader({ siteHeaderLanguange, loginLanguange, mainNavLanguage }: Props) {
   const [user, setUser] = useState<User | null>(null);
 
@@ -49,26 +75,6 @@ export function SiteHeader({ siteHeaderLanguange, loginLanguange, mainNavLanguag
   const logout = async () => {
     await signOut();
     setUser(null);
-  };
-
-  const UserAvatar = () => {
-    return (
-      <DropdownMenu>
-        <DropdownMenuTrigger asChild>
-          <Avatar>
-            <AvatarImage src={user?.image!} />
-          </Avatar>
-        </DropdownMenuTrigger>
-        <DropdownMenuContent className="w-56">
-          <DropdownMenuLabel>
-            {user?.name}
-            <div className="truncate text-sm text-gray-500">{user?.email}</div>
-          </DropdownMenuLabel>
-          <DropdownMenuSeparator />
-          <DropdownMenuItem onClick={logout}>{siteHeaderLanguange.logout}</DropdownMenuItem>
-        </DropdownMenuContent>
-      </DropdownMenu>
-    );
   };
 
   return (
@@ -107,7 +113,7 @@ export function SiteHeader({ siteHeaderLanguange, loginLanguange, mainNavLanguag
             <ThemeToggle />
             <ChooseLanguage />
             {user ? (
-              <UserAvatar />
+              <UserAvatar user={user} siteHeaderLanguange={siteHeaderLanguange} logout={logout} />
             ) : (
               <Dialog>
                 <DialogTrigger asChild>
