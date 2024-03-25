@@ -16,7 +16,7 @@ export interface MainNavLanguage {
   home: string;
 }
 
-export interface SignUplanguage {
+export interface SignUpLanguage {
   createAnAccount: string;
   inputHint: string;
   createAccount: string;
@@ -30,7 +30,15 @@ export interface LoginLanguage {
   inputHint: string;
 }
 
-export interface SiteHeaderlanguange {
+export interface SiteHeaderLanguage {
   login: string;
   logout: string;
+}
+
+export interface Languages {
+  home: HomeLanguage;
+  mainNav: MainNavLanguage;
+  signUp: SignUpLanguage;
+  login: LoginLanguage;
+  siteHeader: SiteHeaderLanguage;
 }

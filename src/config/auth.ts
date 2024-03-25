@@ -2,7 +2,7 @@ import { getServerSession, type DefaultSession, type NextAuthOptions } from "nex
 import GoogleProvider from "next-auth/providers/google";
 import GitHubProvider from "next-auth/providers/github";
 import { PrismaAdapter } from "@auth/prisma-adapter";
-import { db } from "@/config/db";
+import { prisma } from "@/config/prisma";
 import { type Adapter } from "next-auth/adapters";
 
 /**
@@ -40,13 +40,18 @@ export const authOptions: NextAuthOptions = {
       }
       return token;
     },
-    session: async ({ session, token }) => ({
+    session: async ({ session, token, user }) => ({
       ...session,
       user: {
         ...session.user,
         id: token.sub,
+        // id: user.id,
       },
     }),
+  },
+  session: {
+    // strategy: "database",
+    strategy: "jwt",
   },
   // adapter: PrismaAdapter(db) as Adapter,
   providers: [
@@ -59,6 +64,11 @@ export const authOptions: NextAuthOptions = {
       clientSecret: process.env.GITHUB_CLIENT_SECRET!,
     }),
   ],
+  pages: {
+    signIn: "/",
+    signOut: "/",
+  },
+  secret: process.env.NEXTAUTH_SECRET!,
 };
 
 /**

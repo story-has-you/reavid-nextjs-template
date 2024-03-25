@@ -10,7 +10,6 @@ import { ChooseLanguage } from "@/components/choose-language";
 import { Dialog, DialogTrigger } from "@/components/ui/dialog";
 import { Login } from "@/components/login";
 import { useEffect, useState } from "react";
-import { getUser /* signOut */ } from "@/lib/supabase";
 import { signOut } from "next-auth/react";
 import {
   DropdownMenu,
@@ -21,23 +20,38 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
-import { type LoginLanguage, type MainNavLanguage, type SiteHeaderlanguange } from "@/types/language";
-import { getSession } from "next-auth/react";
+import { Languages, SiteHeaderLanguage } from "@/types/language";
+import { getNextAuthUser } from "@/lib/utils";
+import { User } from "next-auth";
 
-interface Props {
-  siteHeaderLanguange: SiteHeaderlanguange;
-  loginLanguange: LoginLanguage;
-  mainNavLanguage: MainNavLanguage;
+interface UserAvatarProps {
+  user: User | null;
+  SiteHeaderlanguage: SiteHeaderLanguage;
+  logout: () => Promise<void>;
 }
 
-interface User {
-  id: string | undefined;
-  email: string | undefined;
-  name: string | undefined;
-  avatar_url: string | undefined;
-}
+const UserAvatar = ({ user, SiteHeaderlanguage, logout }: UserAvatarProps) => {
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Avatar>
+          <AvatarImage src={user?.image!} />
+        </Avatar>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent className="w-56">
+        <DropdownMenuLabel>
+          {user?.name}
+          <div className="truncate text-sm text-gray-500">{user?.email}</div>
+        </DropdownMenuLabel>
+        <DropdownMenuSeparator />
+        <DropdownMenuItem onClick={logout}>{SiteHeaderlanguage.logout}</DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
+  );
+};
 
-export function SiteHeader({ siteHeaderLanguange, loginLanguange, mainNavLanguage }: Props) {
+export function SiteHeader(languages: Languages) {
+  const { siteHeader, mainNav, login } = languages;
   const [user, setUser] = useState<User | null>(null);
 
   useEffect(() => {
@@ -45,77 +59,23 @@ export function SiteHeader({ siteHeaderLanguange, loginLanguange, mainNavLanguag
   }, []);
 
   const fetchUser = async () => {
-    const localUser = window.localStorage.getItem("re-nextjs-template:user");
-    if (localUser) {
-      setUser(JSON.parse(localUser));
-    } else {
-      const localUser = await getNextAuthUser();
-      // const localUser = await getSupabaseUser();
-      if (!localUser) {
-        return;
-      }
-      window.localStorage.setItem("re-nextjs-template:user", JSON.stringify(localUser));
-      setUser(localUser);
+    const localUser = await getNextAuthUser();
+    // const localUser = await getSupabaseUser();
+    if (!localUser) {
+      return;
     }
-  };
-
-  const getSupabaseUser = async () => {
-    const { user: supabaseUser } = await getUser();
-    if (supabaseUser) {
-      return {
-        id: supabaseUser.id ?? "",
-        email: supabaseUser.email ?? "",
-        name: supabaseUser.user_metadata.name ?? "",
-        avatar_url: supabaseUser.user_metadata.avatar_url ?? "",
-      };
-    }
-    return null;
-  };
-
-  const getNextAuthUser = async () => {
-    const session = await getSession();
-    const nextAuthUser = session?.user;
-    if (nextAuthUser) {
-      return {
-        id: nextAuthUser.id ?? "",
-        email: nextAuthUser.email ?? "",
-        name: nextAuthUser.name ?? "",
-        avatar_url: nextAuthUser.image ?? "",
-      };
-    }
-    return null;
+    setUser(localUser);
   };
 
   const logout = async () => {
     await signOut();
     setUser(null);
-    window.localStorage.removeItem("re-nextjs-template:user");
-  };
-
-  const avatar = () => {
-    return (
-      <DropdownMenu>
-        <DropdownMenuTrigger asChild>
-          <Avatar>
-            <AvatarImage src={user?.avatar_url} />
-          </Avatar>
-        </DropdownMenuTrigger>
-        <DropdownMenuContent className="w-56">
-          <DropdownMenuLabel>
-            {user?.name}
-            <div className="truncate text-sm text-gray-500">{user?.email}</div>
-          </DropdownMenuLabel>
-          <DropdownMenuSeparator />
-          <DropdownMenuItem onClick={logout}>{siteHeaderLanguange.logout}</DropdownMenuItem>
-        </DropdownMenuContent>
-      </DropdownMenu>
-    );
   };
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center space-x-4 sm:justify-between sm:space-x-0">
-        <MainNav language={mainNavLanguage} />
+        <MainNav language={mainNav} />
         <div className="flex flex-1 items-center justify-end space-x-4">
           <nav className="flex items-center space-x-3">
             {/* <Dialog>
@@ -148,13 +108,13 @@ export function SiteHeader({ siteHeaderLanguange, loginLanguange, mainNavLanguag
             <ThemeToggle />
             <ChooseLanguage />
             {user ? (
-              avatar()
+              <UserAvatar user={user} SiteHeaderlanguage={siteHeader} logout={logout} />
             ) : (
               <Dialog>
                 <DialogTrigger asChild>
-                  <Button>{siteHeaderLanguange.login}</Button>
+                  <Button>{siteHeader.login}</Button>
                 </DialogTrigger>
-                <Login language={loginLanguange} />
+                <Login language={login} />
               </Dialog>
             )}
           </nav>
