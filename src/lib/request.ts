@@ -10,14 +10,12 @@ interface RequestOptions extends RequestInit {
   params?: Record<string, string>;
   body?: any;
   method?: "GET" | "POST" | "PUT" | "DELETE";
+  serialize?: boolean;
+  headers?: Record<string, string>;
 }
 
 export const request = async (url: string, options: RequestOptions = {}): Promise<any> => {
-  const headers: Record<string, string> = {
-    "Content-Type": "application/json",
-  };
-
-  const { method = "GET", body, params } = options;
+  const { body, params, serialize = true, headers } = options;
 
   let queryParams = "";
   if (params && Object.keys(params).length > 0) {
@@ -28,12 +26,21 @@ export const request = async (url: string, options: RequestOptions = {}): Promis
     headers,
     ...options,
   };
-  if (body && (method === "POST" || method === "PUT")) {
+  if (body && serialize) {
     requestOptions.body = JSON.stringify(body);
+    requestOptions.headers = {
+      ...requestOptions.headers,
+      "Content-Type": "application/json",
+    };
   }
 
+  let http_url;
+  if (url.startsWith("http://") || url.startsWith("https://")) {
+    http_url = `${url}${queryParams ? `?${queryParams}` : ""}`;
+  } else {
+    http_url = `${process.env.NEXT_PUBLIC_BASE_URL}${url}${queryParams ? `?${queryParams}` : ""}`;
+  }
   try {
-    const http_url = `${process.env.NEXT_PUBLIC_BASE_URL}${url}${queryParams ? `?${queryParams}` : ""}`;
     const response = await fetch(http_url, requestOptions);
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);

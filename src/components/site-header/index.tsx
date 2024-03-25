@@ -20,23 +20,17 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
-import { type LoginLanguage, type MainNavLanguage, type SiteHeaderlanguange } from "@/types/language";
+import { Languages, SiteHeaderLanguage } from "@/types/language";
 import { getNextAuthUser } from "@/lib/utils";
 import { User } from "next-auth";
 
-interface Props {
-  siteHeaderLanguange: SiteHeaderlanguange;
-  loginLanguange: LoginLanguage;
-  mainNavLanguage: MainNavLanguage;
-}
-
 interface UserAvatarProps {
   user: User | null;
-  siteHeaderLanguange: SiteHeaderlanguange;
+  SiteHeaderlanguage: SiteHeaderLanguage;
   logout: () => Promise<void>;
 }
 
-const UserAvatar = ({ user, siteHeaderLanguange, logout }: UserAvatarProps) => {
+const UserAvatar = ({ user, SiteHeaderlanguage, logout }: UserAvatarProps) => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -50,13 +44,14 @@ const UserAvatar = ({ user, siteHeaderLanguange, logout }: UserAvatarProps) => {
           <div className="truncate text-sm text-gray-500">{user?.email}</div>
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <DropdownMenuItem onClick={logout}>{siteHeaderLanguange.logout}</DropdownMenuItem>
+        <DropdownMenuItem onClick={logout}>{SiteHeaderlanguage.logout}</DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   );
 };
 
-export function SiteHeader({ siteHeaderLanguange, loginLanguange, mainNavLanguage }: Props) {
+export function SiteHeader(languages: Languages) {
+  const { siteHeader, mainNav, login } = languages;
   const [user, setUser] = useState<User | null>(null);
 
   useEffect(() => {
@@ -80,7 +75,7 @@ export function SiteHeader({ siteHeaderLanguange, loginLanguange, mainNavLanguag
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center space-x-4 sm:justify-between sm:space-x-0">
-        <MainNav language={mainNavLanguage} />
+        <MainNav language={mainNav} />
         <div className="flex flex-1 items-center justify-end space-x-4">
           <nav className="flex items-center space-x-3">
             {/* <Dialog>
@@ -113,13 +108,13 @@ export function SiteHeader({ siteHeaderLanguange, loginLanguange, mainNavLanguag
             <ThemeToggle />
             <ChooseLanguage />
             {user ? (
-              <UserAvatar user={user} siteHeaderLanguange={siteHeaderLanguange} logout={logout} />
+              <UserAvatar user={user} SiteHeaderlanguage={siteHeader} logout={logout} />
             ) : (
               <Dialog>
                 <DialogTrigger asChild>
-                  <Button>{siteHeaderLanguange.login}</Button>
+                  <Button>{siteHeader.login}</Button>
                 </DialogTrigger>
-                <Login language={loginLanguange} />
+                <Login language={login} />
               </Dialog>
             )}
           </nav>
