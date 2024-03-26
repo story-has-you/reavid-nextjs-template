@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import { LayoutProps } from "@/types/layout";
 import { ThemeProvider } from "@/components/theme-provider";
 
+export const runtime = "edge";
 export const metadata = buildMetadata();
 export const viewport = buildViewport();
 
