@@ -23,7 +23,7 @@ class LocaleConfig {
     },
   ];
 
-  public static locales = ["zh", "en"];
+  public static locales = LocaleConfig.languages.map((item) => item.lang);
   public static defaultLocale = "en";
 
   public buildLanguages = async (): Promise<Languages> => {
