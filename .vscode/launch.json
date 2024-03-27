@@ -14,6 +14,12 @@
         "uriFormat": "%s",
         "action": "debugWithChrome"
       }
+    },
+    {
+      "name": "Next.js: Build",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "yarn build"
     }
   ]
 }
