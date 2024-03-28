@@ -10,16 +10,31 @@
         "home": "Home"
     },
     "Login": {
-        "loginTitle": "Login",
-        "loginBotton": "Send Magic Link",
-        "inputHint": "continue with github or google",
-        "orContinueWith": "OR CONTINUE WITH"
+        "cardTitle": "Login",
+        "cardDescription": "Enter your email below to login to your account",
+        "emailLabel": "Email",
+        "emailPlaceholder": "m@example.com",
+        "passwordLabel": "Password",
+        "forgotPasswordLink": "Forgot your password?",
+        "loginButton": "Login",
+        "googleLoginButton": "Login with Google",
+        "signupPrompt": "Don't have an account?",
+        "signupLink": "Sign up"
     },
-    "SignUp": {
-        "createAnAccount": "Create an account",
-        "inputHint": "Enter your email below to create your account",
-        "createAccount": "Create Account",
-        "orContinueWith": "OR CONTINUE WITH"
+    "Signup": {
+        "cardTitle": "Sign Up",
+        "cardDescription": "Enter your information to create an account",
+        "firstNameLabel": "First name",
+        "firstNamePlaceholder": "Max",
+        "lastNameLabel": "Last name",
+        "lastNamePlaceholder": "Robinson",
+        "emailLabel": "Email",
+        "emailPlaceholder": "m@example.com",
+        "passwordLabel": "Password",
+        "createAccountButton": "Create an account",
+        "gitHubSignupButton": "Sign up with GitHub",
+        "signinPrompt": "Already have an account?",
+        "signinLink": "Sign in"
     },
     "SiteHeader": {
         "login": "Login",

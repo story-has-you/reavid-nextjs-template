@@ -14,7 +14,7 @@ export default function RootLayout({ children }: LayoutProps) {
     <html lang="en" suppressHydrationWarning>
       <body className={cn("min-h-screen bg-background antialiased", fontSans.className)}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          {children}
+          <main className="flex-1">{children}</main>
         </ThemeProvider>
       </body>
       {siteConfig.useGoogleAnalytics && <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GAID!} />}

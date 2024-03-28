@@ -4,7 +4,7 @@ import {
   SiteHeaderLanguage,
   MainNavLanguage,
   HomeLanguage,
-  SignUpLanguage,
+  SignupLanguage,
   Languages,
 } from "@/types/language";
 import { getTranslations } from "next-intl/server";
@@ -20,6 +20,56 @@ class LocaleConfig {
       code: "zh-CN",
       lang: "zh",
       language: "简体中文",
+    },
+    {
+      code: "es-ES",
+      lang: "es",
+      language: "Español (España)",
+    },
+    {
+      code: "fr-FR",
+      lang: "fr",
+      language: "Français",
+    },
+    {
+      code: "de-DE",
+      lang: "de",
+      language: "Deutsch",
+    },
+    {
+      code: "ja-JP",
+      lang: "ja",
+      language: "日本語",
+    },
+    {
+      code: "pt-BR",
+      lang: "pt",
+      language: "Português (Brasil)",
+    },
+    {
+      code: "ru-RU",
+      lang: "ru",
+      language: "Русский",
+    },
+    {
+      code: "ar-SA",
+      lang: "ar",
+      language: "العربية (السعودية)",
+    },
+    {
+      code: "it-IT",
+      lang: "it",
+      language: "Italiano",
+    },
+    {
+      code: "ko-KR",
+      lang: "ko",
+      language: "한국어",
+    },
+    {
+      code: "hi-IN",
+      lang: "hi",
+      language: "हिन्दी",
     },
   ];
 
@@ -61,13 +111,22 @@ class LocaleConfig {
     };
   };
 
-  private buildSignUpLanguage = async (): Promise<SignUpLanguage> => {
+  private buildSignUpLanguage = async (): Promise<SignupLanguage> => {
     const t = await getTranslations("SignUp");
     return {
-      createAnAccount: t("createAnAccount"),
-      inputHint: t("inputHint"),
-      createAccount: t("createAccount"),
-      orContinueWith: t("orContinueWith"),
+      cardTitle: t("cardTitle"),
+      cardDescription: t("cardDescription"),
+      firstNameLabel: t("firstNameLabel"),
+      firstNamePlaceholder: t("firstNamePlaceholder"),
+      lastNameLabel: t("lastNameLabel"),
+      lastNamePlaceholder: t("lastNamePlaceholder"),
+      emailLabel: t("emailLabel"),
+      emailPlaceholder: t("emailPlaceholder"),
+      passwordLabel: t("passwordLabel"),
+      createAccountButton: t("createAccountButton"),
+      gitHubSignupButton: t("gitHubSignupButton"),
+      signinPrompt: t("signinPrompt"),
+      signinLink: t("signinLink"),
     };
   };
 
@@ -82,10 +141,16 @@ class LocaleConfig {
   private buildLoginLanguage = async (): Promise<LoginLanguage> => {
     const t = await getTranslations("Login");
     return {
-      loginTitle: t("loginTitle"),
-      loginButton: t("loginBotton"),
-      inputHint: t("inputHint"),
-      orContinueWith: t("orContinueWith"),
+      cardTitle: t("cardTitle"),
+      cardDescription: t("cardDescription"),
+      emailLabel: t("emailLabel"),
+      emailPlaceholder: t("emailPlaceholder"),
+      passwordLabel: t("passwordLabel"),
+      forgotPasswordLink: t("forgotPasswordLink"),
+      loginButton: t("loginButton"),
+      googleLoginButton: t("googleLoginButton"),
+      signupPrompt: t("signupPrompt"),
+      signupLink: t("signupLink"),
     };
   };
 }

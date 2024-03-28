@@ -1,0 +1,43 @@
+{
+    "Home": {
+        "title1": "Wunderschön entworfene Komponenten",
+        "title2": "gebaut mit Radix UI und Tailwind CSS.",
+        "subTitle": "Zugängliche und anpassbare Komponenten, die Sie in Ihre Apps kopieren und einfügen können. Kostenlos. Open Source. Und bereit für Next.js 14.",
+        "documentation": "Dokumentation",
+        "github": "Github"
+    },
+    "MainNav": {
+        "home": "Startseite"
+    },
+    "Login": {
+        "cardTitle": "Anmeldung",
+        "cardDescription": "Geben Sie Ihre E-Mail-Adresse unten ein, um sich bei Ihrem Konto anzumelden",
+        "emailLabel": "E-Mail",
+        "emailPlaceholder": "m@example.com",
+        "passwordLabel": "Passwort",
+        "forgotPasswordLink": "Passwort vergessen?",
+        "loginButton": "Anmelden",
+        "googleLoginButton": "Mit Google anmelden",
+        "signupPrompt": "Haben Sie noch kein Konto?",
+        "signupLink": "Registrieren"
+    },
+    "Signup": {
+        "cardTitle": "Registrieren",
+        "cardDescription": "Geben Sie Ihre Informationen ein, um ein Konto zu erstellen",
+        "firstNameLabel": "Vorname",
+        "firstNamePlaceholder": "Max",
+        "lastNameLabel": "Nachname",
+        "lastNamePlaceholder": "Robinson",
+        "emailLabel": "E-Mail",
+        "emailPlaceholder": "m@example.com",
+        "passwordLabel": "Passwort",
+        "createAccountButton": "Konto erstellen",
+        "gitHubSignupButton": "Mit GitHub registrieren",
+        "signinPrompt": "Sie haben bereits ein Konto?",
+        "signinLink": "Anmelden"
+    },
+    "SiteHeader": {
+        "login": "Anmelden",
+        "logout": "Abmelden"
+    }
+}

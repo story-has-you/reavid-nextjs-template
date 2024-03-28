@@ -1,0 +1,43 @@
+{
+    "Home": {
+        "title1": "美しく設計されたコンポーネント",
+        "title2": "Radix UIとTailwind CSSで構築されました。",
+        "subTitle": "あなたのアプリにコピーして貼り付けることができる、アクセシブルでカスタマイズ可能なコンポーネント。無料。オープンソース。そしてNext.js 14に対応しています。",
+        "documentation": "ドキュメント",
+        "github": "Github"
+    },
+    "MainNav": {
+        "home": "ホーム"
+    },
+    "Login": {
+        "cardTitle": "ログイン",
+        "cardDescription": "以下のメールアドレスを入力してアカウントにログインしてください",
+        "emailLabel": "メール",
+        "emailPlaceholder": "m@example.com",
+        "passwordLabel": "パスワード",
+        "forgotPasswordLink": "パスワードを忘れた方",
+        "loginButton": "ログイン",
+        "googleLoginButton": "Googleでログイン",
+        "signupPrompt": "アカウントをお持ちでない場合",
+        "signupLink": "登録"
+    },
+    "Signup": {
+        "cardTitle": "登録",
+        "cardDescription": "情報を入力してアカウントを作成してください",
+        "firstNameLabel": "名",
+        "firstNamePlaceholder": "マックス",
+        "lastNameLabel": "姓",
+        "lastNamePlaceholder": "ロビンソン",
+        "emailLabel": "メール",
+        "emailPlaceholder": "m@example.com",
+        "passwordLabel": "パスワード",
+        "createAccountButton": "アカウントを作成する",
+        "gitHubSignupButton": "GitHubで登録する",
+        "signinPrompt": "すでにアカウントをお持ちの場合",
+        "signinLink": "ログイン"
+    },
+    "SiteHeader": {
+        "login": "ログイン",
+        "logout": "ログアウト"
+    }
+}

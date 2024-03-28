@@ -1,0 +1,43 @@
+{
+    "Home": {
+        "title1": "아름답게 디자인된 컴포넌트",
+        "title2": "Radix UI와 Tailwind CSS로 구축되었습니다.",
+        "subTitle": "애플리케이션에 복사하고 붙여 넣을 수 있는 접근 가능하고 사용자 정의 가능한 컴포넌트. 무료. 오픈 소스. 그리고 Next.js 14을 준비했습니다.",
+        "documentation": "설명서",
+        "github": "Github"
+    },
+    "MainNav": {
+        "home": "홈"
+    },
+    "Login": {
+        "cardTitle": "로그인",
+        "cardDescription": "아래에 이메일을 입력하여 계좌에 로그인하세요",
+        "emailLabel": "이메일",
+        "emailPlaceholder": "m@example.com",
+        "passwordLabel": "비밀번호",
+        "forgotPasswordLink": "비밀번호를 잊으셨습니까?",
+        "loginButton": "로그인",
+        "googleLoginButton": "Google로 로그인",
+        "signupPrompt": "계좌가 없습니까?",
+        "signupLink": "회원 가입"
+    },
+    "Signup": {
+        "cardTitle": "회원 가입",
+        "cardDescription": "계좌를 만들려면 정보를 입력하세요",
+        "firstNameLabel": "이름",
+        "firstNamePlaceholder": "맥스",
+        "lastNameLabel": "성",
+        "lastNamePlaceholder": "로빈슨",
+        "emailLabel": "이메일",
+        "emailPlaceholder": "m@example.com",
+        "passwordLabel": "비밀번호",
+        "createAccountButton": "계좌 만들기",
+        "gitHubSignupButton": "GitHub으로 가입",
+        "signinPrompt": "계좌가 있습니까?",
+        "signinLink": "로그인"
+    },
+    "SiteHeader": {
+        "login": "로그인",
+        "logout": "로그아웃"
+    }
+}

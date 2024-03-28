@@ -2,27 +2,42 @@
     "Home": {
         "title1": "设计精美的组件",
         "title2": "使用Radix UI和Tailwind CSS构建。",
-        "subTitle": "可访问的和可定制的组件，你可以复制和粘贴到你的应用程序、免费的、开源的。支持NextJS 14。",
+        "subTitle": "您可以复制并粘贴到您的应用程序中的可访问和可自定义组件。免费。开源。并且准备好使用Next.js 14。",
         "documentation": "文档",
-        "github": "GitHub"
+        "github": "Github"
     },
     "MainNav": {
         "home": "首页"
     },
     "Login": {
-        "loginTitle": "登录",
-        "loginBotton": "发送魔法链接",
-        "inputHint": "继续使用 GitHub 或 Google",
-        "orContinueWith": "或者继续使用"
+        "cardTitle": "登录",
+        "cardDescription": "在下方输入您的电子邮件以登录您的账户",
+        "emailLabel": "电子邮件",
+        "emailPlaceholder": "m@example.com",
+        "passwordLabel": "密码",
+        "forgotPasswordLink": "忘记密码？",
+        "loginButton": "登录",
+        "googleLoginButton": "使用Google登录",
+        "signupPrompt": "还没有账户？",
+        "signupLink": "注册"
     },
-    "SignUp": {
-        "createAnAccount": "创建账户",
-        "inputHint": "在下方输入您的电子邮件创建您的账户",
-        "createAccount": "创建账户",
-        "orContinueWith": "或者继续使用"
+    "Signup": {
+        "cardTitle": "注册",
+        "cardDescription": "输入您的信息以创建一个账户",
+        "firstNameLabel": "名字",
+        "firstNamePlaceholder": "张",
+        "lastNameLabel": "姓氏",
+        "lastNamePlaceholder": "伟",
+        "emailLabel": "电子邮件",
+        "emailPlaceholder": "m@example.com",
+        "passwordLabel": "密码",
+        "createAccountButton": "创建账户",
+        "gitHubSignupButton": "使用GitHub注册",
+        "signinPrompt": "已有账户？",
+        "signinLink": "登录"
     },
     "SiteHeader": {
         "login": "登录",
-        "logout": "登出"
+        "logout": "注销"
     }
 }

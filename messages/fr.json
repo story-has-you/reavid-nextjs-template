@@ -1,0 +1,43 @@
+{
+    "Home": {
+        "title1": "Des composants soigneusement conçus",
+        "title2": "construits avec Radix UI et Tailwind CSS.",
+        "subTitle": "Des composants accessibles et personnalisables que vous pouvez copier et coller dans vos applications. Gratuit. Open Source. Et prêt pour Next.js 14.",
+        "documentation": "Documentation",
+        "github": "Github"
+    },
+    "MainNav": {
+        "home": "Accueil"
+    },
+    "Login": {
+        "cardTitle": "Connexion",
+        "cardDescription": "Entrez votre adresse e-mail ci-dessous pour vous connecter à votre compte",
+        "emailLabel": "E-mail",
+        "emailPlaceholder": "m@example.com",
+        "passwordLabel": "Mot de passe",
+        "forgotPasswordLink": "Mot de passe oublié ?",
+        "loginButton": "Se connecter",
+        "googleLoginButton": "Se connecter avec Google",
+        "signupPrompt": "Vous n'avez pas de compte ?",
+        "signupLink": "S'inscrire"
+    },
+    "Signup": {
+        "cardTitle": "Inscription",
+        "cardDescription": "Entrez vos informations pour créer un compte",
+        "firstNameLabel": "Prénom",
+        "firstNamePlaceholder": "Max",
+        "lastNameLabel": "Nom",
+        "lastNamePlaceholder": "Robinson",
+        "emailLabel": "E-mail",
+        "emailPlaceholder": "m@example.com",
+        "passwordLabel": "Mot de passe",
+        "createAccountButton": "Créer un compte",
+        "gitHubSignupButton": "S'inscrire avec GitHub",
+        "signinPrompt": "Vous avez déjà un compte ?",
+        "signinLink": "Se connecter"
+    },
+    "SiteHeader": {
+        "login": "Se connecter",
+        "logout": "Se déconnecter"
+    }
+}

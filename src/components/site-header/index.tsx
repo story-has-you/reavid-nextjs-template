@@ -21,8 +21,8 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { Languages, SiteHeaderLanguage } from "@/types/language";
-import { getNextAuthUser } from "@/lib/utils";
 import { User } from "next-auth";
+import { getClientAuthUser } from "@/config/auth";
 
 interface UserAvatarProps {
   user: User | null;
@@ -59,8 +59,7 @@ export function SiteHeader(languages: Languages) {
   }, []);
 
   const fetchUser = async () => {
-    const localUser = await getNextAuthUser();
-    // const localUser = await getSupabaseUser();
+    const localUser = await getClientAuthUser();
     if (!localUser) {
       return;
     }

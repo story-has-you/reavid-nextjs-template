@@ -1,0 +1,43 @@
+{
+    "Home": {
+        "title1": "सुंदर रूप से डिज़ाइन किए गए компोनेंट",
+        "title2": "Radix UI और Tailwind CSS के साथ बनाए गए।",
+        "subTitle": "आपने ऐपलिकेशन में कॉपी और पेस्ट करने के लिए पहुंचीय और अनुकूलनीय компोनेंट। मुफ्त। ओपन सोर्स। और Next.js 14 के लिए तैयार।",
+        "documentation": "दस्तावेज़",
+        "github": "Github"
+    },
+    "MainNav": {
+        "home": "घर"
+    },
+    "Login": {
+        "cardTitle": "लॉगिन",
+        "cardDescription": "अकाउंट में लॉगिन करने के लिए नीचे अपना ईमेल दर्ज करें",
+        "emailLabel": "ईमेल",
+        "emailPlaceholder": "m@example.com",
+        "passwordLabel": "पासवर्ड",
+        "forgotPasswordLink": "पासवर्ड भूल गए?",
+        "loginButton": "लॉगिन",
+        "googleLoginButton": "Google के साथ लॉगिन",
+        "signupPrompt": "क़ि आपने कोई अकाउंट नहीं है?",
+        "signupLink": "साइन अप करें"
+    },
+    "Signup": {
+        "cardTitle": "साइन अप",
+        "cardDescription": "अकाउंट बनाने के लिए जानकारी दर्ज करें",
+        "firstNameLabel": "पहला नाम",
+        "firstNamePlaceholder": "मैक्स",
+        "lastNameLabel": "आखिरी नाम",
+        "lastNamePlaceholder": "रॉबिनसन",
+        "emailLabel": "ईमेल",
+        "emailPlaceholder": "m@example.com",
+        "passwordLabel": "पासवर्ड",
+        "createAccountButton": "खाता बनाएं",
+        "gitHubSignupButton": "GitHub के साथ साइन अप करें",
+        "signinPrompt": "क़ि आपने पहले से ही एक अकाउंट है?",
+        "signinLink": "लॉगिन करें"
+    },
+    "SiteHeader": {
+        "login": "लॉगिन करें",
+        "logout": "लॉगआउट करें"
+    }
+}

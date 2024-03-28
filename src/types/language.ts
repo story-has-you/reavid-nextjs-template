@@ -16,18 +16,33 @@ export interface MainNavLanguage {
   home: string;
 }
 
-export interface SignUpLanguage {
-  createAnAccount: string;
-  inputHint: string;
-  createAccount: string;
-  orContinueWith: string;
+export interface SignupLanguage {
+  cardTitle: string;
+  cardDescription: string;
+  firstNameLabel: string;
+  firstNamePlaceholder: string;
+  lastNameLabel: string;
+  lastNamePlaceholder: string;
+  emailLabel: string;
+  emailPlaceholder: string;
+  passwordLabel: string;
+  createAccountButton: string;
+  gitHubSignupButton: string;
+  signinPrompt: string;
+  signinLink: string;
 }
 
 export interface LoginLanguage {
-  loginTitle: string;
+  cardTitle: string;
+  cardDescription: string;
+  emailLabel: string;
+  emailPlaceholder: string;
+  passwordLabel: string;
+  forgotPasswordLink: string;
   loginButton: string;
-  orContinueWith: string;
-  inputHint: string;
+  googleLoginButton: string;
+  signupPrompt: string;
+  signupLink: string;
 }
 
 export interface SiteHeaderLanguage {
@@ -38,7 +53,7 @@ export interface SiteHeaderLanguage {
 export interface Languages {
   home: HomeLanguage;
   mainNav: MainNavLanguage;
-  signUp: SignUpLanguage;
+  signUp: SignupLanguage;
   login: LoginLanguage;
   siteHeader: SiteHeaderLanguage;
 }

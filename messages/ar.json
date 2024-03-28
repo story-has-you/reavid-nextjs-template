@@ -1,0 +1,43 @@
+{
+    "Home": {
+        "title1": "عناصر مصممة بشكل جميل",
+        "title2": "مبنية على Radix UI و Tailwind CSS.",
+        "subTitle": "عناصر قابلة للوصول والتخصيص التي يمكنك نسخها ولصقها في تطبيقاتك. مجانا. مفتوح المصدر. وجاهز للاستخدام مع Next.js 14.",
+        "documentation": "الوثائق",
+        "github": "Github"
+    },
+    "MainNav": {
+        "home": "الصفحة الرئيسية"
+    },
+    "Login": {
+        "cardTitle": "تسجيل الدخول",
+        "cardDescription": "أدخل بريدك الإلكتروني أدناه لتسجيل الدخول إلى حسابك",
+        "emailLabel": "البريد الإلكتروني",
+        "emailPlaceholder": "m@example.com",
+        "passwordLabel": "كلمة المرور",
+        "forgotPasswordLink": "هل نسيت كلمة المرور؟",
+        "loginButton": "تسجيل الدخول",
+        "googleLoginButton": "تسجيل الدخول من خلال Google",
+        "signupPrompt": "ليس لديك حساب؟",
+        "signupLink": "إنشاء حساب"
+    },
+    "Signup": {
+        "cardTitle": "إنشاء حساب",
+        "cardDescription": "أدخل معلوماتك لإنشاء حساب",
+        "firstNameLabel": "الاسم الأول",
+        "firstNamePlaceholder": "ماكس",
+        "lastNameLabel": "الاسم الأخير",
+        "lastNamePlaceholder": "روبنسون",
+        "emailLabel": "البريد الإلكتروني",
+        "emailPlaceholder": "m@example.com",
+        "passwordLabel": "كلمة المرور",
+        "createAccountButton": "إنشاء حساب",
+        "gitHubSignupButton": "إنشاء حساب من خلال GitHub",
+        "signinPrompt": "هل لديك حساب مسبقًا؟",
+        "signinLink": "تسجيل الدخول"
+    },
+    "SiteHeader": {
+        "login": "تسجيل الدخول",
+        "logout": "تسجيل الخروج"
+    }
+}

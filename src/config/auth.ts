@@ -4,6 +4,7 @@ import GitHubProvider from "next-auth/providers/github";
 import { PrismaAdapter } from "@auth/prisma-adapter";
 import { prisma } from "@/config/prisma";
 import { type Adapter } from "next-auth/adapters";
+import { getSession } from "next-auth/react";
 
 /**
  * Module augmentation for `next-auth` types. Allows us to add custom properties to the `session`
@@ -77,3 +78,8 @@ export const authOptions: NextAuthOptions = {
  * @see https://next-auth.js.org/configuration/nextjs
  */
 export const getServerAuthSession = () => getServerSession(authOptions);
+
+export const getClientAuthUser = async () => {
+  const session = await getSession();
+  return session?.user ?? null;
+};

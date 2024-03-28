@@ -1,17 +1,14 @@
 import { Icons } from "@/components/icons";
 import { Button } from "@/components/ui/button";
-import { signInWithGithub, signInWithGoogle } from "@/lib/supabase";
 import { signIn } from "next-auth/react";
 import React from "react";
 
 export function Auth() {
   const loginGithub = async () => {
-    // await signInWithGithub();
     signIn("github");
   };
 
   const loginGoogle = async () => {
-    // await signInWithGoogle();
     signIn("google");
   };
   return (

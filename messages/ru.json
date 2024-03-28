@@ -1,0 +1,43 @@
+{
+    "Home": {
+        "title1": "Красивые и функциональные компоненты",
+        "title2": "созданные с помощью Radix UI и Tailwind CSS.",
+        "subTitle": "Доступные и настраиваемые компоненты, которые вы можете копировать и вставлять в свои приложения. Бесплатно. С открытым исходным кодом. И совместимость с Next.js 14.",
+        "documentation": "Документация",
+        "github": "Github"
+    },
+    "MainNav": {
+        "home": "Главная"
+    },
+    "Login": {
+        "cardTitle": "Вход",
+        "cardDescription": "Введите свой электронный адрес для входа в аккаунт",
+        "emailLabel": "Электронная почта",
+        "emailPlaceholder": "m@example.com",
+        "passwordLabel": "Пароль",
+        "forgotPasswordLink": "Забыли свой пароль?",
+        "loginButton": "Войти",
+        "googleLoginButton": "Войти с помощью Google",
+        "signupPrompt": "Нет аккаунта?",
+        "signupLink": "Зарегистрироваться"
+    },
+    "Signup": {
+        "cardTitle": "Регистрация",
+        "cardDescription": "Заполните информацию для создания аккаунта",
+        "firstNameLabel": "Имя",
+        "firstNamePlaceholder": "Max",
+        "lastNameLabel": "Фамилия",
+        "lastNamePlaceholder": "Robinson",
+        "emailLabel": "Электронная почта",
+        "emailPlaceholder": "m@example.com",
+        "passwordLabel": "Пароль",
+        "createAccountButton": "Создать аккаунт",
+        "gitHubSignupButton": "Регистрация через GitHub",
+        "signinPrompt": "Уже есть аккаунт?",
+        "signinLink": "Войти"
+    },
+    "SiteHeader": {
+        "login": "Вход",
+        "logout": "Выход"
+    }
+}

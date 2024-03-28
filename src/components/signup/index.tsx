@@ -1,32 +1,51 @@
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { buildSignUplanguage } from "@/config/locale";
-import { DialogContent } from "@/components/ui/dialog";
-import { Auth } from "@/components/auth";
+import { Label } from "@/components/ui/label";
+import { SignupLanguage } from "@/types/language";
 
-export async function Signup() {
-  const l = await buildSignUplanguage();
+export function Signup({ language }: { language: SignupLanguage }) {
   return (
-    <div className="flex flex-col justify-center items-center">
-      <DialogContent className="w-full max-w-md rounded-lg shadow-2xl shadow-gray-500 p-8">
-        <CardHeader>
-          <CardTitle className="text-2xl font-bold mb-2">{l.createAnAccount}</CardTitle>
-          <CardDescription>{l.inputHint}</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <form className="flex flex-col space-y-5 w-full">
-            <Input placeholder="name@example.com" type="email" />
-            <Button>{l.createAccount}</Button>
-            <div className="relative flex items-center">
-              <div className="flex-grow border-t border-gray-300" />
-              <span className="flex-shrink mx-4 text-sm text-gray-400">{l.orContinueWith}</span>
-              <div className="flex-grow border-t border-gray-300" />
+    <Card className="mx-auto max-w-sm">
+      <CardHeader>
+        <CardTitle className="text-xl">{language.cardTitle}</CardTitle>
+        <CardDescription>{language.cardDescription}</CardDescription>
+      </CardHeader>
+      <CardContent>
+        <div className="grid gap-4">
+          <div className="grid grid-cols-2 gap-4">
+            <div className="grid gap-2">
+              <Label htmlFor="first-name">{language.firstNameLabel}</Label>
+              <Input id="first-name" placeholder={language.firstNamePlaceholder} required />
             </div>
-            <Auth />
-          </form>
-        </CardContent>
-      </DialogContent>
-    </div>
+            <div className="grid gap-2">
+              <Label htmlFor="last-name">{language.lastNameLabel}</Label>
+              <Input id="last-name" placeholder={language.lastNamePlaceholder} required />
+            </div>
+          </div>
+          <div className="grid gap-2">
+            <Label htmlFor="email">{language.emailLabel}</Label>
+            <Input id="email" type="email" placeholder={language.emailPlaceholder} required />
+          </div>
+          <div className="grid gap-2">
+            <Label htmlFor="password">{language.passwordLabel}</Label>
+            <Input id="password" type="password" />
+          </div>
+          <Button type="submit" className="w-full">
+            {language.createAccountButton}
+          </Button>
+          <Button variant="outline" className="w-full">
+            {language.gitHubSignupButton}
+          </Button>
+        </div>
+        <div className="mt-4 text-center text-sm">
+          {language.signinPrompt}
+          <Link href="#" className="underline">
+            {language.signinLink}
+          </Link>
+        </div>
+      </CardContent>
+    </Card>
   );
 }
