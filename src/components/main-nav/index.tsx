@@ -15,7 +15,7 @@ export function MainNav({ language }: Props) {
     <div className="flex gap-6 md:gap-10">
       <Link href="/" className="flex items-center space-x-2">
         <Icons.logo className="h-6 w-6" />
-        <span className="inline-block font-bold">{siteConfig.name}</span>
+        <span className="inline-block font-bold">{siteConfig.title}</span>
       </Link>
       <Link href="/" className={cn("flex items-center text-sm font-medium text-muted-foreground")}>
         {language.home}
