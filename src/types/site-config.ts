@@ -1,5 +1,5 @@
 export interface SiteConfig {
-  name: string;
+  title: string;
   description: string;
   url: string;
   useGoogleAnalytics: boolean;
@@ -9,4 +9,6 @@ export interface SiteConfig {
     github: string;
     docs: string;
   };
+  keywords?: string[];
+  creator?: string;
 }

@@ -2,7 +2,7 @@ import { SiteConfig } from "@/types/site-config";
 import { type Viewport, type Metadata } from "next";
 
 export const siteConfig: SiteConfig = {
-  name: "Re-NextJS-Template",
+  title: "Re-NextJS-Template",
   description: "",
   url: process.env.NEXT_PUBLIC_BASE_URL!,
   useGoogleAnalytics: false,
@@ -12,12 +12,15 @@ export const siteConfig: SiteConfig = {
     github: "https://github.com/story-has-you/re-nextjs-template",
     docs: "https://ui.shadcn.com",
   },
+  keywords: ["Next.js", "Radix UI", "Tailwind CSS", "Shadcn UI"],
+  creator: "ReAvid",
 };
 
 export const buildMetadata = (): Metadata => {
   return {
-    title: siteConfig.name,
+    title: siteConfig.title,
     description: siteConfig.description,
+    applicationName: siteConfig.title,
     alternates: {
       canonical: siteConfig.url,
     },
@@ -29,6 +32,14 @@ export const buildMetadata = (): Metadata => {
     other: {
       "google-adsense-account": process.env.NEXT_PUBLIC_PUB!,
     },
+    keywords: siteConfig.keywords,
+    authors: [
+      {
+        name: siteConfig.creator,
+        url: siteConfig.links.github,
+      },
+    ],
+    creator: siteConfig.creator,
   };
 };
 
