@@ -112,7 +112,7 @@ class LocaleConfig {
   };
 
   private buildSignUpLanguage = async (): Promise<SignupLanguage> => {
-    const t = await getTranslations("SignUp");
+    const t = await getTranslations("Signup");
     return {
       cardTitle: t("cardTitle"),
       cardDescription: t("cardDescription"),
