@@ -21,6 +21,7 @@
     "@radix-ui/react-slot": "^1.0.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
+    "daisyui": "^4.9.0",
     "nanoid": "^5.0.6",
     "next": "14.1.4",
     "next-auth": "^4.24.7",
@@ -29,7 +30,8 @@
     "react": "^18",
     "react-dom": "^18",
     "tailwind-merge": "^2.2.2",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "theme-change": "^2.5.0"
   },
   "devDependencies": {
     "@types/eslint": "^8.56.6",

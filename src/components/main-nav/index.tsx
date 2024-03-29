@@ -1,4 +1,3 @@
-import * as React from "react";
 import Link from "next/link";
 
 import { siteConfig } from "@/config/site";
@@ -17,7 +16,7 @@ export function MainNav({ language }: Props) {
         <Icons.logo className="h-6 w-6" />
         <span className="inline-block font-bold">{siteConfig.title}</span>
       </Link>
-      <Link href="/" className={cn("flex items-center text-sm font-medium text-muted-foreground")}>
+      <Link href="/" className="flex items-center text-sm font-medium text-muted-foreground">
         {language.home}
       </Link>
     </div>
