@@ -35,7 +35,7 @@ export function ChooseLanguage() {
 
   return (
     <div className="dropdown dropdown-end">
-      <div tabIndex={0} role="button" className="btn m-1">
+      <div tabIndex={0} role="button" className="btn btn-ghost btn-sm m-1">
         <button className="flex items-center space-x-2">
           <Icons.globe className="w-4 h-4 mr-1" />
           {getLocale()}

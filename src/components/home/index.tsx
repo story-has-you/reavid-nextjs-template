@@ -1,4 +1,3 @@
-import { buttonVariants } from "@/components/ui/button";
 import { localeConfig } from "@/config/locale";
 import { siteConfig } from "@/config/site";
 import Link from "next/link";
@@ -16,10 +15,10 @@ export async function Home() {
         <p className="max-w-[700px] text-lg text-muted-foreground">{home.subTitle}</p>
       </div>
       <div className="flex gap-4">
-        <Link href={siteConfig.links.docs} target="_blank" className={buttonVariants()}>
+        <Link href={siteConfig.links.docs} target="_blank" className="btn btn-primary">
           {home.documentation}
         </Link>
-        <Link target="_blank" href={siteConfig.links.github} className={buttonVariants({ variant: "outline" })}>
+        <Link target="_blank" href={siteConfig.links.github} className="btn">
           {home.github}
         </Link>
       </div>

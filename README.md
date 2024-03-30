@@ -9,7 +9,7 @@ features
 - [x] i18n
 - [x] Google Adsense
 - [x] Google Analytics
-- [x] shadcnui
+- [x] daysui
 
 ## 环境变量
 

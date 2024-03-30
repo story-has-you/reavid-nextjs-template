@@ -1,40 +1,39 @@
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { LoginLanguage } from "@/types/language";
-import { DialogContent } from "@/components/ui/dialog";
+import { Auth } from "@/components/auth";
 
 export function Login({ language }: { language: LoginLanguage }) {
   return (
-    <DialogContent>
-      <CardHeader>
-        <CardTitle className="text-2xl">{language.cardTitle}</CardTitle>
-        <CardDescription>{language.cardDescription}</CardDescription>
-      </CardHeader>
-      <CardContent>
+    <div className="w-full flex justify-center">
+      <div className="modal-box">
+        <h3 className="font-bold text-lg mb-5">{language.cardTitle}</h3>
         <div className="grid gap-4">
           <div className="grid gap-2">
-            <Label htmlFor="email">{language.emailLabel}</Label>
-            <Input id="email" type="email" placeholder={language.emailPlaceholder} required />
+            <div className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+              {language.emailLabel}
+            </div>
+            <label className="input input-bordered flex items-center gap-2 rounded-md">
+              <input type="text" className="grow" placeholder="Email" />
+            </label>
           </div>
           <div className="grid gap-2">
             <div className="flex items-center">
-              <Label htmlFor="password">{language.passwordLabel}</Label>
+              <div className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+                {language.passwordLabel}
+              </div>
               <Link href="#" className="ml-auto inline-block text-sm underline">
                 {language.forgotPasswordLink}
               </Link>
             </div>
-            <Input id="password" type="password" required />
+            <label className="input input-bordered flex items-center gap-2 rounded-md">
+              <input type="password" className="grow" placeholder="Password" />
+            </label>
           </div>
-          <Button type="submit" className="w-full">
+          <button type="submit" className="btn btn-primary w-full mb-2 rounded-md">
             {language.loginButton}
-          </Button>
+          </button>
 
-          <Button variant="outline" className="w-full">
-            {language.googleLoginButton}
-          </Button>
+          <Auth />
         </div>
         <div className="mt-4 text-center text-sm">
           {language.signupPrompt}
@@ -44,7 +43,10 @@ export function Login({ language }: { language: LoginLanguage }) {
             </Link>
           )}
         </div>
-      </CardContent>
-    </DialogContent>
+      </div>
+      <form method="dialog" className="modal-backdrop">
+        <button>close</button>
+      </form>
+    </div>
   );
 }
