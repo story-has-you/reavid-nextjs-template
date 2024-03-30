@@ -92,7 +92,7 @@ export function Header(languages: Languages) {
             ) : (
               <div>
                 <button
-                  className="btn btn-primary btn-sm"
+                  className="btn btn-neutral btn-sm"
                   onClick={() => {
                     loginModal.current!.showModal();
                   }}

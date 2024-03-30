@@ -29,7 +29,7 @@ export function Login({ language }: { language: LoginLanguage }) {
               <input type="password" className="grow" placeholder="Password" />
             </label>
           </div>
-          <button type="submit" className="btn btn-primary w-full mb-2 rounded-md">
+          <button type="submit" className="btn btn-neutral w-full mb-2 rounded-md">
             {language.loginButton}
           </button>
 

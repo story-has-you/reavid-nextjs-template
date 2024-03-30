@@ -12,12 +12,12 @@ export function Auth() {
   };
   return (
     <div className="flex flex-col space-y-5 w-full">
-      <button className="flex items-center justify-center btn btn-primary rounded-md" onClick={loginGithub}>
-        <Icons.gitHub className="h-5 w-5 mr-2" />
-        <span>GitHub</span>
+      <button className="flex items-center justify-center btn bg-black hover:bg-black" onClick={loginGithub}>
+        <Icons.gitHub className="h-5 w-5 mr-2 text-white" />
+        <span className="text-white">GitHub</span>
       </button>
       <button
-        className="flex items-center justify-center bg-white hover:bg-gray-200 btn btn-primary rounded-md"
+        className="flex items-center justify-center bg-white hover:bg-gray-200 btn btn-neutral"
         onClick={loginGoogle}
       >
         <Icons.google className="h-5 w-5 mr-2" />

@@ -14,66 +14,67 @@ class LocaleConfig {
     {
       code: "en-US",
       lang: "en",
-      language: "English",
+      language: "🇺🇸 English",
     },
     {
       code: "zh-CN",
       lang: "zh",
-      language: "简体中文",
+      language: "🇨🇳 简体中文",
     },
     {
       code: "es-ES",
       lang: "es",
-      language: "Español (España)",
+      language: "🇪🇸 Español (España)",
     },
     {
       code: "fr-FR",
       lang: "fr",
-      language: "Français",
+      language: "🇫🇷 Français",
     },
     {
       code: "de-DE",
       lang: "de",
-      language: "Deutsch",
+      language: "🇩🇪 Deutsch",
     },
     {
       code: "ja-JP",
       lang: "ja",
-      language: "日本語",
+      language: "🇯🇵 日本語",
     },
     {
       code: "pt-BR",
       lang: "pt",
-      language: "Português (Brasil)",
+      language: "🇧🇷 Português (Brasil)",
     },
     {
       code: "ru-RU",
       lang: "ru",
-      language: "Русский",
+      language: "🇷🇺 Русский",
     },
     {
       code: "ar-SA",
       lang: "ar",
-      language: "العربية (السعودية)",
+      language: "🇸🇦 العربية (السعودية)",
     },
     {
       code: "it-IT",
       lang: "it",
-      language: "Italiano",
+      language: "🇮🇹 Italiano",
     },
     {
       code: "ko-KR",
       lang: "ko",
-      language: "한국어",
+      language: "🇰🇷 한국어",
     },
     {
       code: "hi-IN",
       lang: "hi",
-      language: "हिन्दी",
+      language: "🇮🇳 हिन्दी",
     },
   ];
 
   public static locales = LocaleConfig.languages.map((item) => item.lang);
+  public static codes = LocaleConfig.languages.map((item) => item.code);
   public static defaultLocale = "en";
 
   public buildLanguages = async (): Promise<Languages> => {
@@ -158,4 +159,5 @@ class LocaleConfig {
 export const localeConfig = new LocaleConfig();
 export const languages = LocaleConfig.languages;
 export const locales = LocaleConfig.locales;
+export const codes = LocaleConfig.codes;
 export const defaultLocale = LocaleConfig.defaultLocale;

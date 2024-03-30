@@ -15,7 +15,7 @@ export async function Home() {
         <p className="max-w-[700px] text-lg text-muted-foreground">{home.subTitle}</p>
       </div>
       <div className="flex gap-4">
-        <Link href={siteConfig.links.docs} target="_blank" className="btn btn-primary">
+        <Link href={siteConfig.links.docs} target="_blank" className="btn btn-neutral">
           {home.documentation}
         </Link>
         <Link target="_blank" href={siteConfig.links.github} className="btn">

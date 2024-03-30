@@ -1,44 +1,22 @@
 "use client";
 
 import { Icons } from "@/components/icons";
-import { languages, locales } from "@/config/locale";
-import { type Language } from "@/types/language";
-import { usePathname, useRouter } from "next/navigation";
+import { defaultLocale, languages, locales } from "@/config/locale";
+import { useParams, useRouter } from "next/navigation";
 
 export function ChooseLanguage() {
-  const pathname = usePathname();
+  const params = useParams();
   const router = useRouter();
-
-  const handleOnSelect = (item: Language) => {
-    if (!pathname) {
-      return;
-    }
-    const locale = locales.find((locale) => pathname.startsWith(`/${locale}`));
-    if (locale) {
-      const path = pathname.substring(pathname.indexOf("/") + 3);
-      router.push(`/${item.lang}${path}`);
-      return;
-    }
-    router.push(`/${item.lang}${pathname}`);
-  };
-
-  const getLocale = () => {
-    const locale = languages.find((item) => {
-      const locale = locales.find((locale) => pathname.startsWith(`/${locale}`));
-      if (item.lang === locale) {
-        return item.language;
-      }
-      return null;
-    });
-    return locale?.language ?? "English";
-  };
+  const langName = languages.find((item) => item.lang === params.locale)?.language;
+  if (!langName) {
+    return defaultLocale;
+  }
 
   return (
     <div className="dropdown dropdown-end">
       <div tabIndex={0} role="button" className="btn btn-ghost btn-sm m-1">
         <button className="flex items-center space-x-2">
-          <Icons.globe className="w-4 h-4 mr-1" />
-          {getLocale()}
+          {langName}
           <Icons.chevronDown className="w-4 h-4" />
         </button>
       </div>
@@ -46,7 +24,7 @@ export function ChooseLanguage() {
         {languages.map((item, index) => {
           return (
             <li key={index}>
-              <button onClick={() => handleOnSelect(item)}>{item.language}</button>
+              <button onClick={() => router.push(item.lang)}>{item.language}</button>
             </li>
           );
         })}
