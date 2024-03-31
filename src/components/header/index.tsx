@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { siteConfig } from "@/config/site";
 import { Icons } from "@/components/icons";
-import { ThemeToggle } from "@/components/theme-toggle";
 import { MainNav } from "@/components/main-nav";
 import { ChooseLanguage } from "@/components/choose-language";
 import { Login } from "@/components/login";
@@ -22,7 +21,7 @@ interface UserAvatarProps {
 
 const UserAvatar = ({ user, siteHeaderlanguage, logout }: UserAvatarProps) => {
   return (
-    <div className="dropdown dropdown-end">
+    <div className="dropdown dropdown-end text-black">
       <div tabIndex={0} role="button">
         <button className="flex items-center space-x-2">
           <div className="avatar">

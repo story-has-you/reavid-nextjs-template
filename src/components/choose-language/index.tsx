@@ -1,7 +1,7 @@
 "use client";
 
 import { Icons } from "@/components/icons";
-import { defaultLocale, languages, locales } from "@/config/locale";
+import { defaultLocale, languages } from "@/config/locale";
 import { useParams, useRouter } from "next/navigation";
 
 export function ChooseLanguage() {
