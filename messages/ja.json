@@ -1,10 +1,7 @@
 {
-    "Home": {
-        "title1": "美しく設計されたコンポーネント",
-        "title2": "Radix UIとTailwind CSSで構築されました。",
-        "subTitle": "あなたのアプリにコピーして貼り付けることができる、アクセシブルでカスタマイズ可能なコンポーネント。無料。オープンソース。そしてNext.js 14に対応しています。",
-        "documentation": "ドキュメント",
-        "github": "Github"
+    "HomePage": {
+        "title": "Re-NextJS-Template",
+        "description": "nextjsのユーザーモデル"
     },
     "MainNav": {
         "home": "ホーム"
@@ -39,5 +36,8 @@
     "SiteHeader": {
         "login": "ログイン",
         "logout": "ログアウト"
+    },
+    "Form": {
+        "generate": "生成する"
     }
 }

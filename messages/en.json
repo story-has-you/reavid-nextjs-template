@@ -1,10 +1,7 @@
 {
-    "Home": {
-        "title1": "Beautifully designed components",
-        "title2": "built with Radix UI and Tailwind CSS.",
-        "subTitle": "Accessible and customizable components that you can copy and paste into your apps. Free. Open Source. And Next.js 14 Ready.",
-        "documentation": "Documentation",
-        "github": "Github"
+    "HomePage": {
+        "title": "Re-NextJS-Template",
+        "description": "Personalized nextjs project starter template"
     },
     "MainNav": {
         "home": "Home"
@@ -39,5 +36,8 @@
     "SiteHeader": {
         "login": "Login",
         "logout": "Logout"
+    },
+    "Form": {
+        "generate": "Generate"
     }
 }

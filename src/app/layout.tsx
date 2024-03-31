@@ -10,7 +10,7 @@ export const viewport = buildViewport();
 export default function RootLayout({ children }: LayoutProps) {
   return (
     <html lang="en" data-theme="light" suppressHydrationWarning>
-      <body className={`min-h-screen antialiased ${fontSans.className}`}>
+      <body className={`min-h-screen antialiased bg-reavid text-white ${fontSans.className}`}>
         <main className="flex-1">{children}</main>
       </body>
       {siteConfig.useGoogleAnalytics && <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GAID!} />}

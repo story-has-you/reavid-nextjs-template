@@ -3,9 +3,10 @@ import {
   LoginLanguage,
   SiteHeaderLanguage,
   MainNavLanguage,
-  HomeLanguage,
+  HomePageLanguage,
   SignupLanguage,
   Languages,
+  FormLanguage,
 } from "@/types/language";
 import { getTranslations } from "next-intl/server";
 
@@ -78,31 +79,31 @@ class LocaleConfig {
   public static defaultLocale = "en";
 
   public buildLanguages = async (): Promise<Languages> => {
-    const [homeLanguage, mainNavLanguage, signUplanguage, siteHeaderlanguange, loginLanguage] = await Promise.all([
-      this.buildHomeLanguage(),
-      this.buildMainNavLanguage(),
-      this.buildSignUpLanguage(),
-      this.buildSiteHeaderLanguage(),
-      this.buildLoginLanguage(),
-    ]);
+    const [homePageLanguage, mainNavLanguage, signUplanguage, siteHeaderlanguange, loginLanguage, formLanguage] =
+      await Promise.all([
+        this.buildHomePageLanguage(),
+        this.buildMainNavLanguage(),
+        this.buildSignUpLanguage(),
+        this.buildSiteHeaderLanguage(),
+        this.buildLoginLanguage(),
+        this.buildFormLanguage(),
+      ]);
 
     return {
-      home: homeLanguage,
+      homePage: homePageLanguage,
       mainNav: mainNavLanguage,
       signUp: signUplanguage,
       siteHeader: siteHeaderlanguange,
       login: loginLanguage,
+      form: formLanguage,
     };
   };
 
-  private buildHomeLanguage = async (): Promise<HomeLanguage> => {
-    const t = await getTranslations("Home");
+  private buildHomePageLanguage = async (): Promise<HomePageLanguage> => {
+    const t = await getTranslations("HomePage");
     return {
-      title1: t("title1"),
-      title2: t("title2"),
-      subTitle: t("subTitle"),
-      documentation: t("documentation"),
-      github: t("github"),
+      title: t("title"),
+      description: t("description"),
     };
   };
   private buildMainNavLanguage = async (): Promise<MainNavLanguage> => {
@@ -152,6 +153,13 @@ class LocaleConfig {
       googleLoginButton: t("googleLoginButton"),
       signupPrompt: t("signupPrompt"),
       signupLink: t("signupLink"),
+    };
+  };
+
+  private buildFormLanguage = async (): Promise<FormLanguage> => {
+    const t = await getTranslations("Form");
+    return {
+      generate: t("generate"),
     };
   };
 }

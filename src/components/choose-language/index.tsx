@@ -20,7 +20,7 @@ export function ChooseLanguage() {
           <Icons.chevronDown className="w-4 h-4" />
         </button>
       </div>
-      <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+      <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 text-black rounded-box w-52">
         {languages.map((item, index) => {
           return (
             <li key={index}>

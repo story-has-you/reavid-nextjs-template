@@ -1,10 +1,7 @@
 {
-    "Home": {
-        "title1": "아름답게 디자인된 컴포넌트",
-        "title2": "Radix UI와 Tailwind CSS로 구축되었습니다.",
-        "subTitle": "애플리케이션에 복사하고 붙여 넣을 수 있는 접근 가능하고 사용자 정의 가능한 컴포넌트. 무료. 오픈 소스. 그리고 Next.js 14을 준비했습니다.",
-        "documentation": "설명서",
-        "github": "Github"
+    "HomePage": {
+        "title": "Re-NextJS-Template",
+        "description": "nextjs의 기본 테마플로"
     },
     "MainNav": {
         "home": "홈"
@@ -39,5 +36,8 @@
     "SiteHeader": {
         "login": "로그인",
         "logout": "로그아웃"
+    },
+    "Form": {
+        "generate": "만들기"
     }
 }
