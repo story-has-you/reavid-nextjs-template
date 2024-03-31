@@ -33,7 +33,7 @@
         "signinPrompt": "क़ि आपने पहले से ही एक अकाउंट है?",
         "signinLink": "लॉगिन करें"
     },
-    "SiteHeader": {
+    "Header": {
         "login": "लॉगिन करें",
         "logout": "लॉगआउट करें"
     },

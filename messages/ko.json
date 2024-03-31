@@ -33,7 +33,7 @@
         "signinPrompt": "계좌가 있습니까?",
         "signinLink": "로그인"
     },
-    "SiteHeader": {
+    "Header": {
         "login": "로그인",
         "logout": "로그아웃"
     },

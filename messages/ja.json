@@ -33,7 +33,7 @@
         "signinPrompt": "すでにアカウントをお持ちの場合",
         "signinLink": "ログイン"
     },
-    "SiteHeader": {
+    "Header": {
         "login": "ログイン",
         "logout": "ログアウト"
     },

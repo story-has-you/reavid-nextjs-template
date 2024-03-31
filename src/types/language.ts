@@ -42,7 +42,7 @@ export interface LoginLanguage {
   signupLink: string;
 }
 
-export interface SiteHeaderLanguage {
+export interface HeaderLanguage {
   login: string;
   logout: string;
 }
@@ -56,6 +56,6 @@ export interface Languages {
   mainNav: MainNavLanguage;
   signUp: SignupLanguage;
   login: LoginLanguage;
-  siteHeader: SiteHeaderLanguage;
+  header: HeaderLanguage;
   form: FormLanguage;
 }

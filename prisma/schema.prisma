@@ -50,6 +50,9 @@ model User {
   accounts           Account[]
   sessions           Session[]
   Authenticator      Authenticator[]
+  balance            Int             @default(10)
+  member_level_id    String?
+  member_expire_date DateTime?
 
   @@map("users")
 }
@@ -77,4 +80,13 @@ model Authenticator {
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@map("authenticator")
+}
+
+model MemberLevel {
+  id          String  @id @default(cuid())
+  level       Int
+  month_price Decimal
+  year_price  Decimal
+
+  @@map("member_level")
 }

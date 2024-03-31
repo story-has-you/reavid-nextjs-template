@@ -33,7 +33,7 @@
         "signinPrompt": "已有账户？",
         "signinLink": "登录"
     },
-    "SiteHeader": {
+    "Header": {
         "login": "登录",
         "logout": "注销"
     },

@@ -33,7 +33,7 @@
         "signinPrompt": "هل لديك حساب مسبقًا؟",
         "signinLink": "تسجيل الدخول"
     },
-    "SiteHeader": {
+    "Header": {
         "login": "تسجيل الدخول",
         "logout": "تسجيل الخروج"
     },

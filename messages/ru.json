@@ -33,7 +33,7 @@
         "signinPrompt": "Уже есть аккаунт?",
         "signinLink": "Войти"
     },
-    "SiteHeader": {
+    "Header": {
         "login": "Вход",
         "logout": "Выход"
     },

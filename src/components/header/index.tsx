@@ -1,25 +1,29 @@
 "use client";
 
-import Link from "next/link";
-import { siteConfig } from "@/config/site";
-import { Icons } from "@/components/icons";
-import { MainNav } from "@/components/main-nav";
 import { ChooseLanguage } from "@/components/choose-language";
+import { Icons } from "@/components/icons";
 import { Login } from "@/components/login";
-import { useEffect, useRef, useState } from "react";
+import { MainNav } from "@/components/main-nav";
+import { siteConfig } from "@/config/site";
+import { HeaderLanguage, Languages } from "@/types/language";
+import type { User } from "@prisma/client";
 import { signOut } from "next-auth/react";
-import { Languages, SiteHeaderLanguage } from "@/types/language";
-import { User } from "next-auth";
-import { getClientAuthUser } from "@/config/auth";
 import Image from "next/image";
+import Link from "next/link";
+import { useRef } from "react";
 
 interface UserAvatarProps {
-  user: User | null;
-  siteHeaderlanguage: SiteHeaderLanguage;
+  user?: User | null;
+  headerlanguage: HeaderLanguage;
   logout: () => Promise<void>;
 }
 
-const UserAvatar = ({ user, siteHeaderlanguage, logout }: UserAvatarProps) => {
+interface HeaderProps {
+  languages: Languages;
+  user?: User | null;
+}
+
+const UserAvatar = ({ user, headerlanguage, logout }: UserAvatarProps) => {
   return (
     <div className="dropdown dropdown-end text-black">
       <div tabIndex={0} role="button">
@@ -40,33 +44,19 @@ const UserAvatar = ({ user, siteHeaderlanguage, logout }: UserAvatarProps) => {
         </li>
         <div className="divider mt-0 mb-0"></div>
         <li className="text-sm">
-          <button onClick={logout}>{siteHeaderlanguage.logout}</button>
+          <button onClick={logout}>{headerlanguage.logout}</button>
         </li>
       </ul>
     </div>
   );
 };
 
-export function Header(languages: Languages) {
-  const { siteHeader, mainNav, login } = languages;
-  const [user, setUser] = useState<User | null>(null);
+export function Header({ languages, user }: HeaderProps) {
+  const { header, mainNav, login } = languages;
   const loginModal = useRef<HTMLDialogElement>(null);
-
-  useEffect(() => {
-    fetchUser();
-  }, []);
-
-  const fetchUser = async () => {
-    const localUser = await getClientAuthUser();
-    if (!localUser) {
-      return;
-    }
-    setUser(localUser);
-  };
 
   const logout = async () => {
     await signOut();
-    setUser(null);
   };
 
   return (
@@ -87,7 +77,7 @@ export function Header(languages: Languages) {
             <ChooseLanguage />
 
             {user ? (
-              <UserAvatar user={user} siteHeaderlanguage={siteHeader} logout={logout} />
+              <UserAvatar user={user} headerlanguage={header} logout={logout} />
             ) : (
               <div>
                 <button
@@ -96,7 +86,7 @@ export function Header(languages: Languages) {
                     loginModal.current!.showModal();
                   }}
                 >
-                  {siteHeader.login}
+                  {header.login}
                 </button>
                 <dialog className="modal" ref={loginModal}>
                   <Login language={login} />

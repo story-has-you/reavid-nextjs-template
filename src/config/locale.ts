@@ -1,7 +1,7 @@
 import {
   Language,
   LoginLanguage,
-  SiteHeaderLanguage,
+  HeaderLanguage,
   MainNavLanguage,
   HomePageLanguage,
   SignupLanguage,
@@ -79,23 +79,22 @@ class LocaleConfig {
   public static defaultLocale = "en";
 
   public buildLanguages = async (): Promise<Languages> => {
-    const [homePageLanguage, mainNavLanguage, signUplanguage, siteHeaderlanguange, loginLanguage, formLanguage] =
-      await Promise.all([
-        this.buildHomePageLanguage(),
-        this.buildMainNavLanguage(),
-        this.buildSignUpLanguage(),
-        this.buildSiteHeaderLanguage(),
-        this.buildLoginLanguage(),
-        this.buildFormLanguage(),
-      ]);
+    const [homePage, mainNav, signUp, header, login, form] = await Promise.all([
+      this.buildHomePageLanguage(),
+      this.buildMainNavLanguage(),
+      this.buildSignUpLanguage(),
+      this.buildHeaderLanguage(),
+      this.buildLoginLanguage(),
+      this.buildFormLanguage(),
+    ]);
 
     return {
-      homePage: homePageLanguage,
-      mainNav: mainNavLanguage,
-      signUp: signUplanguage,
-      siteHeader: siteHeaderlanguange,
-      login: loginLanguage,
-      form: formLanguage,
+      homePage,
+      mainNav,
+      signUp,
+      header,
+      login,
+      form,
     };
   };
 
@@ -132,8 +131,8 @@ class LocaleConfig {
     };
   };
 
-  private buildSiteHeaderLanguage = async (): Promise<SiteHeaderLanguage> => {
-    const t = await getTranslations("SiteHeader");
+  private buildHeaderLanguage = async (): Promise<HeaderLanguage> => {
+    const t = await getTranslations("Header");
     return {
       login: t("login"),
       logout: t("logout"),

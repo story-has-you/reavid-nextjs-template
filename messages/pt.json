@@ -33,7 +33,7 @@
         "signinPrompt": "Já tem uma conta?",
         "signinLink": "Entrar"
     },
-    "SiteHeader": {
+    "Header": {
         "login": "Entrar",
         "logout": "Sair"
     },
