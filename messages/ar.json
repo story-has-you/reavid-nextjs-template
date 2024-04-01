@@ -1,10 +1,7 @@
 {
-    "Home": {
-        "title1": "عناصر مصممة بشكل جميل",
-        "title2": "مبنية على Radix UI و Tailwind CSS.",
-        "subTitle": "عناصر قابلة للوصول والتخصيص التي يمكنك نسخها ولصقها في تطبيقاتك. مجانا. مفتوح المصدر. وجاهز للاستخدام مع Next.js 14.",
-        "documentation": "الوثائق",
-        "github": "Github"
+    "HomePage": {
+        "title": "Re-NextJS-Template",
+        "description": "تطبيق مبنى بسيط بالنسبة للمستخدمين في nextjs"
     },
     "MainNav": {
         "home": "الصفحة الرئيسية"
@@ -36,8 +33,14 @@
         "signinPrompt": "هل لديك حساب مسبقًا؟",
         "signinLink": "تسجيل الدخول"
     },
-    "SiteHeader": {
+    "Header": {
         "login": "تسجيل الدخول",
         "logout": "تسجيل الخروج"
+    },
+    "Form": {
+        "generate": "إنشاء"
+    },
+    "FAQ": {
+        "title": "الأسئلة الشائعة"
     }
 }

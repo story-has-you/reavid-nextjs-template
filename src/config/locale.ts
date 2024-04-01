@@ -1,11 +1,13 @@
 import {
   Language,
   LoginLanguage,
-  SiteHeaderLanguage,
+  HeaderLanguage,
   MainNavLanguage,
-  HomeLanguage,
+  HomePageLanguage,
   SignupLanguage,
   Languages,
+  FormLanguage,
+  FAQLanguage,
 } from "@/types/language";
 import { getTranslations } from "next-intl/server";
 
@@ -74,34 +76,36 @@ class LocaleConfig {
   ];
 
   public static locales = LocaleConfig.languages.map((item) => item.lang);
+  public static codes = LocaleConfig.languages.map((item) => item.code);
   public static defaultLocale = "en";
 
   public buildLanguages = async (): Promise<Languages> => {
-    const [homeLanguage, mainNavLanguage, signUplanguage, siteHeaderlanguange, loginLanguage] = await Promise.all([
-      this.buildHomeLanguage(),
+    const [homePage, mainNav, signUp, header, login, form, faq] = await Promise.all([
+      this.buildHomePageLanguage(),
       this.buildMainNavLanguage(),
       this.buildSignUpLanguage(),
-      this.buildSiteHeaderLanguage(),
+      this.buildHeaderLanguage(),
       this.buildLoginLanguage(),
+      this.buildFormLanguage(),
+      this.buildFAQLanguage(),
     ]);
 
     return {
-      home: homeLanguage,
-      mainNav: mainNavLanguage,
-      signUp: signUplanguage,
-      siteHeader: siteHeaderlanguange,
-      login: loginLanguage,
+      homePage,
+      mainNav,
+      signUp,
+      header,
+      login,
+      form,
+      faq,
     };
   };
 
-  private buildHomeLanguage = async (): Promise<HomeLanguage> => {
-    const t = await getTranslations("Home");
+  private buildHomePageLanguage = async (): Promise<HomePageLanguage> => {
+    const t = await getTranslations("HomePage");
     return {
-      title1: t("title1"),
-      title2: t("title2"),
-      subTitle: t("subTitle"),
-      documentation: t("documentation"),
-      github: t("github"),
+      title: t("title"),
+      description: t("description"),
     };
   };
   private buildMainNavLanguage = async (): Promise<MainNavLanguage> => {
@@ -130,8 +134,8 @@ class LocaleConfig {
     };
   };
 
-  private buildSiteHeaderLanguage = async (): Promise<SiteHeaderLanguage> => {
-    const t = await getTranslations("SiteHeader");
+  private buildHeaderLanguage = async (): Promise<HeaderLanguage> => {
+    const t = await getTranslations("Header");
     return {
       login: t("login"),
       logout: t("logout"),
@@ -153,9 +157,24 @@ class LocaleConfig {
       signupLink: t("signupLink"),
     };
   };
+
+  private buildFormLanguage = async (): Promise<FormLanguage> => {
+    const t = await getTranslations("Form");
+    return {
+      generate: t("generate"),
+    };
+  };
+
+  private buildFAQLanguage = async (): Promise<FAQLanguage> => {
+    const t = await getTranslations("FAQ");
+    return {
+      title: t("title"),
+    };
+  };
 }
 
 export const localeConfig = new LocaleConfig();
 export const languages = LocaleConfig.languages;
 export const locales = LocaleConfig.locales;
+export const codes = LocaleConfig.codes;
 export const defaultLocale = LocaleConfig.defaultLocale;

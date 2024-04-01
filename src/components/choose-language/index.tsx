@@ -9,44 +9,23 @@ import {
   DropdownMenuContent,
   DropdownMenu,
 } from "@/components/ui/dropdown-menu";
-import { languages, locales } from "@/config/locale";
-import { type Language } from "@/types/language";
-import { usePathname, useRouter } from "next/navigation";
+import { defaultLocale, languages } from "@/config/locale";
+import { useParams, useRouter } from "next/navigation";
 
 export function ChooseLanguage() {
-  const pathname = usePathname();
+  const params = useParams();
   const router = useRouter();
-
-  const handleOnSelect = (item: Language) => {
-    if (!pathname) {
-      return;
-    }
-    const locale = locales.find((locale) => pathname.startsWith(`/${locale}`));
-    if (locale) {
-      const path = pathname.substring(pathname.indexOf("/") + 3);
-      router.push(`/${item.lang}${path}`);
-      return;
-    }
-    router.push(`/${item.lang}${pathname}`);
-  };
-
-  const getLocale = () => {
-    const locale = languages.find((item) => {
-      const locale = locales.find((locale) => pathname.startsWith(`/${locale}`));
-      if (item.lang === locale) {
-        return item.language;
-      }
-      return null;
-    });
-    return locale?.language ?? "English";
-  };
+  const langName = languages.find((item) => item.lang === params.locale)?.language;
+  if (!langName) {
+    return defaultLocale;
+  }
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button className="flex items-center space-x-2" variant="outline">
           <Icons.globe className="w-4 h-4 mr-1" />
-          {getLocale()}
+          {langName}
           <Icons.chevronDown className="w-4 h-4" />
         </Button>
       </DropdownMenuTrigger>
@@ -54,7 +33,7 @@ export function ChooseLanguage() {
         <DropdownMenuGroup>
           {languages.map((item, index) => {
             return (
-              <DropdownMenuItem onSelect={() => handleOnSelect(item)} key={index}>
+              <DropdownMenuItem onSelect={() => router.push(item.lang)} key={index}>
                 {item.language}
               </DropdownMenuItem>
             );

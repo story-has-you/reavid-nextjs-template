@@ -1,10 +1,7 @@
 {
-    "Home": {
-        "title1": "设计精美的组件",
-        "title2": "使用Radix UI和Tailwind CSS构建。",
-        "subTitle": "您可以复制并粘贴到您的应用程序中的可访问和可自定义组件。免费。开源。并且准备好使用Next.js 14。",
-        "documentation": "文档",
-        "github": "Github"
+    "HomePage": {
+        "title": "Re-NextJS-Template",
+        "description": "NextJS 模板"
     },
     "MainNav": {
         "home": "首页"
@@ -36,8 +33,14 @@
         "signinPrompt": "已有账户？",
         "signinLink": "登录"
     },
-    "SiteHeader": {
+    "Header": {
         "login": "登录",
         "logout": "注销"
+    },
+    "Form": {
+        "generate": "生成"
+    },
+    "FAQ": {
+        "title": "常见问题"
     }
 }

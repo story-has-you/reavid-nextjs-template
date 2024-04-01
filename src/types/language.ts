@@ -4,12 +4,9 @@ export interface Language {
   language: string;
 }
 
-export interface HomeLanguage {
-  title1: string;
-  title2: string;
-  subTitle: string;
-  documentation: string;
-  github: string;
+export interface HomePageLanguage {
+  title: string;
+  description: string;
 }
 
 export interface MainNavLanguage {
@@ -45,15 +42,25 @@ export interface LoginLanguage {
   signupLink: string;
 }
 
-export interface SiteHeaderLanguage {
+export interface HeaderLanguage {
   login: string;
   logout: string;
 }
 
+export interface FormLanguage {
+  generate: string;
+}
+
+export interface FAQLanguage {
+  title: string;
+}
+
 export interface Languages {
-  home: HomeLanguage;
+  homePage: HomePageLanguage;
   mainNav: MainNavLanguage;
   signUp: SignupLanguage;
   login: LoginLanguage;
-  siteHeader: SiteHeaderLanguage;
+  header: HeaderLanguage;
+  form: FormLanguage;
+  faq: FAQLanguage;
 }

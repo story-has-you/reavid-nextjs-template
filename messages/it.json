@@ -1,10 +1,7 @@
 {
-    "Home": {
-        "title1": "Componenti progettati con eleganza",
-        "title2": "realizzati con Radix UI e Tailwind CSS.",
-        "subTitle": "Componenti accessibili e personalizzabili che puoi copiare e incollare nelle tue applicazioni. gratuiti. Open source. E pronti per Next.js 14.",
-        "documentation": "Documentazione",
-        "github": "Github"
+    "HomePage": {
+        "title": "Re-NextJS-Template",
+        "description": "Modello di progetto personalizzato per nextjs"
     },
     "MainNav": {
         "home": "Home"
@@ -36,8 +33,11 @@
         "signinPrompt": "Hai già un account?",
         "signinLink": "Accedi"
     },
-    "SiteHeader": {
+    "Header": {
         "login": "Accedi",
         "logout": "Esci"
+    },
+    "Form": {
+        "generate": "Genera"
     }
 }

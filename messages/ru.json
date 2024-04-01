@@ -1,10 +1,7 @@
 {
-    "Home": {
-        "title1": "Красивые и функциональные компоненты",
-        "title2": "созданные с помощью Radix UI и Tailwind CSS.",
-        "subTitle": "Доступные и настраиваемые компоненты, которые вы можете копировать и вставлять в свои приложения. Бесплатно. С открытым исходным кодом. И совместимость с Next.js 14.",
-        "documentation": "Документация",
-        "github": "Github"
+    "HomePage": {
+        "title": "Re-NextJS-Template",
+        "description": "Шаблон проекта для nextjs"
     },
     "MainNav": {
         "home": "Главная"
@@ -36,8 +33,11 @@
         "signinPrompt": "Уже есть аккаунт?",
         "signinLink": "Войти"
     },
-    "SiteHeader": {
+    "Header": {
         "login": "Вход",
         "logout": "Выход"
+    },
+    "Form": {
+        "generate": "Сгенерировать"
     }
 }

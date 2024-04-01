@@ -1,16 +1,13 @@
 "use client";
 
-import Link from "next/link";
-import { siteConfig } from "@/config/site";
-import { Button, buttonVariants } from "@/components/ui/button";
-import { Icons } from "@/components/icons";
-import { ThemeToggle } from "@/components/theme-toggle";
-import { MainNav } from "@/components/main-nav";
 import { ChooseLanguage } from "@/components/choose-language";
-import { Dialog, DialogTrigger } from "@/components/ui/dialog";
+import { Icons } from "@/components/icons";
 import { Login } from "@/components/login";
-import { useEffect, useState } from "react";
-import { signOut } from "next-auth/react";
+import { MainNav } from "@/components/main-nav";
+import { ThemeToggle } from "@/components/theme-toggle";
+import { Avatar, AvatarImage } from "@/components/ui/avatar";
+import { Button, buttonVariants } from "@/components/ui/button";
+import { Dialog, DialogTrigger } from "@/components/ui/dialog";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -19,18 +16,27 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Avatar, AvatarImage } from "@/components/ui/avatar";
-import { Languages, SiteHeaderLanguage } from "@/types/language";
+import { siteConfig } from "@/config/site";
+import { HeaderLanguage, Languages } from "@/types/language";
 import { User } from "next-auth";
-import { getClientAuthUser } from "@/config/auth";
+import { signOut } from "next-auth/react";
+import Link from "next/link";
 
 interface UserAvatarProps {
   user: User | null;
-  SiteHeaderlanguage: SiteHeaderLanguage;
-  logout: () => Promise<void>;
+  headerLanguage: HeaderLanguage;
 }
 
-const UserAvatar = ({ user, SiteHeaderlanguage, logout }: UserAvatarProps) => {
+interface HeaderProps {
+  languages: Languages;
+  user?: User | null;
+}
+
+const UserAvatar = ({ user, headerLanguage }: UserAvatarProps) => {
+  const logout = async () => {
+    await signOut();
+  };
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -44,32 +50,14 @@ const UserAvatar = ({ user, SiteHeaderlanguage, logout }: UserAvatarProps) => {
           <div className="truncate text-sm text-gray-500">{user?.email}</div>
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <DropdownMenuItem onClick={logout}>{SiteHeaderlanguage.logout}</DropdownMenuItem>
+        <DropdownMenuItem onClick={logout}>{headerLanguage.logout}</DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   );
 };
 
-export function SiteHeader(languages: Languages) {
-  const { siteHeader, mainNav, login } = languages;
-  const [user, setUser] = useState<User | null>(null);
-
-  useEffect(() => {
-    fetchUser();
-  }, []);
-
-  const fetchUser = async () => {
-    const localUser = await getClientAuthUser();
-    if (!localUser) {
-      return;
-    }
-    setUser(localUser);
-  };
-
-  const logout = async () => {
-    await signOut();
-    setUser(null);
-  };
+export function Header({ languages, user }: HeaderProps) {
+  const { header, mainNav, login } = languages;
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -107,11 +95,11 @@ export function SiteHeader(languages: Languages) {
             <ThemeToggle />
             <ChooseLanguage />
             {user ? (
-              <UserAvatar user={user} SiteHeaderlanguage={siteHeader} logout={logout} />
+              <UserAvatar user={user} headerLanguage={header} />
             ) : (
               <Dialog>
                 <DialogTrigger asChild>
-                  <Button>{siteHeader.login}</Button>
+                  <Button>{header.login}</Button>
                 </DialogTrigger>
                 <Login language={login} />
               </Dialog>

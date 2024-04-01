@@ -1,10 +1,7 @@
 {
-    "Home": {
-        "title1": "सुंदर रूप से डिज़ाइन किए गए компोनेंट",
-        "title2": "Radix UI और Tailwind CSS के साथ बनाए गए।",
-        "subTitle": "आपने ऐपलिकेशन में कॉपी और पेस्ट करने के लिए पहुंचीय और अनुकूलनीय компोनेंट। मुफ्त। ओपन सोर्स। और Next.js 14 के लिए तैयार।",
-        "documentation": "दस्तावेज़",
-        "github": "Github"
+    "HomePage": {
+        "title": "Re-NextJS-Template",
+        "description": "अनुशंसित नेक्स्ट टेम्पलेट टेम्प्लोस"
     },
     "MainNav": {
         "home": "घर"
@@ -36,8 +33,11 @@
         "signinPrompt": "क़ि आपने पहले से ही एक अकाउंट है?",
         "signinLink": "लॉगिन करें"
     },
-    "SiteHeader": {
+    "Header": {
         "login": "लॉगिन करें",
         "logout": "लॉगआउट करें"
+    },
+    "Form": {
+        "generate": "उत्पन्न करें"
     }
 }

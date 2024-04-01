@@ -1,10 +1,8 @@
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { LoginLanguage } from "@/types/language";
+import { CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { DialogContent } from "@/components/ui/dialog";
+import { LoginLanguage } from "@/types/language";
+import { signIn } from "next-auth/react";
 
 export function Login({ language }: { language: LoginLanguage }) {
   return (
@@ -15,34 +13,9 @@ export function Login({ language }: { language: LoginLanguage }) {
       </CardHeader>
       <CardContent>
         <div className="grid gap-4">
-          <div className="grid gap-2">
-            <Label htmlFor="email">{language.emailLabel}</Label>
-            <Input id="email" type="email" placeholder={language.emailPlaceholder} required />
-          </div>
-          <div className="grid gap-2">
-            <div className="flex items-center">
-              <Label htmlFor="password">{language.passwordLabel}</Label>
-              <Link href="#" className="ml-auto inline-block text-sm underline">
-                {language.forgotPasswordLink}
-              </Link>
-            </div>
-            <Input id="password" type="password" required />
-          </div>
-          <Button type="submit" className="w-full">
-            {language.loginButton}
-          </Button>
-
-          <Button variant="outline" className="w-full">
+          <Button variant="outline" className="w-full" onClick={() => signIn("google")}>
             {language.googleLoginButton}
           </Button>
-        </div>
-        <div className="mt-4 text-center text-sm">
-          {language.signupPrompt}
-          {language.signupLink && (
-            <Link href="#" className="underline">
-              {language.signupLink}
-            </Link>
-          )}
         </div>
       </CardContent>
     </DialogContent>
