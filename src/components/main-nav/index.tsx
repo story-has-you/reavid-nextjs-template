@@ -1,6 +1,8 @@
+import * as React from "react";
 import Link from "next/link";
 
 import { siteConfig } from "@/config/site";
+import { cn } from "@/lib/utils";
 import { Icons } from "@/components/icons";
 import { MainNavLanguage } from "@/types/language";
 
@@ -15,7 +17,7 @@ export function MainNav({ language }: Props) {
         <Icons.logo className="h-6 w-6" />
         <span className="inline-block font-bold">{siteConfig.title}</span>
       </Link>
-      <Link href="/" className="flex items-center text-sm font-medium text-muted-foreground">
+      <Link href="/" className={cn("flex items-center text-sm font-medium text-muted-foreground")}>
         {language.home}
       </Link>
     </div>

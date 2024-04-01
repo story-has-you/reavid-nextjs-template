@@ -1,12 +1,4 @@
-import {
-  ChevronDownIcon,
-  EnvelopeOpenIcon,
-  GitHubLogoIcon,
-  GlobeIcon,
-  MoonIcon,
-  SunIcon,
-  TwitterLogoIcon,
-} from "@radix-ui/react-icons";
+import { ChevronDownIcon, GitHubLogoIcon, GlobeIcon, MoonIcon, SunIcon, TwitterLogoIcon } from "@radix-ui/react-icons";
 import { type IconProps } from "@radix-ui/react-icons/dist/types";
 
 export const Icons = {
@@ -48,5 +40,4 @@ export const Icons = {
       ></path>
     </svg>
   ),
-  email: EnvelopeOpenIcon,
 };

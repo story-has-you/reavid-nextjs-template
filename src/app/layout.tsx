@@ -1,10 +1,10 @@
-import { ThemeProvider } from "@/components/theme-provider";
 import { buildMetadata, buildViewport, siteConfig } from "@/config/site";
-import { fontSans } from "@/lib/fonts";
-import { cn } from "@/lib/utils";
 import "@/styles/globals.css";
-import { LayoutProps } from "@/types/layout";
+import { fontSans } from "@/lib/fonts";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import { cn } from "@/lib/utils";
+import { LayoutProps } from "@/types/layout";
+import { ThemeProvider } from "@/components/theme-provider";
 
 export const metadata = buildMetadata();
 export const viewport = buildViewport();
