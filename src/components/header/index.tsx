@@ -65,11 +65,6 @@ export function Header({ languages, user }: HeaderProps) {
         <MainNav language={mainNav} />
         <div className="flex flex-1 items-center justify-end space-x-4">
           <nav className="flex items-center space-x-3">
-            {/* <Dialog>
-              <DialogTrigger className="border-b-2 hover:border-black w-18">{l.signUp}</DialogTrigger>
-              <Signup />
-            </Dialog> */}
-
             <Link href={siteConfig.links.github} target="_blank" rel="noreferrer">
               <div
                 className={buttonVariants({

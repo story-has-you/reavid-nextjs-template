@@ -11,4 +11,11 @@ export interface SiteConfig {
   };
   keywords?: string[];
   creator?: string;
+  products?: Product[];
+}
+
+export interface Product {
+  name: string;
+  description: string;
+  url: string;
 }

@@ -1,30 +1,38 @@
 import { siteConfig } from "@/config/site";
+import Image from "next/image";
+import Link from "next/link";
 
 export function Footer() {
   return (
-    <footer className="py-6 md:px-8 md:py-0">
-      <div className="container flex flex-col items-center justify-between gap-4 md:h-24 md:flex-row">
-        <p className="text-balance text-center text-sm leading-loose text-muted-foreground md:text-left">
-          Built by{" "}
-          <a
-            href={siteConfig.links.twitter}
-            target="_blank"
-            rel="noreferrer"
-            className="font-medium underline underline-offset-4"
-          >
-            shadcn
-          </a>
-          . The source code is available on{" "}
-          <a
-            href={siteConfig.links.github}
-            target="_blank"
-            rel="noreferrer"
-            className="font-medium underline underline-offset-4"
-          >
-            GitHub
-          </a>
-          .
-        </p>
+    <footer className="bg-black text-white p-10">
+      <div className="flex flex-col md:flex-row justify-between items-center space-y-5 md:space-y-0">
+        {/* Logo and description */}
+        <div className="flex flex-col items-start">
+          <div className="mb-4">
+            <Image src="/favicon.ico" alt="Logo" width={12} height={12} />
+          </div>
+          <p className="max-w-xs text-gray-400">
+            Celebrate the joy of accomplishment with an app designed to track your progress, motivate your efforts, and
+            celebrate your successes.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div>
+            <h5 className="font-bold mb-2">Product</h5>
+            <ul>
+              {siteConfig.products?.map((product) => {
+                return (
+                  <li key={product.name}>
+                    <Link href={product.url} target="_blank" className="hover:underline opacity-50">
+                      {product.name}
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        </div>
       </div>
     </footer>
   );

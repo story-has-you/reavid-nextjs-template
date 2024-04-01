@@ -1,5 +1,5 @@
 import { SiteConfig } from "@/types/site-config";
-import { type Viewport, type Metadata } from "next";
+import { type Metadata, type Viewport } from "next";
 
 export const siteConfig: SiteConfig = {
   title: "Re-NextJS-Template",
@@ -14,6 +14,33 @@ export const siteConfig: SiteConfig = {
   },
   keywords: ["Next.js", "Radix UI", "Tailwind CSS", "Shadcn UI"],
   creator: "ReAvid",
+  products: [
+    {
+      name: "Re NextJS Template",
+      description: "Re-NextJS-Template",
+      url: "https://github.com/story-has-you/re-nextjs-template",
+    },
+    {
+      name: "Blog",
+      description: "Blog",
+      url: "https://story-has-you.github.io/",
+    },
+    {
+      name: "Debat Competitions",
+      description: "ai debatcompetitions",
+      url: "https://debatcompetitions.com/",
+    },
+    {
+      name: "Summaries Books",
+      description: "ai summariesbooks",
+      url: "https://summariesbooks.com/",
+    },
+    {
+      name: "Programming Tutorials",
+      description: "programmingtutorials",
+      url: "https://programmingtutorials.top/",
+    },
+  ],
 };
 
 export const buildMetadata = (): Metadata => {

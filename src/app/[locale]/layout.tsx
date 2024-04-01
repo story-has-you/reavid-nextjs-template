@@ -15,12 +15,16 @@ export default async function PageLayout({ children }: LayoutProps) {
     <div>
       <div className="relative flex min-h-screen flex-col">
         <div className="mx-auto w-full">
-          <div className="mx-auto flex flex-col items-center gap-20">
+          <div className="mx-auto flex flex-col w-full items-center gap-20">
             <Header languages={languages} user={user} />
             {children}
-            <FAQ />
-            <Pricing />
-            <Footer />
+            <div className="flex flex-col w-2/3 gap-40">
+              <FAQ />
+              <Pricing />
+            </div>
+            <div className="w-full">
+              <Footer />
+            </div>
           </div>
         </div>
       </div>
