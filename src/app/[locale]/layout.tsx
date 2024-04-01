@@ -6,6 +6,7 @@ import { localeConfig } from "@/config/locale";
 import { getServerUser } from "@/lib/utils";
 import { Footer } from "@/components/footer";
 import { FAQ } from "@/components/faq";
+import { Pricing } from "@/components/pricing";
 
 export default async function PageLayout({ children }: LayoutProps) {
   const languages = await localeConfig.buildLanguages();
@@ -18,6 +19,7 @@ export default async function PageLayout({ children }: LayoutProps) {
             <Header languages={languages} user={user} />
             {children}
             <FAQ />
+            <Pricing />
             <Footer />
           </div>
         </div>
