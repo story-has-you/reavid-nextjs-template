@@ -51,6 +51,10 @@ export interface FormLanguage {
   generate: string;
 }
 
+export interface FAQLanguage {
+  title: string;
+}
+
 export interface Languages {
   homePage: HomePageLanguage;
   mainNav: MainNavLanguage;
@@ -58,4 +62,5 @@ export interface Languages {
   login: LoginLanguage;
   header: HeaderLanguage;
   form: FormLanguage;
+  faq: FAQLanguage;
 }

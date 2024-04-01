@@ -7,6 +7,7 @@ import {
   SignupLanguage,
   Languages,
   FormLanguage,
+  FAQLanguage,
 } from "@/types/language";
 import { getTranslations } from "next-intl/server";
 
@@ -15,62 +16,62 @@ class LocaleConfig {
     {
       code: "en-US",
       lang: "en",
-      language: "🇺🇸 English",
+      language: "English",
     },
     {
       code: "zh-CN",
       lang: "zh",
-      language: "🇨🇳 简体中文",
+      language: "简体中文",
     },
     {
       code: "es-ES",
       lang: "es",
-      language: "🇪🇸 Español (España)",
+      language: "Español (España)",
     },
     {
       code: "fr-FR",
       lang: "fr",
-      language: "🇫🇷 Français",
+      language: "Français",
     },
     {
       code: "de-DE",
       lang: "de",
-      language: "🇩🇪 Deutsch",
+      language: "Deutsch",
     },
     {
       code: "ja-JP",
       lang: "ja",
-      language: "🇯🇵 日本語",
+      language: "日本語",
     },
     {
       code: "pt-BR",
       lang: "pt",
-      language: "🇧🇷 Português (Brasil)",
+      language: "Português (Brasil)",
     },
     {
       code: "ru-RU",
       lang: "ru",
-      language: "🇷🇺 Русский",
+      language: "Русский",
     },
     {
       code: "ar-SA",
       lang: "ar",
-      language: "🇸🇦 العربية (السعودية)",
+      language: "العربية (السعودية)",
     },
     {
       code: "it-IT",
       lang: "it",
-      language: "🇮🇹 Italiano",
+      language: "Italiano",
     },
     {
       code: "ko-KR",
       lang: "ko",
-      language: "🇰🇷 한국어",
+      language: "한국어",
     },
     {
       code: "hi-IN",
       lang: "hi",
-      language: "🇮🇳 हिन्दी",
+      language: "हिन्दी",
     },
   ];
 
@@ -79,13 +80,14 @@ class LocaleConfig {
   public static defaultLocale = "en";
 
   public buildLanguages = async (): Promise<Languages> => {
-    const [homePage, mainNav, signUp, header, login, form] = await Promise.all([
+    const [homePage, mainNav, signUp, header, login, form, faq] = await Promise.all([
       this.buildHomePageLanguage(),
       this.buildMainNavLanguage(),
       this.buildSignUpLanguage(),
       this.buildHeaderLanguage(),
       this.buildLoginLanguage(),
       this.buildFormLanguage(),
+      this.buildFAQLanguage(),
     ]);
 
     return {
@@ -95,6 +97,7 @@ class LocaleConfig {
       header,
       login,
       form,
+      faq,
     };
   };
 
@@ -159,6 +162,13 @@ class LocaleConfig {
     const t = await getTranslations("Form");
     return {
       generate: t("generate"),
+    };
+  };
+
+  private buildFAQLanguage = async (): Promise<FAQLanguage> => {
+    const t = await getTranslations("FAQ");
+    return {
+      title: t("title"),
     };
   };
 }

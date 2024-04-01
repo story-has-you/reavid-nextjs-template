@@ -45,9 +45,6 @@ export function Form({ language, loginLanguage }: { language: FormLanguage; logi
           </div>
         )}
         <div className="col-span-full mb-4">
-          <label htmlFor="prompt" className="block text-sm font-medium leading-6 ">
-            prompt
-          </label>
           <div className="mt-2">
             <textarea
               id="prompt"

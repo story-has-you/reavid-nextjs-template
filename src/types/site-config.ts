@@ -7,7 +7,7 @@ export interface SiteConfig {
   links: {
     twitter: string;
     github: string;
-    docs: string;
+    bento: string;
   };
   keywords?: string[];
   creator?: string;
