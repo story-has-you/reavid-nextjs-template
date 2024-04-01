@@ -1,7 +1,6 @@
 {
   "name": "re-nextjs-template",
-  "version": "0.1.1",
-  "description": "Personalized nextjs project starter template",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -11,19 +10,30 @@
   },
   "dependencies": {
     "@auth/prisma-adapter": "^1.5.1",
+    "@hookform/resolvers": "^3.3.4",
     "@next/third-parties": "^14.1.4",
     "@prisma/client": "^5.11.0",
+    "@radix-ui/react-accordion": "^1.1.2",
+    "@radix-ui/react-avatar": "^1.0.4",
+    "@radix-ui/react-dialog": "^1.0.5",
+    "@radix-ui/react-dropdown-menu": "^2.0.6",
     "@radix-ui/react-icons": "^1.3.0",
+    "@radix-ui/react-label": "^2.0.2",
+    "@radix-ui/react-separator": "^1.0.3",
+    "@radix-ui/react-slot": "^1.0.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
-    "daisyui": "^4.9.0",
     "nanoid": "^5.0.6",
     "next": "14.1.4",
     "next-auth": "^4.24.7",
     "next-intl": "^3.10.0",
+    "next-themes": "^0.3.0",
     "react": "^18",
     "react-dom": "^18",
-    "tailwindcss-animate": "^1.0.7"
+    "react-hook-form": "^7.51.2",
+    "tailwind-merge": "^2.2.2",
+    "tailwindcss-animate": "^1.0.7",
+    "zod": "^3.22.4"
   },
   "devDependencies": {
     "@types/eslint": "^8.56.6",

@@ -1,6 +1,14 @@
 "use client";
 
 import { Icons } from "@/components/icons";
+import { Button } from "@/components/ui/button";
+import {
+  DropdownMenuTrigger,
+  DropdownMenuItem,
+  DropdownMenuGroup,
+  DropdownMenuContent,
+  DropdownMenu,
+} from "@/components/ui/dropdown-menu";
 import { defaultLocale, languages } from "@/config/locale";
 import { useParams, useRouter } from "next/navigation";
 
@@ -13,22 +21,25 @@ export function ChooseLanguage() {
   }
 
   return (
-    <div className="dropdown dropdown-end">
-      <div tabIndex={0} role="button" className="btn btn-ghost btn-sm m-1">
-        <button className="flex items-center space-x-2">
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button className="flex items-center space-x-2" variant="outline">
+          <Icons.globe className="w-4 h-4 mr-1" />
           {langName}
           <Icons.chevronDown className="w-4 h-4" />
-        </button>
-      </div>
-      <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 text-black rounded-box w-52">
-        {languages.map((item, index) => {
-          return (
-            <li key={index}>
-              <button onClick={() => router.push(item.lang)}>{item.language}</button>
-            </li>
-          );
-        })}
-      </ul>
-    </div>
+        </Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent>
+        <DropdownMenuGroup>
+          {languages.map((item, index) => {
+            return (
+              <DropdownMenuItem onSelect={() => router.push(item.lang)} key={index}>
+                {item.language}
+              </DropdownMenuItem>
+            );
+          })}
+        </DropdownMenuGroup>
+      </DropdownMenuContent>
+    </DropdownMenu>
   );
 }

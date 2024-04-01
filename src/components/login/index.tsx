@@ -1,27 +1,23 @@
-import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { DialogContent } from "@/components/ui/dialog";
 import { LoginLanguage } from "@/types/language";
-import { Auth } from "@/components/auth";
+import { signIn } from "next-auth/react";
 
 export function Login({ language }: { language: LoginLanguage }) {
   return (
-    <div className="w-full flex justify-center">
-      <div className="modal-box">
-        <h3 className="font-bold text-lg mb-5 text-black">{language.cardTitle}</h3>
+    <DialogContent>
+      <CardHeader>
+        <CardTitle className="text-2xl">{language.cardTitle}</CardTitle>
+        <CardDescription>{language.cardDescription}</CardDescription>
+      </CardHeader>
+      <CardContent>
         <div className="grid gap-4">
-          <Auth />
+          <Button variant="outline" className="w-full" onClick={() => signIn("google")}>
+            {language.googleLoginButton}
+          </Button>
         </div>
-        <div className="mt-4 text-center text-sm">
-          {language.signupPrompt}
-          {language.signupLink && (
-            <Link href="#" className="underline">
-              {language.signupLink}
-            </Link>
-          )}
-        </div>
-      </div>
-      <form method="dialog" className="modal-backdrop">
-        <button>close</button>
-      </form>
-    </div>
+      </CardContent>
+    </DialogContent>
   );
 }

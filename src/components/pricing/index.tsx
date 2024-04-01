@@ -1,3 +1,5 @@
+import { Button } from "@/components/ui/button";
+
 export function Pricing() {
   return (
     <div className="bg-white p-4 rounded-lg justify-center flex w-full">
@@ -5,10 +7,10 @@ export function Pricing() {
         {/* Free Plan */}
         <div className="flex flex-col justify-end items-start p-6 border rounded-lg shadow-lg gap-8 w-full">
           <h2 className="text-lg font-semibold opacity-50">Free</h2>
-          <p className="text-4xl font-bold">
+          <p className="text-5xl font-bold">
             $0<span className="text-sm opacity-50">/month</span>
           </p>
-          <button className="btn btn-neutral btn-block">Get started for free</button>
+          <Button className="w-full">Get started for free</Button>
           <ul className="mt-4 space-y-2 text-start">
             <li>Up to 5 project members</li>
             <li>Unlimited tasks and projects</li>
@@ -24,10 +26,10 @@ export function Pricing() {
             <h2 className="text-lg font-semibold opacity-50">Pro</h2>
             <div className="badge badge-primary badge-outline mr-10">Most popular</div>
           </div>
-          <p className="text-4xl font-bold">
+          <p className="text-5xl font-bold">
             $9<span className="text-sm">/month</span>
           </p>
-          <button className="btn bg-white btn-block">Sign up now</button>
+          <Button className="w-full bg-white text-black">Sign up now</Button>
           <ul className="mt-4 space-y-2 text-start">
             <li>Up to 50 project members</li>
             <li>Unlimited tasks and projects</li>
@@ -42,10 +44,10 @@ export function Pricing() {
         {/* Business Plan */}
         <div className="flex flex-col justify-end items-start p-6 border rounded-lg shadow-lg gap-8 w-full">
           <h2 className="text-lg font-semibold opacity-50">Business</h2>
-          <p className="text-4xl font-bold">
+          <p className="text-5xl font-bold">
             $19<span className="text-sm">/month</span>
           </p>
-          <button className="btn btn-neutral btn-block">Sign up now</button>
+          <Button className="w-full">Sign up now</Button>
           <ul className="mt-4 space-y-2 text-start">
             <li>Unlimited project members</li>
             <li>Unlimited tasks and projects</li>
