@@ -83,10 +83,10 @@ model Authenticator {
 }
 
 model MemberLevel {
-  id          String  @id @default(cuid())
-  level       Int
-  month_price Decimal
-  year_price  Decimal
+  id         String  @id @default(cuid())
+  level      Int
+  monthPrice Decimal @map("month_price")
+  yearPrice  Decimal @map("year_price")
 
   @@map("member_level")
 }

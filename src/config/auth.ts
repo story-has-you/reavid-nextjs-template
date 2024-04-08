@@ -1,9 +1,9 @@
-import { getServerSession, type DefaultSession, type NextAuthOptions } from "next-auth";
-import GoogleProvider from "next-auth/providers/google";
-import GitHubProvider from "next-auth/providers/github";
-import { PrismaAdapter } from "@auth/prisma-adapter";
 import { prisma } from "@/config/prisma";
+import { PrismaAdapter } from "@auth/prisma-adapter";
+import { getServerSession, type DefaultSession, type NextAuthOptions } from "next-auth";
 import { type Adapter } from "next-auth/adapters";
+import GitHubProvider from "next-auth/providers/github";
+import GoogleProvider from "next-auth/providers/google";
 import { getSession } from "next-auth/react";
 
 /**
@@ -45,16 +45,16 @@ export const authOptions: NextAuthOptions = {
       ...session,
       user: {
         ...session.user,
-        id: token.sub,
-        // id: user.id,
+        // id: token.sub,
+        id: user.id,
       },
     }),
   },
   session: {
-    // strategy: "database",
-    strategy: "jwt",
+    strategy: "database",
+    // strategy: "jwt",
   },
-  // adapter: PrismaAdapter(db) as Adapter,
+  adapter: PrismaAdapter(prisma) as Adapter,
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID!,
@@ -77,7 +77,10 @@ export const authOptions: NextAuthOptions = {
  *
  * @see https://next-auth.js.org/configuration/nextjs
  */
-export const getServerAuthSession = () => getServerSession(authOptions);
+export const getServerAuthSession = async () => {
+  const session = await getServerSession(authOptions);
+  return session?.user ?? null;
+};
 
 export const getClientAuthUser = async () => {
   const session = await getSession();
