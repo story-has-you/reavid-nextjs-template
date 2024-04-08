@@ -1,37 +1,65 @@
 import { siteConfig } from "@/config/site";
-import Image from "next/image";
 import Link from "next/link";
+import React from "react";
+
+const FooterLinks = () => {
+  const links = siteConfig.links;
+  return (
+    <div className="mx-auto flex flex-row items-center pb-2">
+      {links.map((link) => (
+        <Link
+          key={link.name}
+          href={link.href}
+          target="_blank"
+          rel="noopener noreferrer nofollow"
+          className="mx-3 flex max-w-[24px] flex-col items-center justify-center"
+        >
+          {link.icon && React.createElement(link.icon, { className: "text-lg" })}
+        </Link>
+      ))}
+    </div>
+  );
+};
+
+const FooterProducts = () => {
+  const products = siteConfig.products;
+  return (
+    <div className="flex space-x-2 flex-wrap justify-center">
+      {products?.map((product, index) => {
+        return (
+          <span key={product.href}>
+            <Link href={product.href} target="_blank">
+              {product.name}
+            </Link>
+            {index !== products.length - 1 ? (
+              <>
+                <span>{" • "}</span>
+              </>
+            ) : (
+              <></>
+            )}
+          </span>
+        );
+      })}
+    </div>
+  );
+};
 
 export function Footer() {
+  const d = new Date();
+  const currentYear = d.getFullYear();
+  const author = siteConfig.author;
   return (
-    <footer className="bg-black text-white p-10">
-      <div className="flex flex-col md:flex-row justify-between items-center space-y-5 md:space-y-0">
-        {/* Logo and description */}
-        <div className="flex flex-col items-start">
-          <div className="mb-4">
-            <Image src="/favicon.ico" alt="Logo" width={12} height={12} />
-          </div>
-          <p className="max-w-xs text-gray-400">
-            Celebrate the joy of accomplishment with an app designed to track your progress, motivate your efforts, and
-            celebrate your successes.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <div>
-            <h5 className="font-bold mb-2">Product</h5>
-            <ul>
-              {siteConfig.products?.map((product) => {
-                return (
-                  <li key={product.name}>
-                    <Link href={product.url} target="_blank" className="hover:underline opacity-50">
-                      {product.name}
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
+    <footer>
+      <div className="mt-16 space-y-2 pt-6 pb-4 flex flex-col items-center bg-black text-sm text-gray-400 border-t">
+        <FooterLinks />
+        <FooterProducts />
+        <div className="flex space-x-2">
+          <div>{`©${currentYear}`}</div>{" "}
+          <Link href={author.twitter || author.github} target="_blank">
+            {author.name}
+          </Link>{" "}
+          <div>All rights reserved.</div>
         </div>
       </div>
     </footer>

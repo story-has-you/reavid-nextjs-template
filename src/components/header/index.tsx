@@ -65,7 +65,7 @@ export function Header({ languages, user }: HeaderProps) {
         <MainNav language={mainNav} />
         <div className="flex flex-1 items-center justify-end space-x-4">
           <nav className="flex items-center space-x-3">
-            <Link href={siteConfig.links.github} target="_blank" rel="noreferrer">
+            <Link href={siteConfig.author.github} target="_blank" rel="noreferrer">
               <div
                 className={buttonVariants({
                   size: "icon",
@@ -76,7 +76,7 @@ export function Header({ languages, user }: HeaderProps) {
                 <span className="sr-only">GitHub</span>
               </div>
             </Link>
-            <Link href={siteConfig.links.twitter} target="_blank" rel="noreferrer">
+            <Link href={siteConfig.author.twitter} target="_blank" rel="noreferrer">
               <div
                 className={buttonVariants({
                   size: "icon",

@@ -1,3 +1,4 @@
+import { Icons } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import { CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { DialogContent } from "@/components/ui/dialog";
@@ -14,7 +15,7 @@ export function Login({ language }: { language: LoginLanguage }) {
       <CardContent>
         <div className="grid gap-4">
           <Button variant="outline" className="w-full" onClick={() => signIn("google")}>
-            {language.googleLoginButton}
+            <Icons.google className="w-4 h-4 mr-2" /> {language.googleLoginButton}
           </Button>
         </div>
       </CardContent>

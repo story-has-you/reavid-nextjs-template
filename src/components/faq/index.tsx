@@ -1,41 +1,52 @@
+import { Fonts } from "@/components/fonts";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { localeConfig } from "@/config/locale";
+
+const faqs = [
+  {
+    question: "What payment methods do you accept?",
+    answer: `We accept all major credit cards, PayPal, and various other payment methods depending on your location.
+    Please contact our support team for more information on accepted payment methods in your region.`,
+  },
+  {
+    question: "How does the pricing work for teams?",
+    answer: ` Our pricing is per user, per month. This means you only pay for the number of team members you have on
+    your account. Discounts are available for larger teams and annual subscriptions.`,
+  },
+  {
+    question: "Can I change my plan later?",
+    answer: `Yes, you can upgrade or downgrade your plan at any time. Changes to your plan will be prorated and
+    reflected in your next billing cycle.`,
+  },
+  {
+    question: "Is my data secure?",
+    answer: `Security is our top priority. We use state-of-the-art encryption and comply with the best industry
+    practices to ensure that your data is stored securely and accessed only by authorized users.`,
+  },
+];
 
 export async function FAQ() {
   const { faq } = await localeConfig.buildLanguages();
   return (
     <div>
-      <h2 className="text-3xl text-center">{faq.title}</h2>
+      <div className="flex flex-col gap-10">
+        <Fonts.h2>{faq.title}</Fonts.h2>
+        <Fonts.bodyLarge className="opacity-50">Here are some of the most frequently asked questions.</Fonts.bodyLarge>
+      </div>
       <div>
         <Accordion type="single" collapsible>
-          <AccordionItem value="item-1">
-            <AccordionTrigger className="text-xl">What payment methods do you accept?</AccordionTrigger>
-            <AccordionContent className="text-lg">
-              We accept all major credit cards, PayPal, and various other payment methods depending on your location.
-              Please contact our support team for more information on accepted payment methods in your region.
-            </AccordionContent>
-          </AccordionItem>
-          <AccordionItem value="item-2">
-            <AccordionTrigger className="text-xl">How does the pricing work for teams?</AccordionTrigger>
-            <AccordionContent className="text-lg">
-              Our pricing is per user, per month. This means you only pay for the number of team members you have on
-              your account. Discounts are available for larger teams and annual subscriptions.
-            </AccordionContent>
-          </AccordionItem>
-          <AccordionItem value="item-3">
-            <AccordionTrigger className="text-xl">Can I change my plan later?</AccordionTrigger>
-            <AccordionContent className="text-lg">
-              Yes, you can upgrade or downgrade your plan at any time. Changes to your plan will be prorated and
-              reflected in your next billing cycle.
-            </AccordionContent>
-          </AccordionItem>
-          <AccordionItem value="item-4">
-            <AccordionTrigger className="text-xl">Is my data secure?</AccordionTrigger>
-            <AccordionContent className="text-lg">
-              Security is our top priority. We use state-of-the-art encryption and comply with the best industry
-              practices to ensure that your data is stored securely and accessed only by authorized users.
-            </AccordionContent>
-          </AccordionItem>
+          {faqs.map((item, index) => (
+            <div key={index}>
+              <AccordionItem value={`${index}`}>
+                <AccordionTrigger>
+                  <Fonts.h5>{item.question}</Fonts.h5>
+                </AccordionTrigger>
+                <AccordionContent className="w-full">
+                  <Fonts.bodyMedium className="text-start opacity-80">{item.answer}</Fonts.bodyMedium>
+                </AccordionContent>
+              </AccordionItem>
+            </div>
+          ))}
         </Accordion>
       </div>
     </div>

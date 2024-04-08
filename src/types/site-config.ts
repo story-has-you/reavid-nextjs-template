@@ -1,21 +1,29 @@
+import { IconType } from "react-icons/lib";
+
 export interface SiteConfig {
   title: string;
   description: string;
   url: string;
   useGoogleAnalytics: boolean;
   useGoogleAdsense: boolean;
-  links: {
-    twitter: string;
-    github: string;
-    bento: string;
-  };
+  links: FooterLink[];
   keywords?: string[];
   creator?: string;
   products?: Product[];
+  author: {
+    name: string;
+    github: string;
+    twitter: string;
+  };
 }
 
 export interface Product {
   name: string;
-  description: string;
-  url: string;
+  href: string;
+}
+
+export interface FooterLink {
+  name: string;
+  href: string;
+  icon: IconType;
 }

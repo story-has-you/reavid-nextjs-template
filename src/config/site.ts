@@ -1,5 +1,8 @@
 import { SiteConfig } from "@/types/site-config";
 import { type Metadata, type Viewport } from "next";
+import { FaGithub, FaTwitter } from "react-icons/fa";
+import { IoMdMail } from "react-icons/io";
+import { SiJuejin } from "react-icons/si";
 
 export const siteConfig: SiteConfig = {
   title: "Re-NextJS-Template",
@@ -7,38 +10,38 @@ export const siteConfig: SiteConfig = {
   url: process.env.NEXT_PUBLIC_BASE_URL!,
   useGoogleAnalytics: false,
   useGoogleAdsense: false,
-  links: {
-    twitter: "https://twitter.com/re_avid",
-    github: "https://github.com/story-has-you/re-nextjs-template",
-    bento: "https://bento.me/reavid",
-  },
+  links: [
+    { name: "email", href: "mailto:fangxi.inori@gmail.com", icon: IoMdMail },
+    { name: "twitter", href: "https://twitter.com/reavid", icon: FaTwitter },
+    { name: "github", href: "https://github.com/story-has-you", icon: FaGithub },
+    { name: "juejin", href: "https://juejin.cn/user/817692381029800", icon: SiJuejin },
+  ],
   keywords: ["Next.js", "Radix UI", "Tailwind CSS", "Shadcn UI"],
-  creator: "ReAvid",
+  author: {
+    name: "ReAvid",
+    github: "https://github.com/story-has-you",
+    twitter: "https://twitter.com/reavid",
+  },
   products: [
     {
       name: "Re NextJS Template",
-      description: "Re-NextJS-Template",
-      url: "https://github.com/story-has-you/re-nextjs-template",
+      href: "https://github.com/story-has-you/re-nextjs-template",
     },
     {
       name: "Blog",
-      description: "Blog",
-      url: "https://story-has-you.github.io/",
+      href: "https://story-has-you.github.io/",
     },
     {
       name: "Debat Competitions",
-      description: "ai debatcompetitions",
-      url: "https://debatcompetitions.com/",
+      href: "https://debatcompetitions.com/",
     },
     {
       name: "Summaries Books",
-      description: "ai summariesbooks",
-      url: "https://summariesbooks.com/",
+      href: "https://summariesbooks.com/",
     },
     {
       name: "Programming Tutorials",
-      description: "programmingtutorials",
-      url: "https://programmingtutorials.top/",
+      href: "https://programmingtutorials.top/",
     },
   ],
 };
@@ -63,7 +66,7 @@ export const buildMetadata = (): Metadata => {
     authors: [
       {
         name: siteConfig.creator,
-        url: siteConfig.links.github,
+        url: siteConfig.author.github,
       },
     ],
     creator: siteConfig.creator,

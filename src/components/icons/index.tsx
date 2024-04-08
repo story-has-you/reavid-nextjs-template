@@ -1,14 +1,18 @@
-import { ChevronDownIcon, GitHubLogoIcon, GlobeIcon, MoonIcon, SunIcon, TwitterLogoIcon } from "@radix-ui/react-icons";
-import { type IconProps } from "@radix-ui/react-icons/dist/types";
+import { SVGProps } from "react";
+import { BsChevronDown, BsGlobe } from "react-icons/bs";
+import { FaGithub, FaTwitter } from "react-icons/fa";
+import { FaCheck } from "react-icons/fa6";
+import { FiMoon, FiSun } from "react-icons/fi";
 
 export const Icons = {
-  sun: SunIcon,
-  moon: MoonIcon,
-  globe: GlobeIcon,
-  twitter: TwitterLogoIcon,
-  gitHub: GitHubLogoIcon,
-  chevronDown: ChevronDownIcon,
-  logo: (props: IconProps) => (
+  sun: FiSun,
+  moon: FiMoon,
+  globe: BsGlobe,
+  twitter: FaTwitter,
+  gitHub: FaGithub,
+  chevronDown: BsChevronDown,
+  check: FaCheck,
+  logo: (props: SVGProps<SVGSVGElement>) => (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" {...props}>
       <path
         fill="currentColor"
@@ -16,7 +20,7 @@ export const Icons = {
       />
     </svg>
   ),
-  google: (props: IconProps) => (
+  google: (props: SVGProps<SVGSVGElement>) => (
     <svg viewBox="0 0 1024 1024" {...props} xmlns="http://www.w3.org/2000/svg" p-id="4258">
       <path
         d="M214.101333 512c0-32.512 5.546667-63.701333 15.36-92.928L57.173333 290.218667A491.861333 491.861333 0 0 0 4.693333 512c0 79.701333 18.858667 154.88 52.394667 221.610667l172.202667-129.066667A290.56 290.56 0 0 1 214.101333 512"
