@@ -1,10 +1,9 @@
-import * as React from "react";
 import Link from "next/link";
 
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
-import { Icons } from "@/components/icons";
 import { MainNavLanguage } from "@/types/language";
+import Image from "next/image";
 
 interface Props {
   language: MainNavLanguage;
@@ -14,7 +13,7 @@ export function MainNav({ language }: Props) {
   return (
     <div className="flex gap-6 md:gap-10">
       <Link href="/" className="flex items-center space-x-2">
-        <Icons.logo className="h-6 w-6" />
+        <Image src={"/icon.svg"} height={32} width={32} alt="ReAvid" />
         <span className="inline-block font-bold">{siteConfig.title}</span>
       </Link>
       <Link href="/" className={cn("flex items-center text-sm font-medium text-muted-foreground")}>
