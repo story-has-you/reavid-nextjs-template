@@ -1,7 +1,7 @@
 import { Fonts } from "@/components/fonts";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { localeConfig } from "@/config/locale";
 import { faqs } from "@/config/site";
+import { localeConfig } from "@/server/locale";
 
 export async function FAQ() {
   const { faq } = await localeConfig.buildLanguages();

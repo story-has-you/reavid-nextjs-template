@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Dialog } from "@/components/ui/dialog";
 import { Form, FormControl, FormField, FormItem, FormLabel } from "@/components/ui/form";
 import { Textarea } from "@/components/ui/textarea";
-import { getClientAuthUser } from "@/config/auth";
+import { getClientAuthUser } from "@/server/auth";
 import { FormLanguage, LoginLanguage } from "@/types/language";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { User } from "next-auth";
