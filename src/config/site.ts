@@ -5,7 +5,7 @@ import { IoMdMail } from "react-icons/io";
 import { SiJuejin } from "react-icons/si";
 
 export const siteConfig: SiteConfig = {
-  title: "Re-NextJS-Template",
+  title: "reavid-nextjs-template",
   description: "",
   url: process.env.NEXT_PUBLIC_BASE_URL!,
   useGoogleAnalytics: false,
@@ -25,7 +25,7 @@ export const siteConfig: SiteConfig = {
   products: [
     {
       name: "Re NextJS Template",
-      href: "https://github.com/story-has-you/re-nextjs-template",
+      href: "https://github.com/story-has-you/reavid-nextjs-template",
     },
     {
       name: "Blog",

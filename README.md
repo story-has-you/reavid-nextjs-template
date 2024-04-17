@@ -1,4 +1,4 @@
-# re-nextjs-template
+# reavid-nextjs-template
 
 Personalized nextjs project starter template
 
@@ -10,6 +10,10 @@ features
 - [x] Google Adsense
 - [x] Google Analytics
 - [x] shadcnui
+
+## Deploy to Vercel
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fstory-has-you%2Freavid-nextjs-template&project-name=reavid-nextjs-template&repository-name=reavid-nextjs-template)
 
 ## 环境变量
 
