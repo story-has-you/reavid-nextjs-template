@@ -7,7 +7,7 @@ export async function FAQ() {
   const { faq } = await localeConfig.buildLanguages();
   return (
     <div>
-      <div className="flex flex-col gap-10">
+      <div className="flex flex-col gap-10 items-center justify-center">
         <Fonts.h2>{faq.title}</Fonts.h2>
         <Fonts.bodyLarge className="opacity-50">Here are some of the most frequently asked questions.</Fonts.bodyLarge>
       </div>

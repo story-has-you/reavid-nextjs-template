@@ -15,7 +15,7 @@ export default async function HomePage() {
       </div>
 
       <PromptForm language={form} loginLanguage={login} />
-      <div className="mt-20 flex flex-col gap-32 w-full">
+      <div className="mt-20 flex flex-col gap-32 w-2/3">
         <Pricing />
         <FAQ />
       </div>
