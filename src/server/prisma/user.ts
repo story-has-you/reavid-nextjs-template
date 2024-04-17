@@ -1,5 +1,3 @@
-import "server-only";
-
 import { prisma } from "@/server/prisma";
 import type { User } from "@prisma/client";
 
