@@ -1,14 +1,4 @@
-import {
-  Language,
-  LoginLanguage,
-  HeaderLanguage,
-  MainNavLanguage,
-  HomePageLanguage,
-  SignupLanguage,
-  Languages,
-  FormLanguage,
-  FAQLanguage,
-} from "@/types/language";
+import { FAQLanguage, FormLanguage, HeaderLanguage, HomePageLanguage, Language, Languages, LoginLanguage, MainNavLanguage, SignupLanguage } from "@/types/language";
 import { getTranslations } from "next-intl/server";
 
 class LocaleConfig {
@@ -153,6 +143,7 @@ class LocaleConfig {
       forgotPasswordLink: t("forgotPasswordLink"),
       loginButton: t("loginButton"),
       googleLoginButton: t("googleLoginButton"),
+      githubLoginButton: t("githubLoginButton"),
       signupPrompt: t("signupPrompt"),
       signupLink: t("signupLink"),
     };

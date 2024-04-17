@@ -38,6 +38,7 @@ export interface LoginLanguage {
   forgotPasswordLink: string;
   loginButton: string;
   googleLoginButton: string;
+  githubLoginButton: string;
   signupPrompt: string;
   signupLink: string;
 }

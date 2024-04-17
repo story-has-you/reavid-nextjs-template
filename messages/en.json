@@ -15,6 +15,7 @@
         "forgotPasswordLink": "Forgot your password?",
         "loginButton": "Login",
         "googleLoginButton": "Login with Google",
+        "githubLoginButton": "Login with Github",
         "signupPrompt": "Don't have an account?",
         "signupLink": "Sign up"
     },

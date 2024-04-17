@@ -15,7 +15,12 @@ export function Login({ language }: { language: LoginLanguage }) {
       <CardContent>
         <div className="grid gap-4">
           <Button variant="outline" className="w-full" onClick={() => signIn("google")}>
-            <Icons.google className="w-4 h-4 mr-2" /> {language.googleLoginButton}
+            <Icons.google className="w-4 h-4 mr-2" />
+            {language.googleLoginButton}
+          </Button>
+          <Button variant="outline" className="w-full" onClick={() => signIn("github")}>
+            <Icons.gitHub className="w-4 h-4 mr-2" />
+            {language.githubLoginButton}
           </Button>
         </div>
       </CardContent>

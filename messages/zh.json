@@ -15,6 +15,7 @@
         "forgotPasswordLink": "忘记密码？",
         "loginButton": "登录",
         "googleLoginButton": "使用Google登录",
+        "githubLoginButton": "使用Github登录",
         "signupPrompt": "还没有账户？",
         "signupLink": "注册"
     },
