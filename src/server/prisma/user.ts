@@ -1,4 +1,6 @@
-import { prisma } from "@/config/prisma";
+import "server-only";
+
+import { prisma } from "@/server/prisma";
 import type { User } from "@prisma/client";
 
 export const selectByUserId = async (userId: string): Promise<User | null> => {

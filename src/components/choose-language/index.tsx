@@ -3,13 +3,13 @@
 import { Icons } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import {
-  DropdownMenuTrigger,
-  DropdownMenuItem,
-  DropdownMenuGroup,
-  DropdownMenuContent,
   DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { defaultLocale, languages } from "@/config/locale";
+import { defaultLocale, languages } from "@/server/locale";
 import { useParams, useRouter } from "next/navigation";
 
 export function ChooseLanguage() {

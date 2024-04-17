@@ -2,45 +2,7 @@ import { Fonts } from "@/components/fonts";
 import { Icons } from "@/components/icons";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-
-const free = {
-  price: "$0",
-  features: [
-    "Up to 50 project members",
-    "Unlimited tasks and projects",
-    "50 GB storage",
-    "Integrations",
-    "Priority support",
-  ],
-};
-const pro = {
-  price: "$15",
-  features: [
-    "Up to 50 project members",
-    "Unlimited tasks and projects",
-    "50 GB storage",
-    "Integrations",
-    "Priority support",
-    "Advanced analytics",
-    "Export capabilities",
-  ],
-};
-
-const business = {
-  price: "$25",
-  features: [
-    "Unlimited project members",
-    "Unlimited tasks and projects",
-    "500 GB storage",
-    "Integrations",
-    "Dedicated account manager",
-    "Custom fields",
-    "Advanced analytics",
-    "Export capabilities",
-    "API access",
-    "Advanced security features",
-  ],
-};
+import { pricing } from "@/config/site";
 
 export function Pricing() {
   return (
@@ -56,12 +18,12 @@ export function Pricing() {
         <div className="flex flex-col justify-end items-start p-6 border rounded-lg shadow-lg gap-8 w-1/3">
           <h2 className="text-lg font-semibold opacity-50">Free</h2>
           <p className="text-5xl font-bold">
-            {free.price}
+            {pricing.free.price}
             <span className="text-sm opacity-50">/month</span>
           </p>
           <Button className="w-full">Get started for free</Button>
           <ul className="mt-5 space-y-5 text-start">
-            {free.features.map((feature) => (
+            {pricing.free.features.map((feature) => (
               <li key={feature} className="flex flex-row justify-start items-center">
                 <Icons.check className="text-green-500 mr-2" />
                 {feature}
@@ -79,14 +41,14 @@ export function Pricing() {
             </Badge>
           </div>
           <p className="text-5xl font-bold">
-            {pro.price}
+            {pricing.pro.price}
             <span className="text-sm">/month</span>
           </p>
           <Button variant="outline" className="w-full bg-white text-black dark:bg-black dark:text-white">
             Sign up now
           </Button>
           <ul className="mt-5 space-y-5 text-start">
-            {pro.features.map((feature) => (
+            {pricing.pro.features.map((feature) => (
               <li key={feature} className="flex flex-row justify-start items-center">
                 <Icons.check className="text-green-500 mr-2" />
                 {feature}
@@ -99,12 +61,12 @@ export function Pricing() {
         <div className="flex flex-col justify-end items-start p-6 border rounded-lg shadow-lg gap-8 w-1/3">
           <h2 className="text-lg font-semibold opacity-50">Business</h2>
           <p className="text-5xl font-bold">
-            {business.price}
+            {pricing.business.price}
             <span className="text-sm">/month</span>
           </p>
           <Button className="w-full">Sign up now</Button>
           <ul className="mt-5 space-y-5 text-start">
-            {business.features.map((feature) => (
+            {pricing.business.features.map((feature) => (
               <li key={feature} className="flex flex-row justify-start items-center">
                 <Icons.check className="text-green-500 mr-2" />
                 {feature}

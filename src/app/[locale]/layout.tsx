@@ -1,12 +1,10 @@
-import { LayoutProps } from "@/types/layout";
-
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 import { TailwindIndicator } from "@/components/tailwind-indicator";
-import { localeConfig } from "@/config/locale";
 import { getServerUser } from "@/lib/utils";
+import { localeConfig } from "@/server/locale";
 
-export default async function PageLayout({ children }: LayoutProps) {
+export default async function PageLayout({ children }: { children: React.ReactNode }) {
   const languages = await localeConfig.buildLanguages();
   const user = await getServerUser();
   return (

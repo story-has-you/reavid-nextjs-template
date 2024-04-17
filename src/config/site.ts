@@ -55,9 +55,7 @@ export const buildMetadata = (): Metadata => {
       canonical: siteConfig.url,
     },
     icons: {
-      icon: "/favicon.ico",
-      shortcut: "/favicon-16x16.png",
-      apple: "/apple-touch-icon.png",
+      icon: "/icon.svg",
     },
     other: {
       "google-adsense-account": process.env.NEXT_PUBLIC_PUB!,
@@ -80,4 +78,74 @@ export const buildViewport = (): Viewport => {
       { media: "(prefers-color-scheme: dark)", color: "black" },
     ],
   };
+};
+
+/**
+ * FQA 页面的问答数据
+ */
+export const faqs = [
+  {
+    question: "What payment methods do you accept?",
+    answer: `We accept all major credit cards, PayPal, and various other payment methods depending on your location.
+    Please contact our support team for more information on accepted payment methods in your region.`,
+  },
+  {
+    question: "How does the pricing work for teams?",
+    answer: ` Our pricing is per user, per month. This means you only pay for the number of team members you have on
+    your account. Discounts are available for larger teams and annual subscriptions.`,
+  },
+  {
+    question: "Can I change my plan later?",
+    answer: `Yes, you can upgrade or downgrade your plan at any time. Changes to your plan will be prorated and
+    reflected in your next billing cycle.`,
+  },
+  {
+    question: "Is my data secure?",
+    answer: `Security is our top priority. We use state-of-the-art encryption and comply with the best industry
+    practices to ensure that your data is stored securely and accessed only by authorized users.`,
+  },
+];
+
+/**
+ * 订阅页面的数据以及权益
+ */
+export const pricing = {
+  free: {
+    price: "$0",
+    features: [
+      "Up to 50 project members",
+      "Unlimited tasks and projects",
+      "50 GB storage",
+      "Integrations",
+      "Priority support",
+    ],
+  },
+  pro: {
+    price: "$15",
+    features: [
+      "Up to 50 project members",
+      "Unlimited tasks and projects",
+      "50 GB storage",
+      "Integrations",
+      "Priority support",
+      "Advanced analytics",
+      "Export capabilities",
+    ],
+  },
+
+  business: {
+    price: "$25",
+    features: [
+      "Unlimited project members",
+      "Unlimited tasks and projects",
+      "500 GB storage",
+      "Integrations",
+      "Dedicated account manager",
+      "Custom fields",
+      "Advanced analytics",
+      "Export capabilities",
+      "API access",
+      "Advanced security features",
+    ],
+  },
 };

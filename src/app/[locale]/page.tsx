@@ -2,7 +2,7 @@ import { FAQ } from "@/components/faq";
 import { Fonts } from "@/components/fonts";
 import { Pricing } from "@/components/pricing";
 import { PromptForm } from "@/components/prompt-form";
-import { localeConfig } from "@/config/locale";
+import { localeConfig } from "@/server/locale";
 
 export default async function HomePage() {
   const { homePage, form, login } = await localeConfig.buildLanguages();

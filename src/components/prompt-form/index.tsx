@@ -2,73 +2,57 @@
 
 import { Login } from "@/components/login";
 import { action } from "@/components/prompt-form/actions";
+import { PendingSpinner } from "@/components/prompt-form/pending-spinner";
 import { Button } from "@/components/ui/button";
 import { Dialog } from "@/components/ui/dialog";
 import { Form, FormControl, FormField, FormItem, FormLabel } from "@/components/ui/form";
 import { Textarea } from "@/components/ui/textarea";
-import { getClientAuthUser } from "@/config/auth";
+import { getClientUserId } from "@/lib/utils";
 import { FormLanguage, LoginLanguage } from "@/types/language";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { User } from "next-auth";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useFormState } from "react-dom";
 import { useForm } from "react-hook-form";
-import { z } from "zod";
 
 interface PromptFormProps {
   language: FormLanguage;
   loginLanguage: LoginLanguage;
 }
 
+const initialState = {
+  message: "",
+};
+
 export function PromptForm({ language, loginLanguage }: PromptFormProps) {
-  const [state, formAction] = useFormState(action, false);
-  const [user, setUser] = useState<User | null>(null);
-  const submitRef = useRef<React.ElementRef<"button">>(null);
-  const [pending, setPending] = useState<boolean>(false);
+  const [state, formAction] = useFormState(action, initialState);
+  const [userId, setUserId] = useState<string | null>(null);
   const [openModal, setOpenModal] = useState<boolean>(false);
 
   useEffect(() => {
-    const fetchUser = async () => {
-      const user = await getClientAuthUser();
-      if (!user) {
-        return;
-      }
-      setUser(user);
-    };
     fetchUser();
   }, []);
 
-  const formSchema = z.object({
-    prompt: z.string().min(2, {
-      message: "Prompt must be at least 2 characters.",
-    }),
-  });
-
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      prompt: "",
-    },
-  });
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    if (!user) {
-      e.preventDefault();
-      setOpenModal(true);
+  const fetchUser = async () => {
+    const userId = await getClientUserId();
+    if (!userId) {
       return;
     }
-    setPending(true);
+    setUserId(userId);
+  };
+
+  const form = useForm();
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    if (!userId) {
+      e.preventDefault();
+      setOpenModal(true);
+    }
   };
 
   return (
     <div className="px-9 mx-auto">
       <Form {...form}>
-        {pending && (
-          <div className="absolute top-16 inset-0 w-full z-10 items-center flex justify-center bg-black opacity-50">
-            <span className="loading loading-dots loading-lg"></span>
-          </div>
-        )}
         <form action={formAction} onSubmit={handleSubmit} className="space-y-8">
+          <PendingSpinner />
           <FormField
             control={form.control}
             name="prompt"
@@ -76,17 +60,12 @@ export function PromptForm({ language, loginLanguage }: PromptFormProps) {
               <FormItem className="text-start">
                 <FormLabel>Prompt</FormLabel>
                 <FormControl>
-                  <Textarea placeholder="cat" {...field} maxLength={6} className="h-40 w-96" />
+                  <Textarea placeholder="cat" {...field} maxLength={6} className="h-40 w-96" required />
                 </FormControl>
               </FormItem>
             )}
           />
-          <Button
-            className="mx-auto flex justify-center items-center"
-            disabled={pending}
-            aria-disabled={pending}
-            ref={submitRef}
-          >
+          <Button className="mx-auto flex justify-center items-center" type="submit">
             {language.generate}
           </Button>
         </form>
