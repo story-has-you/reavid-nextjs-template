@@ -1,5 +1,5 @@
 import { getServerAuthSession } from "@/server/auth";
-import { selectByUserId } from "@/server/prisma/user";
+import { userPrisma } from "@/server/prisma/user";
 import { User } from "@prisma/client";
 import { clsx, type ClassValue } from "clsx";
 import { customAlphabet } from "nanoid";
@@ -17,7 +17,7 @@ export const getServerUser = async (): Promise<User | null> => {
   if (!userId) {
     return null;
   }
-  return await selectByUserId(userId);
+  return await userPrisma.selectByUserId(userId);
 };
 
 export const getServerUserId = async (): Promise<string | null> => {
@@ -33,7 +33,7 @@ export const getClientUser = async (): Promise<User | null> => {
   if (!userId) {
     return null;
   }
-  return await selectByUserId(userId);
+  return await userPrisma.selectByUserId(userId);
 };
 
 export const getClientUserId = async (): Promise<string | null> => {
