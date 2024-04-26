@@ -9,9 +9,7 @@ export function Pricing() {
     <div className="flex flex-col items-center justify-center gap-10">
       <div className="flex flex-col gap-5">
         <Fonts.h2>Pricing</Fonts.h2>
-        <Fonts.bodyLarge className="opacity-50">
-          Free forever. Upgrade for unlimited tasks, better security, and exclusive features.
-        </Fonts.bodyLarge>
+        <Fonts.bodyLarge className="opacity-50">Free forever. Upgrade for unlimited tasks, better security, and exclusive features.</Fonts.bodyLarge>
       </div>
       <div className="flex flex-row items-end justify-center gap-6 w-full">
         {/* Free Plan */}
