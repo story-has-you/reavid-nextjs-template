@@ -2,12 +2,12 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 generator client {
-    provider = "prisma-client-js"
+  provider = "prisma-client-js"
 }
 
 datasource db {
   provider = "postgresql"
-  url = env("POSTGRES_URL")
+  url      = env("DATABASE_URL")
 }
 
 // Necessary for Next auth
@@ -17,13 +17,13 @@ model Account {
   type              String
   provider          String
   providerAccountId String  @map("provider_account_id")
-  refresh_token     String? @db.Text
-  access_token      String? @db.Text
-  expires_at        Int?
-  token_type        String?
+  refreshToken      String? @map("refresh_token") @db.Text
+  accessToken       String? @map("access_token") @db.Text
+  expiresAt         Int?    @map("expires_at")
+  tokenType         String? @map("token_type")
   scope             String?
-  id_token          String? @db.Text
-  session_state     String?
+  idToken           String? @map("id_token") @db.Text
+  sessionState      String? @map("session_state")
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
@@ -42,17 +42,17 @@ model Session {
 }
 
 model User {
-  id                 String          @id @default(cuid())
-  name               String?
-  email              String?         @unique
-  emailVerified      DateTime?       @map("email_verified")
-  image              String?
-  accounts           Account[]
-  sessions           Session[]
-  Authenticator      Authenticator[]
-  balance            Int             @default(10)
-  member_level_id    String?
-  member_expire_date DateTime?
+  id            String          @id @default(cuid())
+  name          String?
+  email         String?         @unique
+  emailVerified DateTime?       @map("email_verified")
+  image         String?
+  balance       Int             @default(10)
+  vipId         String?         @map("vip_id")
+  vipExpireTime DateTime?       @map("vip_expire_time")
+  accounts      Account[]
+  sessions      Session[]
+  Authenticator Authenticator[]
 
   @@map("users")
 }
@@ -82,9 +82,9 @@ model Authenticator {
   @@map("authenticator")
 }
 
-model MemberLevel {
+model Vip {
   id         String  @id @default(cuid())
-  level      Int
+  name       String
   monthPrice Decimal @map("month_price")
   yearPrice  Decimal @map("year_price")
 

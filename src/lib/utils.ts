@@ -1,5 +1,5 @@
-import { getServerAuthSession } from "@/server/auth";
-import { userPrisma } from "@/server/prisma/user";
+import { auth } from "@/server/auth";
+import { userMapper } from "@/server/mapper/user-mapper";
 import { User } from "@prisma/client";
 import { clsx, type ClassValue } from "clsx";
 import { customAlphabet } from "nanoid";
@@ -14,14 +14,11 @@ export const nanoid = customAlphabet("0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef
 
 export const getServerUser = async (): Promise<User | null> => {
   const userId = await getServerUserId();
-  if (!userId) {
-    return null;
-  }
-  return await userPrisma.selectByUserId(userId);
+  return userId ? await userMapper.selectById(userId) : null;
 };
 
 export const getServerUserId = async (): Promise<string | null> => {
-  const session = await getServerAuthSession();
+  const session = await auth();
   if (!session || !session.user) {
     return null;
   }
@@ -30,10 +27,7 @@ export const getServerUserId = async (): Promise<string | null> => {
 
 export const getClientUser = async (): Promise<User | null> => {
   const userId = await getClientUserId();
-  if (!userId) {
-    return null;
-  }
-  return await userPrisma.selectByUserId(userId);
+  return userId ? await userMapper.selectById(userId) : null;
 };
 
 export const getClientUserId = async (): Promise<string | null> => {

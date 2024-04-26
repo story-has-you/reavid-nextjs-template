@@ -1,8 +1,8 @@
 import { prisma } from "@/server/prisma";
 import type { User } from "@prisma/client";
 
-class UserPrisma {
-  public selectByUserId = async (userId: string): Promise<User | null> => {
+class UserMapper {
+  public selectById = async (userId: string): Promise<User | null> => {
     return await prisma.user.findUnique({
       where: {
         id: userId,
@@ -10,7 +10,7 @@ class UserPrisma {
     });
   };
 
-  public decreaseBalance = async (userId: string) => {
+  public decrementBalance = async (userId: string) => {
     await prisma.user.update({
       where: {
         id: userId,
@@ -24,4 +24,4 @@ class UserPrisma {
   };
 }
 
-export const userPrisma = new UserPrisma();
+export const userMapper = new UserMapper();
