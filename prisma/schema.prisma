@@ -10,20 +10,19 @@ datasource db {
   url      = env("POSTGRES_URL")
 }
 
-// Necessary for Next auth
 model Account {
   id                String  @id @default(cuid())
   userId            String  @map("user_id")
   type              String
   provider          String
   providerAccountId String  @map("provider_account_id")
-  refreshToken      String? @map("refresh_token") @db.Text
-  accessToken       String? @map("access_token") @db.Text
-  expiresAt         Int?    @map("expires_at")
-  tokenType         String? @map("token_type")
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
   scope             String?
-  idToken           String? @map("id_token") @db.Text
-  sessionState      String? @map("session_state")
+  id_token          String? @db.Text
+  session_state     String?
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
@@ -42,51 +41,40 @@ model Session {
 }
 
 model User {
-  id            String          @id @default(cuid())
+  id            String    @id @default(cuid())
   name          String?
-  email         String?         @unique
-  emailVerified DateTime?       @map("email_verified")
+  email         String?   @unique
+  emailVerified DateTime? @map("email_verified")
   image         String?
-  balance       Int             @default(10)
-  vipId         String?         @map("vip_id")
-  vipExpireTime DateTime?       @map("vip_expire_time")
+  balance       Int       @default(10)
+  vipId         String?   @default("ekOJd96f40Aj10qT8kNIpaOnwhvdoeVx") @map("vip_id") @db.VarChar(32)
+  vipExpireTime DateTime? @map("vip_expire_time")
   accounts      Account[]
   sessions      Session[]
-  Authenticator Authenticator[]
 
   @@map("users")
 }
 
 model VerificationToken {
   identifier String
-  token      String   @unique
+  token      String
   expires    DateTime
 
   @@unique([identifier, token])
-  @@map("verification_token")
-}
-
-model Authenticator {
-  id                   String  @id @default(cuid())
-  credentialID         String  @unique @map("credential_id")
-  userId               String  @map("user_id")
-  providerAccountId    String  @map("provider_account_id")
-  credentialPublicKey  String  @map("credential_public_key")
-  counter              Int
-  credentialDeviceType String  @map("credential_device_type")
-  credentialBackedUp   Boolean @map("credential_backed_up")
-  transports           String?
-
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
-
-  @@map("authenticator")
+  @@map("verificationtokens")
 }
 
 model Vip {
-  id         String  @id @default(cuid())
-  name       String
-  monthPrice Decimal @map("month_price")
-  yearPrice  Decimal @map("year_price")
+  id         String      @id @default(cuid()) @db.VarChar(32)
+  name       VipNameEnum @default(Free)
+  monthPrice Decimal     @map("month_price") @db.Decimal(10, 2)
+  yearPrice  Decimal     @map("year_price") @db.Decimal(10, 2)
 
   @@map("vip")
+}
+
+enum VipNameEnum {
+  Free
+  Pro
+  Business
 }
