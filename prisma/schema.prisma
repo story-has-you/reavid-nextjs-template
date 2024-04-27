@@ -7,7 +7,7 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
+  url      = env("POSTGRES_URL")
 }
 
 // Necessary for Next auth
@@ -88,5 +88,5 @@ model Vip {
   monthPrice Decimal @map("month_price")
   yearPrice  Decimal @map("year_price")
 
-  @@map("member_level")
+  @@map("vip")
 }
