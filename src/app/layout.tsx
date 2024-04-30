@@ -1,6 +1,6 @@
 import { ThemeProvider } from "@/components/theme-provider";
+import { fontSans } from "@/config/fonts";
 import { buildMetadata, buildViewport, siteConfig } from "@/config/site";
-import { fontSans } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
 import "@/styles/globals.css";
 import { GoogleAnalytics } from "@next/third-parties/google";

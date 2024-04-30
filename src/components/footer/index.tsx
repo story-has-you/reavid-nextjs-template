@@ -7,13 +7,7 @@ const FooterLinks = () => {
   return (
     <div className="mx-auto flex flex-row items-center pb-2">
       {links.map((link) => (
-        <Link
-          key={link.name}
-          href={link.href}
-          target="_blank"
-          rel="noopener noreferrer nofollow"
-          className="mx-3 flex max-w-[24px] flex-col items-center justify-center"
-        >
+        <Link key={link.name} href={link.href} target="_blank" rel="noopener noreferrer nofollow" className="mx-3 flex max-w-[24px] flex-col items-center justify-center">
           {link.icon && React.createElement(link.icon, { className: "text-lg" })}
         </Link>
       ))}
@@ -51,7 +45,7 @@ export function Footer() {
   const author = siteConfig.author;
   return (
     <footer>
-      <div className="mt-16 space-y-2 pt-6 pb-4 flex flex-col items-center bg-black text-sm text-gray-400 border-t">
+      <div className="mt-16 space-y-2 pt-6 pb-4 flex flex-col items-center text-sm bg-background border-t">
         <FooterLinks />
         <FooterProducts />
         <div className="flex space-x-2">

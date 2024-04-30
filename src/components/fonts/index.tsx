@@ -1,4 +1,4 @@
-import { fontSans } from "@/lib/fonts";
+import { fontSans } from "@/config/fonts";
 
 interface FontsProps {
   className?: string;
