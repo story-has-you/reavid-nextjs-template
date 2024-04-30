@@ -9,4 +9,19 @@ export class Arrays {
       return acc;
     }, new Map<K, V>());
   };
+
+  public static groupingby = <T, K extends MapKey, V>(array: T[], keyMapper: (item: T) => K, valueMapper: (item: T) => V): Map<K, V[]> => {
+    const resultMap = new Map<K, V[]>();
+    array.forEach((item) => {
+      const key = keyMapper(item);
+      const value = valueMapper(item);
+      const group = resultMap.get(key);
+      if (group) {
+        group.push(value);
+      } else {
+        resultMap.set(key, [value]);
+      }
+    });
+    return resultMap;
+  };
 }
