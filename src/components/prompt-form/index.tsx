@@ -8,14 +8,13 @@ import { Dialog } from "@/components/ui/dialog";
 import { Form, FormControl, FormField, FormItem, FormLabel } from "@/components/ui/form";
 import { Textarea } from "@/components/ui/textarea";
 import { getClientUserId } from "@/lib/utils";
-import { FormLanguage, LoginLanguage } from "@/types/language";
 import React, { useEffect, useState } from "react";
 import { useFormState } from "react-dom";
 import { useForm } from "react-hook-form";
 
 interface PromptFormProps {
-  language: FormLanguage;
-  loginLanguage: LoginLanguage;
+  language: any;
+  loginLanguage: any;
 }
 
 const initialState = {

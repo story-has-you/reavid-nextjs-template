@@ -2,24 +2,22 @@
 
 import { Icons } from "@/components/icons";
 import { Button } from "@/components/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuGroup,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { defaultLocale, languages } from "@/server/locale";
-import { useParams, useRouter } from "next/navigation";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import { Locale, i18n } from "@/server/locale";
+import Link from "next/link";
+import { useParams, usePathname } from "next/navigation";
 
 export function ChooseLanguage() {
+  const pathName = usePathname();
   const params = useParams();
-  const router = useRouter();
-  const langName = languages.find((item) => item.lang === params.locale)?.language;
-  if (!langName) {
-    return defaultLocale;
-  }
+  const langName = i18n.languages.find((item) => item.lang === params.locale)?.language ?? i18n.defaultLocale;
 
+  const redirectedPathName = (locale: Locale) => {
+    if (!pathName) return "/";
+    const segments = pathName.split("/");
+    segments[1] = locale;
+    return segments.join("/");
+  };
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -31,13 +29,11 @@ export function ChooseLanguage() {
       </DropdownMenuTrigger>
       <DropdownMenuContent>
         <DropdownMenuGroup>
-          {languages.map((item, index) => {
-            return (
-              <DropdownMenuItem onSelect={() => router.push(item.lang)} key={index}>
-                {item.language}
-              </DropdownMenuItem>
-            );
-          })}
+          {i18n.languages.map((item, index) => (
+            <DropdownMenuItem key={index}>
+              <Link href={redirectedPathName(item.lang)}>{item.language}</Link>
+            </DropdownMenuItem>
+          ))}
         </DropdownMenuGroup>
       </DropdownMenuContent>
     </DropdownMenu>

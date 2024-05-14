@@ -1,10 +1,11 @@
 import { Fonts } from "@/components/fonts";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { faqs } from "@/config/site";
-import { localeConfig } from "@/server/locale";
+import { Locale, dictionary } from "@/server/locale";
 
-export async function FAQ() {
-  const { faq } = await localeConfig.buildLanguages();
+export async function FAQ({ params: { locale } }: { params: { locale: Locale } }) {
+  const faq = await dictionary(locale, "FAQ");
+
   return (
     <div>
       <div className="flex flex-col gap-10 items-center justify-center">
