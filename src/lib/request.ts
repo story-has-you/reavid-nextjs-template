@@ -63,3 +63,6 @@ export const fail = (message: string | null): Response => {
     message: message ?? "FAIL",
   });
 };
+
+export const get = (url: string, { arg }: { arg?: Record<string, string> }) => request(url, { params: arg });
+export const post = async (url: string, { arg }: { arg: any }) => request(url, { method: "POST", body: arg });

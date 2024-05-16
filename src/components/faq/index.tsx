@@ -3,8 +3,8 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { faqs } from "@/config/site";
 import { Locale, dictionary } from "@/server/locale";
 
-export async function FAQ({ params: { locale } }: { params: { locale: Locale } }) {
-  const faq = await dictionary(locale, "FAQ");
+export async function FAQ({ params: { lang } }: { params: { lang: Locale } }) {
+  const faq = await dictionary(lang, "FAQ");
 
   return (
     <div>

@@ -2,12 +2,11 @@ import { FAQ } from "@/components/faq";
 import { Fonts } from "@/components/fonts";
 import { Pricing } from "@/components/pricing";
 import { PromptForm } from "@/components/prompt-form";
-import { dictionary } from "@/server/locale";
-import { Locale } from "node_modules/next/dist/compiled/@vercel/og/satori";
+import { Locale, dictionary } from "@/server/locale";
 
-export default async function HomePage({params: {locale}}: {params: {locale: Locale}}) {
+export default async function HomePage({params: {lang}}: {params: {lang: Locale}}) {
 
-  const [homePage, form, login] = await Promise.all([dictionary(locale, "HomePage"), dictionary(locale, "Form"), dictionary(locale, "Login")]);
+  const [homePage, form, login] = await Promise.all([dictionary(lang, "HomePage"), dictionary(lang, "Form"), dictionary(lang, "Login")]);
 
 
   return (
@@ -20,7 +19,7 @@ export default async function HomePage({params: {locale}}: {params: {locale: Loc
       <PromptForm language={form} loginLanguage={login} />
       <div className="mt-20 flex flex-col gap-32 w-2/3">
         <Pricing />
-        <FAQ params={{ locale }} />
+        <FAQ params={{ lang }} />
       </div>
     </div>
   );

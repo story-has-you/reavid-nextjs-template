@@ -29,6 +29,7 @@ interface UserAvatarProps {
 interface HeaderProps {
   header: any;
   login: any;
+  mainMav: any;
   user?: User | null;
 }
 
@@ -56,11 +57,11 @@ const UserAvatar = ({ user, headerLanguage }: UserAvatarProps) => {
   );
 };
 
-export function Header({ header, login, user }: HeaderProps) {
+export function Header({ header, login, mainMav, user }: HeaderProps) {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center space-x-4 sm:justify-between sm:space-x-0">
-        <MainNav />
+        <MainNav language={mainMav} />
         <div className="flex flex-1 items-center justify-end space-x-4">
           <nav className="flex items-center space-x-3">
             <Link href={siteConfig.author.github} target="_blank" rel="noreferrer">
