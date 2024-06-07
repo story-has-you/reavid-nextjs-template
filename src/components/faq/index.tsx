@@ -1,20 +1,28 @@
 import { Fonts } from "@/components/fonts";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { faqs } from "@/config/site";
-import { Locale, dictionary } from "@/server/locale";
 
-export async function FAQ({ params: { lang } }: { params: { lang: Locale } }) {
-  const faq = await dictionary(lang, "FAQ");
+interface FAQItem {
+  question: string;
+  answer: string;
+}
 
+interface FAQProps {
+  faqLang: {
+    title: string;
+    description: string;
+    faqs: FAQItem[];
+  };
+}
+
+export function FAQ({ faqLang }: FAQProps) {
   return (
-    <div>
-      <div className="flex flex-col gap-10 items-center justify-center">
-        <Fonts.h2>{faq.title}</Fonts.h2>
-        <Fonts.bodyLarge className="opacity-50">Here are some of the most frequently asked questions.</Fonts.bodyLarge>
+    <div className="w-full flex flex-col items-center justify-center">
+      <div className="flex flex-col gap-5 items-center justify-center ">
+        <Fonts.h2>{faqLang.title}</Fonts.h2>
       </div>
-      <div>
-        <Accordion type="single" collapsible>
-          {faqs.map((item, index) => (
+      <div className="w-4/5">
+        <Accordion type="multiple">
+          {faqLang.faqs.map((item, index) => (
             <div key={index}>
               <AccordionItem value={`${index}`}>
                 <AccordionTrigger>

@@ -42,6 +42,45 @@
         "generate": "Generate"
     },
     "FAQ": {
-        "title": "Frequently asked questions"
+        "title": "Frequently asked questions",
+        "faqs": [
+            {
+                "question": "What is Hotkey Cheatsheet?",
+                "answer": "Hotkey Cheatsheet is a comprehensive guide to keyboard shortcuts for various software applications. It helps users improve their productivity by providing quick access to commonly used shortcuts."
+            },
+            {
+                "question": "How do I use Hotkey Cheatsheet?",
+                "answer": "Navigate through the website to find the software you are using. Each page contains a detailed list of keyboard shortcuts specific to that application."
+            },
+            {
+                "question": "Which software applications are covered?",
+                "answer": "Hotkey Cheatsheet covers a wide range of applications, including Photoshop, Typora, Premiere Pro, and many more."
+            },
+            {
+                "question": "Are the shortcuts updated regularly?",
+                "answer": "Yes, the shortcuts are updated regularly to reflect the latest versions of the software and include any new shortcuts introduced."
+            },
+            {
+                "question": "Can I request a new software to be added?",
+                "answer": "Yes, you can contact us through the website to request the addition of new software applications and their keyboard shortcuts."
+            },
+            {
+                "question": "How accurate are the keyboard shortcuts?",
+                "answer": "The shortcuts are sourced directly from the official documentation of the respective software and verified for accuracy."
+            },
+            {
+                "question": "Is there a mobile version of the site?",
+                "answer": "Yes, the website is optimized for mobile devices, allowing you to access keyboard shortcuts on the go."
+            },
+            {
+                "question": "How can I contribute to Hotkey Cheatsheet?",
+                "answer": "You can contribute by providing feedback, suggesting new shortcuts, or helping us verify existing shortcuts. Contact us through the website for more information."
+            },
+            {
+                "question": "What is the official website for Hotkey Cheatsheet?",
+                "answer": "The official website is https://hotkeycheatsheet.com/."
+            }
+        ]
+
     }
 }

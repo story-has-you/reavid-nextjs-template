@@ -4,10 +4,8 @@ import { Pricing } from "@/components/pricing";
 import { PromptForm } from "@/components/prompt-form";
 import { Locale, dictionary } from "@/server/locale";
 
-export default async function HomePage({params: {lang}}: {params: {lang: Locale}}) {
-
-  const [homePage, form, login] = await Promise.all([dictionary(lang, "HomePage"), dictionary(lang, "Form"), dictionary(lang, "Login")]);
-
+export default async function HomePage({ params: { lang } }: { params: { lang: Locale } }) {
+  const [homePage, form, login, faq] = await Promise.all([dictionary(lang, "HomePage"), dictionary(lang, "Form"), dictionary(lang, "Login"), dictionary(lang, "FAQ")]);
 
   return (
     <div className="flex flex-col items-center w-full">
@@ -19,7 +17,7 @@ export default async function HomePage({params: {lang}}: {params: {lang: Locale}
       <PromptForm language={form} loginLanguage={login} />
       <div className="mt-20 flex flex-col gap-32 w-2/3">
         <Pricing />
-        <FAQ params={{ lang }} />
+        <FAQ faqLang={faq} />
       </div>
     </div>
   );

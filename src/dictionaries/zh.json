@@ -42,6 +42,44 @@
         "generate": "生成"
     },
     "FAQ": {
-        "title": "常见问题"
+        "title": "常见问题",
+        "faqs": [
+            {
+                "question": "Hotkey Cheatsheet 是什么？",
+                "answer": "Hotkey Cheatsheet 是各种软件快捷键的综合指南。它通过提供常用快捷键的快速访问来帮助用户提高生产力。"
+            },
+            {
+                "question": "如何使用 Hotkey Cheatsheet？",
+                "answer": "浏览网站找到您正在使用的软件。每个页面都包含该应用程序特定的详细快捷键列表。"
+            },
+            {
+                "question": "涵盖哪些软件应用程序？",
+                "answer": "Hotkey Cheatsheet 涵盖多种应用程序，包括 Photoshop、Typora、Premiere Pro 等。"
+            },
+            {
+                "question": "快捷键会定期更新吗？",
+                "answer": "是的，快捷键会定期更新，以反映软件的最新版本，并包括任何新引入的快捷键。"
+            },
+            {
+                "question": "我可以请求添加新的软件吗？",
+                "answer": "可以，您可以通过网站联系我们，要求添加新的软件应用程序及其快捷键。"
+            },
+            {
+                "question": "快捷键的准确性如何？",
+                "answer": "快捷键直接来源于相关软件的官方文档，并经过验证以确保准确性。"
+            },
+            {
+                "question": "有移动版网站吗？",
+                "answer": "有的，网站针对移动设备进行了优化，您可以随时随地访问快捷键。"
+            },
+            {
+                "question": "我如何为 Hotkey Cheatsheet 做出贡献？",
+                "answer": "您可以通过提供反馈、建议新快捷键或帮助我们验证现有快捷键来贡献。欲了解更多信息，请通过网站联系我们。"
+            },
+            {
+                "question": "Hotkey Cheatsheet 的官方网站是什么？",
+                "answer": "官方网站是 https://hotkeycheatsheet.com/。"
+            }
+        ]
     }
 }
