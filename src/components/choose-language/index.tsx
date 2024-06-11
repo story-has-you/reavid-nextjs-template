@@ -7,7 +7,7 @@ import { useLang } from "@/config/atom";
 import { Locale, i18n } from "@/server/locale";
 import Link from "next/link";
 import { useParams, usePathname } from "next/navigation";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 export function ChooseLanguage({ className }: { className?: string }) {
   const pathName = usePathname();
@@ -27,6 +27,10 @@ export function ChooseLanguage({ className }: { className?: string }) {
   const handleLocaleChange = (locale: Locale) => {
     setLang(locale);
   };
+
+  useEffect(() => {
+    params.lang && setLang(params.lang as Locale);
+  }, []);
 
   return (
     <div className={className}>
