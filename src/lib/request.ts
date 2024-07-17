@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 /**
  * Makes an asynchronous HTTP request to the specified URL with the given options.
  *

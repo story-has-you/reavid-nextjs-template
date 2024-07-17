@@ -2,7 +2,22 @@ import { FAQ } from "@/components/faq";
 import { Fonts } from "@/components/fonts";
 import { Pricing } from "@/components/pricing";
 import { PromptForm } from "@/components/prompt-form";
-import { Locale, dictionary } from "@/server/locale";
+import { siteConfig } from "@/config/site";
+import { Locale, dictionary, generateLanguageUrls } from "@/server/locale";
+
+export async function generateMetadata({ params }: { params: { slug: string; lang: Locale } }) {
+  return {
+    title: siteConfig.title,
+    description: siteConfig.description,
+    alternates: {
+      canonical: siteConfig.url + `/${params.lang}`,
+      languages: {
+        "x-default": `${siteConfig.url}`,
+        ...generateLanguageUrls(),
+      },
+    },
+  };
+}
 
 export default async function HomePage({ params: { lang } }: { params: { lang: Locale } }) {
   const [homePage, form, login, faq] = await Promise.all([dictionary(lang, "HomePage"), dictionary(lang, "Form"), dictionary(lang, "Login"), dictionary(lang, "FAQ")]);
