@@ -4,7 +4,7 @@ interface Props {
   pubId: string;
 }
 
-export function GoogleAdsense({ pubId }: Props) {
+export default function GoogleAdSense({ pubId }: Props) {
   return (
     <Script
       async

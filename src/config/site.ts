@@ -5,11 +5,9 @@ import { IoMdMail } from "react-icons/io";
 import { SiJuejin } from "react-icons/si";
 
 export const siteConfig: SiteConfig = {
-  title: "reavid-nextjs-template",
+  name: "reavid-nextjs-template",
   description: "",
-  url: process.env.NEXT_PUBLIC_BASE_URL!,
-  useGoogleAnalytics: false,
-  useGoogleAdsense: false,
+  domain: "",
   links: [
     { name: "email", href: "mailto:fangxi.inori@gmail.com", icon: IoMdMail },
     { name: "twitter", href: "https://twitter.com/reavid", icon: FaTwitter },
@@ -17,6 +15,7 @@ export const siteConfig: SiteConfig = {
     { name: "juejin", href: "https://juejin.cn/user/817692381029800", icon: SiJuejin },
   ],
   keywords: ["Next.js", "Radix UI", "Tailwind CSS", "Shadcn UI"],
+  creator: "ReAvid",
   author: {
     name: "ReAvid",
     github: "https://github.com/story-has-you",
@@ -48,11 +47,11 @@ export const siteConfig: SiteConfig = {
 
 export const buildMetadata = (): Metadata => {
   return {
-    title: siteConfig.title,
+    title: siteConfig.name,
     description: siteConfig.description,
-    applicationName: siteConfig.title,
+    applicationName: siteConfig.name,
     alternates: {
-      canonical: siteConfig.url,
+      canonical: siteConfig.domain,
     },
     icons: {
       icon: "/icon.svg",

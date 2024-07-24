@@ -39,7 +39,7 @@ const FooterProducts = () => {
   );
 };
 
-export function Footer() {
+export default function Footer() {
   const d = new Date();
   const currentYear = d.getFullYear();
   const author = siteConfig.author;

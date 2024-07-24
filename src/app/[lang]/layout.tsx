@@ -1,8 +1,7 @@
-import { Footer } from "@/components/footer";
-import { Header } from "@/components/header";
-import { TailwindIndicator } from "@/components/tailwind-indicator";
+import Footer from "@/components/footer";
+import Header from "@/components/header";
+import TailwindIndicator from "@/components/tailwind-indicator";
 import { fontSans } from "@/config/fonts";
-import { siteConfig } from "@/config/site";
 import { cn, getServerUser } from "@/lib/utils";
 import { Locale, dictionary } from "@/server/locale";
 import { GoogleAnalytics } from "@next/third-parties/google";
@@ -27,7 +26,7 @@ export default async function PageLayout({ children, params: { lang } }: { child
           </main>
         </ThemeProvider>
       </body>
-      {siteConfig.useGoogleAnalytics && <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GAID!} />}
+      {process.env.NEXT_PUBLIC_GAID && <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GAID} />}
     </html>
   );
 }

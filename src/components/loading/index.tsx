@@ -1,6 +1,6 @@
 import "@/styles/loading.css";
 
-export function Loading() {
+export default function Loading() {
   return (
     <div>
       <div className="overlay"></div>

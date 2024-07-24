@@ -1,11 +1,9 @@
 import { IconType } from "react-icons/lib";
 
 export interface SiteConfig {
-  title: string;
+  name: string;
   description: string;
-  url: string;
-  useGoogleAnalytics: boolean;
-  useGoogleAdsense: boolean;
+  domain: string;
   links: FooterLink[];
   keywords?: string[];
   creator?: string;

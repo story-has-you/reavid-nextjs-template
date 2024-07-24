@@ -37,7 +37,7 @@ export const request = async (url: string, options: RequestOptions = {}): Promis
   if (url.startsWith("http://") || url.startsWith("https://")) {
     http_url = `${url}${queryParams ? `?${queryParams}` : ""}`;
   } else {
-    http_url = `${process.env.NEXT_PUBLIC_BASE_URL}${url}${queryParams ? `?${queryParams}` : ""}`;
+    http_url = `${process.env.NEXT_PUBLIC_DOMAIN}${url}${queryParams ? `?${queryParams}` : ""}`;
   }
   try {
     const response = await fetch(http_url, requestOptions);

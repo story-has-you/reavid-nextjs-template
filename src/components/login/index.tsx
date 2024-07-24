@@ -4,7 +4,7 @@ import { CardContent, CardDescription, CardHeader, CardTitle } from "@/component
 import { DialogContent } from "@/components/ui/dialog";
 import { signIn } from "next-auth/react";
 
-export function Login({ language }: { language: any }) {
+export default function Login({ language }: { language: any }) {
   return (
     <DialogContent>
       <CardHeader>

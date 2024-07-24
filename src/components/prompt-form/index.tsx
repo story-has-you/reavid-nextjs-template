@@ -1,8 +1,8 @@
 "use client";
 
-import { Login } from "@/components/login";
+import Login from "@/components/login";
 import { action } from "@/components/prompt-form/actions";
-import { PendingSpinner } from "@/components/prompt-form/pending-spinner";
+import PendingSpinner from "@/components/prompt-form/pending-spinner";
 import { Button } from "@/components/ui/button";
 import { Dialog } from "@/components/ui/dialog";
 import { Form, FormControl, FormField, FormItem, FormLabel } from "@/components/ui/form";
@@ -21,7 +21,7 @@ const initialState = {
   message: "",
 };
 
-export function PromptForm({ language, loginLanguage }: PromptFormProps) {
+export default function PromptForm({ language, loginLanguage }: PromptFormProps) {
   const [state, formAction] = useFormState(action, initialState);
   const [userId, setUserId] = useState<string | null>(null);
   const [openModal, setOpenModal] = useState<boolean>(false);

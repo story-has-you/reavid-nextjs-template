@@ -1,18 +1,18 @@
-import { FAQ } from "@/components/faq";
+import FAQ from "@/components/faq";
 import { Fonts } from "@/components/fonts";
-import { Pricing } from "@/components/pricing";
-import { PromptForm } from "@/components/prompt-form";
+import Pricing from "@/components/pricing";
+import PromptForm from "@/components/prompt-form";
 import { siteConfig } from "@/config/site";
 import { Locale, dictionary, generateLanguageUrls } from "@/server/locale";
 
 export async function generateMetadata({ params }: { params: { slug: string; lang: Locale } }) {
   return {
-    title: siteConfig.title,
+    title: siteConfig.name,
     description: siteConfig.description,
     alternates: {
-      canonical: siteConfig.url + `/${params.lang}`,
+      canonical: siteConfig.domain + `/${params.lang}`,
       languages: {
-        "x-default": `${siteConfig.url}`,
+        "x-default": `${siteConfig.domain}`,
         ...generateLanguageUrls(),
       },
     },

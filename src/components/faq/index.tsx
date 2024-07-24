@@ -14,13 +14,13 @@ interface FAQProps {
   };
 }
 
-export function FAQ({ faqLang }: FAQProps) {
+export default function FAQ({ faqLang }: FAQProps) {
   return (
     <div className="w-full flex flex-col items-center justify-center">
       <div className="flex flex-col gap-5 items-center justify-center ">
         <Fonts.h2>{faqLang.title}</Fonts.h2>
       </div>
-      <div className="w-4/5">
+      <div className="w-4/5 mt-10">
         <Accordion type="multiple">
           {faqLang.faqs.map((item, index) => (
             <div key={index}>

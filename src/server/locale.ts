@@ -68,7 +68,7 @@ export const pathnames = {
 export const generateLanguageUrls = () => {
   return i18n.locales.reduce(
     (acc, lang) => {
-      acc[lang] = `${siteConfig.url}/${lang}`;
+      acc[lang] = `https://${siteConfig.domain}/${lang}`;
       return acc;
     },
     {} as Record<string, string>,

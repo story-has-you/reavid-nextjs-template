@@ -1,21 +1,14 @@
 "use client";
 
-import { ChooseLanguage } from "@/components/choose-language";
+import ChooseLanguage from "@/components/choose-language";
 import { Icons } from "@/components/icons";
-import { Login } from "@/components/login";
-import { MainNav } from "@/components/main-nav";
-import { ThemeToggle } from "@/components/theme-toggle";
+import Login from "@/components/login";
+import MainNav from "@/components/main-nav";
+import ThemeToggle from "@/components/theme-toggle";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Dialog, DialogTrigger } from "@/components/ui/dialog";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { siteConfig } from "@/config/site";
 import { User } from "next-auth";
 import { signOut } from "next-auth/react";
@@ -57,7 +50,7 @@ const UserAvatar = ({ user, headerLanguage }: UserAvatarProps) => {
   );
 };
 
-export function Header({ header, login, mainMav, user }: HeaderProps) {
+export default function Header({ header, login, mainMav, user }: HeaderProps) {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center space-x-4 sm:justify-between sm:space-x-0">

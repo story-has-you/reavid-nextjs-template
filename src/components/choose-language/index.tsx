@@ -9,7 +9,7 @@ import Link from "next/link";
 import { useParams, usePathname } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
 
-export function ChooseLanguage({ className }: { className?: string }) {
+export default function ChooseLanguage({ className }: { className?: string }) {
   const pathName = usePathname();
   const params = useParams();
   const [langName] = useState<string>(i18n.languages.find((item) => item.lang === params.lang)?.language ?? i18n.defaultLocaleName);

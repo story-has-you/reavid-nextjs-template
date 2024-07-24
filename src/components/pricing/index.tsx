@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { pricing } from "@/config/site";
 
-export function Pricing() {
+export default function Pricing() {
   return (
     <div className="flex flex-col items-center justify-center gap-10">
       <div className="flex flex-col gap-5">
